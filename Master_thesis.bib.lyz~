@@ -1,0 +1,280 @@
+﻿0_7I32M533 0_INGXJDAC 0_SGBZG34U 0_UC4WA7ER 0_XK5QWV85 0_PXB8S4NG 0_AJPH32U9 0_RK6SJI5V 0_9NT2FDUX 0_J4TCAJS4 0_7DIJVPV4 0_BSR3QDI6 0_ZFUZXPKU 0_3H4UAQUF 0_XIWDZV2M 0_NDUWSN4M 0_9TUCX6Q5 0_HEIHCV6Q 0_7M65GAR7 0_E5HFK2P6 0_ATVAZ3TK 0_8INP9T55 0_7Q7CMHVA 0_PCH64427 0_CZ65TMQP
+
+@article{heston2002pennworld,
+	title = {Penn world table},
+	url = {http://www.geocities.co.jp/CollegeLife-Library/3251/pdf/PWT.pdf},
+	urldate = {2013-02-05},
+	journal = {Center for International Comparisons at the University of Pennsylvania},
+	author = {Heston, A. and Summers, R. and Aten, B.},
+	year = {2002},
+	file = {Heston et al_2002_Penn world table.pdf:/Users/vrangbaek/Library/Application Support/Firefox/Profiles/n41akpa5.default/zotero/storage/UNFPMU2Z/Heston et al_2002_Penn world table.pdf:application/pdf}
+}
+@article{summers1991thepenn,
+	title = {The Penn World Table (Mark 5): an expanded set of international comparisons, 1950{\textendash}1988},
+	volume = {106},
+	shorttitle = {The Penn World Table (Mark 5)},
+	url = {http://qje.oxfordjournals.org/content/106/2/327.short},
+	number = {2},
+	urldate = {2013-02-05},
+	journal = {The Quarterly Journal of Economics},
+	author = {Summers, R. and Heston, A.},
+	year = {1991},
+	pages = {327{\textendash}368},
+	file = {Snapshot:/Users/vrangbaek/Library/Application Support/Firefox/Profiles/n41akpa5.default/zotero/storage/DGFAVJNQ/327.html:text/html;Summers_Heston_1991_The Penn World Table (Mark 5).pdf:/Users/vrangbaek/Library/Application Support/Firefox/Profiles/n41akpa5.default/zotero/storage/983M76FV/Summers_Heston_1991_The Penn World Table (Mark 5).pdf:application/pdf}
+}
+@book{heston2012pennworld,
+	title = {Penn World Table Version 7.1},
+	publisher = {Center for International Comparisons of Production, Income and Prices at the University of Pennsylvania},
+	author = {Heston, A. and Summers, R. and Aten, B.},
+	month = nov,
+	year = {2012}
+}
+
+@techreport{barro2010anew,
+	title = {A new data set of educational attainment in the world, 1950{\textendash}2010},
+	url = {http://www.nber.org/papers/w15902},
+	urldate = {2013-02-05},
+	institution = {National Bureau of Economic Research},
+	author = {Barro, R. J. and Lee, J. W.},
+	year = {2010},
+	file = {Snapshot:/Users/vrangbaek/Library/Application Support/Firefox/Profiles/n41akpa5.default/zotero/storage/3WA4U57N/w15902.html:text/html}
+}
+
+@article{henisz2000theinstitutional,
+	title = {The Institutional Environment for Economic Growth},
+	volume = {12},
+	copyright = {2000 Blackwell Publishers Ltd.},
+	issn = {1468-0343},
+	url = {http://onlinelibrary.wiley.com.ep.fjernadgang.kb.dk/doi/10.1111/1468-0343.00066/abstract},
+	doi = {10.1111/1468-0343.00066},
+	abstract = {This article forges an explicit link between an objective measure of political constraints and variation in cross-national growth rates. It derives a new measure of political constraints from a simple spatial model of political interaction that incorporates information on the number of independent branches of government with veto power and the distribution of preferences across and within those branches. The derived variable is found to have a statistically and economically significant impact on growth rates using simple ordinary least squares, three-stage least squares and generalized method of moments estimation techniques.},
+	language = {en},
+	number = {1},
+	urldate = {2012-10-24},
+	journal = {Economics \& Politics},
+	author = {Henisz, W. J.},
+	year = {2000},
+	pages = {1{\textendash}31},
+	file = {Henisz_2000_The Institutional Environment for Economic Growth.pdf:/Users/vrangbaek/Library/Application Support/Firefox/Profiles/n41akpa5.default/zotero/storage/TV8KTW39/Henisz_2000_The Institutional Environment for Economic Growth.pdf:application/pdf;Snapshot:/Users/vrangbaek/Library/Application Support/Firefox/Profiles/n41akpa5.default/zotero/storage/RB9ZVJAV/abstract.html:text/html}
+}
+
+@article{barro1994sources,
+	title = {Sources of economic growth},
+	volume = {40},
+	issn = {0167-2231},
+	url = {http://www.sciencedirect.com/science/article/pii/0167223194900027},
+	doi = {10.1016/0167-2231(94)90002-7},
+	abstract = {For 116 countries from 1965 to 1985, the lowest quintile had an average growth rate of real per capita {GDP} of - 1.3\%, whereas the highest quintile had an average of 4.8\%. We isolate five influences that discriminate reasonably well between the slow-and fast-growers: a conditional convergence effect, whereby a country grows faster if it begins with lower real per-capita {GDP} relative to its initial level of human capital in the forms of educational attainment and health; a positive effect on growth from a high ratio of investment to {GDP} (although this effect is weaker than that reported in some previous studies); a negative effect from overly large government; a negative effect from government-induced distortions of markets; and a negative effect from political instability. Overall, the fifted growth rates for 85 countries for 1965{\textendash}1985 had a correlation of 0.8 with the actual values. We also find that female educational attainment has a pronounced negative effect on fertility, whereas female and male attainment are each positively related to life expectancy and negatively related to infant mortality. Male attainment plays a positive role in primary-school enrollment ratios, and male and female attainment relate positively to enrollment at the secondary level.},
+	urldate = {2013-02-05},
+	journal = {Carnegie-Rochester Conference Series on Public Policy},
+	author = {Barro, Robert J. and Lee, Jong-Wha},
+	month = jun,
+	year = {1994},
+	pages = {1--46},
+	file = {Barro_Lee_1994_Sources of economic growth.pdf:/Users/vrangbaek/Library/Application Support/Firefox/Profiles/n41akpa5.default/zotero/storage/UHS5KFP8/Barro_Lee_1994_Sources of economic growth.pdf:application/pdf;ScienceDirect Snapshot:/Users/vrangbaek/Library/Application Support/Firefox/Profiles/n41akpa5.default/zotero/storage/3CCTFAXA/0167223194900027.html:text/html}
+}
+
+@article{barro1996democracy,
+	title = {Democracy and growth},
+	volume = {1},
+	url = {http://www.springerlink.com/index/r4823288251720r3.pdf},
+	number = {1},
+	urldate = {2013-02-05},
+	journal = {Journal of economic growth},
+	author = {Barro, R. J.},
+	year = {1996},
+	pages = {1{\textendash}27},
+	file = {Barro_1996_Democracy and growth.pdf:/Users/vrangbaek/Library/Application Support/Firefox/Profiles/n41akpa5.default/zotero/storage/U6T6V4IG/Barro_1996_Democracy and growth.pdf:application/pdf;Snapshot:/Users/vrangbaek/Library/Application Support/Firefox/Profiles/n41akpa5.default/zotero/storage/CTHAIEQJ/10.html:text/html}
+}
+
+@misc{johnson2009isnewer,
+	title = {Is newer better? The Penn World Table growth estimates},
+	shorttitle = {Is newer better?},
+	url = {http://www.voxeu.org/article/newer-better-penn-world-table-growth-estimates},
+	abstract = {The Penn World Table is a major data source for many studies of economic growth. This column reveals that its {GDP} statistics are surprisingly sensitive to revisions {\textendash} {GDP} growth for the same country at the same point in time changes across successive versions. Researchers analysing annual data may obtain more robust results by using national accounts data, even though they are not {PPP-adjusted.}},
+	urldate = {2013-02-06},
+	journal = {{VoxEU.org}},
+	author = {Johnson, Simon and Larson, Will and Papageorgiou, Chris and Subramanian, Arvind},
+	month = dec,
+	year = {2009},
+	file = {voxEU snapshot:/Users/vrangbaek/Library/Application Support/Firefox/Profiles/n41akpa5.default/zotero/storage/39N8Z6VC/newer-better-penn-world-table-growth-estimates.html:text/html}
+}
+
+@techreport{johnson2009isnewer2,
+	type = {Working Paper},
+	title = {Is Newer Better? Penn World Table Revisions and Their Impact on Growth Estimates},
+	shorttitle = {Is Newer Better?},
+	url = {http://www.nber.org/papers/w15455},
+	abstract = {This paper sheds light on two problems in the Penn World Table ({PWT)} {GDP} estimates. First, we show that these estimates vary substantially across different versions of the {PWT} despite being derived from very similar underlying data and using almost identical methodologies; that this variability is systematic; and that it is intrinsic to the methodology deployed by the {PWT} to estimate growth rates. Moreover, this variability matters for the cross-country growth literature. While growth studies that use low frequency data remain robust to data revisions, studies that use annual data are less robust. Second, the {PWT} methodology leads to {GDP} estimates that are not valued at purchasing power parity ({PPP)} prices. This is surprising because the raison d'{\^e}tre of the {PWT} is to adjust national estimates of {GDP} by valuing output at common international (purchasing power parity [{PPP])} prices so that the resulting {PPP-adjusted} estimates of {GDP} are comparable across countries. We propose an approach to address these two problems of variability and valuation.},
+	number = {15455},
+	urldate = {2013-02-06},
+	institution = {National Bureau of Economic Research},
+	author = {Johnson, Simon and Larson, William and Papageorgiou, Chris and Subramanian, Arvind},
+	month = oct,
+	year = {2009},
+	file = {Johnson et al_2009_Is Newer Better.pdf:/Users/vrangbaek/Library/Application Support/Firefox/Profiles/n41akpa5.default/zotero/storage/972WS3IB/Johnson et al_2009_Is Newer Better.pdf:application/pdf}
+}
+
+@misc{universityofzurich2010logarithms,
+	title = {Logarithms and Growth Rates},
+	url = {http://www.eso.uzh.ch/modul3/HowToPre_en.html?lesson.section=unit&section.label=HowToPre_1},
+	urldate = {2013-02-06},
+	journal = {Economic and Social History online - How to Present Quantitative Data},
+	author = {{University of Zurich}},
+	month = nov,
+	year = {2010},
+	howpublished = {{http://www.eso.uzh.ch/modul3/HowToPre\_en.html?lesson.section=unit\&section.label=HowToPre\_1}},
+	file = {UZH - Economic and Social History online - How to Present Quantitative Data:/Users/vrangbaek/Library/Application Support/Firefox/Profiles/n41akpa5.default/zotero/storage/NQ5ZGI74/HowToPre_en.html:text/html}
+}
+
+@article{wood1991globaltrends,
+	title = {Global trends in real exchange rates 1960{\textendash}1984},
+	volume = {19},
+	url = {http://www.sciencedirect.com/science/article/pii/0305750X9190179L},
+	number = {4},
+	urldate = {2013-02-09},
+	journal = {World Development},
+	author = {Wood, A.},
+	year = {1991},
+	pages = {317{\textendash}332}
+}
+
+@techreport{emran2004isblack,
+	type = {Development and Comp Systems},
+	title = {Is Black Market Exchange Rate a Good Indicator of Equilibrium Exchange Rate? A Simple Test With Evidence From South Asia},
+	shorttitle = {Is Black Market Exchange Rate a Good Indicator of Equilibrium Exchange Rate?},
+	url = {http://ideas.repec.org/p/wpa/wuwpdc/0406005.html},
+	abstract = {The black market exchange rate premium is widely used in the empirical literature as an indicator of trade and exchange rate distortions. This paper presents a simple test of the null hypothesis that the black market exchange rate is a reliable indicator of the equilibirum exchange rate. The evidence from India and Sri Lanka rejects the null, and thus raises serious doubts about the validity of the current empirical practice.},
+	number = {0406005},
+	urldate = {2013-02-09},
+	institution = {{EconWPA}},
+	author = {Emran, M. Shahe and Shilpi, Forhad},
+	year = {2004},
+	keywords = {Black market exchange premium, Black market exchange rate, Equilibrium exchange rate, Growth Regressions, India, Sri Lanka},
+	file = {Emran_Shilpi_2004_Is Black Market Exchange Rate a Good Indicator of Equilibrium Exchange Rate.pdf:/Users/vrangbaek/Library/Application Support/Firefox/Profiles/n41akpa5.default/zotero/storage/VK49A3HZ/Emran_Shilpi_2004_Is Black Market Exchange Rate a Good Indicator of Equilibrium Exchange Rate.pdf:application/pdf;RePEc Snapshot:/Users/vrangbaek/Library/Application Support/Firefox/Profiles/n41akpa5.default/zotero/storage/II7EG2PM/0406005.html:text/html}
+}
+
+@article{barnett1999inflation,
+	title = {Inflation, Black Market Exchange Rates, and Economic Growth},
+	url = {http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.27.5457&rep=rep1&type=pdf},
+	urldate = {2013-02-09},
+	author = {Barnett, R. C. and Ho, M. S.},
+	year = {1999},
+	file = {Barnett_Ho_1999_Inflation, Black Market Exchange Rates, and Economic Growth.pdf:/Users/vrangbaek/Library/Application Support/Firefox/Profiles/n41akpa5.default/zotero/storage/9MWGAG8A/Barnett_Ho_1999_Inflation, Black Market Exchange Rates, and Economic Growth.pdf:application/pdf}
+}
+
+@misc{easterly2001globaldevelopment,
+	title = {Global Development Network Growth Database},
+	url = {http://econ.worldbank.org/WBSITE/EXTERNAL/EXTDEC/EXTRESEARCH/0,,contentMDK:20701055~pagePK:64214825~piPK:64214943~theSitePK:469382,00.html},
+	author = {Easterly, William R.},
+	month = jun,
+	year = {2001}
+}
+
+@book{barro2004economic,
+	title = {Economic Growth},
+	isbn = {9780262025539},
+	abstract = {This graduate level text on economic growth surveys neoclassical and more recentgrowth theories, stressing their empirical implications and the relation of theory to data andevidence. The authors have undertaken a major revision for the long-awaited second edition of thiswidely used text, the first modern textbook devoted to growth theory. The book has been expanded inmany areas and incorporates the latest {research.After} an introductory discussion of economic growth,the book examines neoclassical growth theories, from Solow-Swan in the 1950s and Cass-Koopmans inthe 1960s to more recent refinements; this is followed by a discussion of extensions to the model,with expanded treatment in this edition of heterogenity of households. The book then turns toendogenous growth theory, discussing, among other topics, models of endogenous technologicalprogress (with an expanded discussion in this edition of the role of outside competition in thegrowth process), technological diffusion, and an endogenous determination of labor supply andpopulation. The authors then explain the essentials of growth accounting and apply this framework toendogenous growth models. The final chapters cover empirical analysis of regions and empiricalevidence on economic growth for a broad panel of countries from 1960 to 2000. The updated treatmentof cross-country growth regressions for this edition uses the new Summers-Heston data set on worldincome distribution compiled through 2000.},
+	language = {en},
+	publisher = {{MIT} Press},
+	author = {Barro, Robert J. and Martin, Xavier Sala i},
+	year = {2004},
+	keywords = {Business \& Economics / Development / Economic Development, Business \& Economics / Econometrics, Business \& Economics / Economic Conditions, Business \& Economics / Economics / General}
+}
+
+@misc{teorell2011thequality,
+	title = {The Quality of Government Dataset, version {6Apr11}},
+	url = {http://www.qog.pol.gu.se/data/datadownloads/qogstandarddata/},
+	publisher = {University of Gothenburg: The Quality of Government Institute},
+	author = {Teorell, J. and Charron, N. and Samanni, M. and Holmberg, S. and Rothstein, B.},
+	year = {2011}
+}
+
+@book{marshall2011polityiv,
+	title = {Polity {IV} Project},
+	author = {Marshall, Monty G. and Jaggers, Keith and Gurr, Ted Robert},
+	year = {2011}
+}
+
+@book{wooldridge2009introductory,
+	address = {Florence {KY}},
+	edition = {4th edition},
+	title = {Introductory econometrics : a modern approach},
+	isbn = {9780324585483},
+	publisher = {South-Western Cengage Learning},
+	author = {Wooldridge, Jeffrey},
+	year = {2009}
+}
+
+@book{barro1991government,
+	title = {Government spending in a simple model of endogenous growth},
+	url = {http://www.nber.org/papers/w2588},
+	urldate = {2013-03-03},
+	publisher = {National Bureau of Economic Research Cambridge, Mass., {USA}},
+	author = {Barro, Robert J.},
+	year = {1991},
+	file = {[PDF] from harvard.edu:/Users/vrangbaek/Library/Application Support/Firefox/Profiles/n41akpa5.default/zotero/storage/IFRUJA76/Barro - 1991 - Government spending in a simple model of endogenou.pdf:application/pdf;Snapshot:/Users/vrangbaek/Library/Application Support/Firefox/Profiles/n41akpa5.default/zotero/storage/UUKQIH99/w2588.html:text/html}
+}
+
+@book{wooldridge2009introductory2,
+	address = {Florence  {KY}},
+	edition = {4th edition},
+	title = {Introductory econometrics : a modern approach},
+	isbn = {9780324585483},
+	publisher = {South-Western Cengage Learning},
+	author = {Wooldridge, Jeffrey},
+	year = {2009}
+}
+
+@article{croissant2008paneldata,
+	title = {Panel Data Econometrics in R: The plm Package},
+	volume = {27},
+	issn = {1548-7660},
+	url = {http://www.jstatsoft.org/v27/i02},
+	number = {2},
+	journal = {Journal of Statistical Software},
+	author = {Croissant, Yves and Millo, Giovanni},
+	year = {2008},
+	pages = {1{\textendash}43},
+	file = {Croissant_Millo_2008_Panel Data Econometrics in R.pdf:/Users/vrangbaek/Library/Application Support/Firefox/Profiles/n41akpa5.default/zotero/storage/6BMIHCEE/Croissant_Millo_2008_Panel Data Econometrics in R.pdf:application/pdf}
+}
+
+@article{gourieroux1982likelihood,
+	title = {Likelihood ratio test, Wald test, and Kuhn-Tucker test in linear models with inequality constraints on the regression parameters},
+	url = {http://www.jstor.org/stable/10.2307/1912529},
+	urldate = {2013-03-04},
+	journal = {Econometrica: Journal of the Econometric Society},
+	author = {Gourieroux, Christian and Holly, Alberto and Monfort, Alain},
+	year = {1982},
+	pages = {63{\textendash}80}
+}
+
+@article{breusch1980thelagrange,
+	title = {The Lagrange multiplier test and its applications to model specification in econometrics},
+	url = {http://www.jstor.org/stable/10.2307/2297111},
+	urldate = {2013-03-04},
+	journal = {The Review of Economic Studies},
+	author = {Breusch, Trevor Stanley and Pagan, Adrian Rodney},
+	year = {1980},
+	pages = {239{\textendash}253}
+}
+
+@article{hausman1978specification,
+	title = {Specification tests in econometrics},
+	url = {http://www.jstor.org/stable/10.2307/1913827},
+	urldate = {2013-03-04},
+	journal = {Econometrica: Journal of the Econometric Society},
+	author = {Hausman, Jerry A.},
+	year = {1978},
+	pages = {1251{\textendash}1271}
+}
+
+@book{wooldridge2001econometric,
+	title = {Econometric analysis of cross section and panel data},
+	url = {http://books.google.com/books?hl=en&lr=&id=cdBPOJUP4VsC&oi=fnd&pg=PR17&dq=wooldridge+econometric+analysis&ots=jbb6ITm3tf&sig=X5-q0g9OcGlaSRoEvbSf-SdFh7Q},
+	urldate = {2013-03-04},
+	publisher = {{MIT} press},
+	author = {Wooldridge, Jeffrey M.},
+	year = {2001},
+	file = {Snapshot:/Users/vrangbaek/Library/Application Support/Firefox/Profiles/n41akpa5.default/zotero/storage/86ZN52NV/books.html:text/html}
+}
