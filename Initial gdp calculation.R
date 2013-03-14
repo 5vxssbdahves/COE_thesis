@@ -12,7 +12,7 @@ pwt71$yearNA <- ifelse(is.na(pwt71$rgdpl), pwt71$yearNA <- NA, pwt71$year)
 head(pwt71, n=10)
 
 #### Attempt 5 ####
-# This attempt tries to apply a function by each country
+# This attempt tries to apply a function by each country. So far unsuccessful as I get variable with a large number of values mostly NA. Why I don't know.
 # vlookup3 <- function(df, row){
 #   df[df[6] == min(df[6], na.rm=TRUE), row][3]
 #   }
@@ -22,15 +22,15 @@ head(pwt71, n=10)
 # min(pwt71$rgdpl[pwt71$isocode=="AFG"],na.rm=TRUE)
 
 #### Attempt 6 ####
-# This attempt tries to delete missing values
-pwt71.na.omit <- na.omit(pwt71)
-# show data
-head(pwt71.na.omit, n=10)
-# Now create variable with initial gdp
-
-
+# This attempt tries to delete missing values. The ideas is that this data set can then be merged together with the other data set later with the option that years with missing values are not deleted
+# pwt71.na.omit <- na.omit(pwt71)
+# # show data
+# head(pwt71.na.omit, n=10)
+# # Now create variable with initial gdp
+# pwt71.na.omit$inigdp <- 
 
 #### Forsoeg 7 ####
+# This attempt tries to split the data into country groups and then apply a function and then put back the data again. I have succeeded to use this procedure to make a new variable with the lowest number ... can't remember
 # Here the pwt71 data is split into country groups along with variable year and rgdpl
 countries <- split(pwt71[,2:6], pwt71$isocode)
 # Show first country
