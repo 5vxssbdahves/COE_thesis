@@ -1,4 +1,4 @@
-## This piece of code tries unsuccessfully to create a new variable, which takes the minium of rgdpl for each country
+## This piece of code tries to create a new variable, which takes the minimum of rgdpl for each country in the earliest year that is not missing
 # Reading PWT data set
 pwt71 <- read.csv("~/Dropbox/Studieophold/College_of_Europe/Master_Thesis/Data/pwt71_11302012version/pwt71_wo_country_names_wo_g_vars.csv")
 # Keeping only relevant variables
@@ -6,7 +6,7 @@ pwt71 <- pwt71[c("isocode", "year", "rgdpl", "kg", "ki")]
 # Show data
 head(pwt71, n=10)
 
-# Create new variable
+# Create new variable that is missing if rgdpl is missing and otherwise year to use for function that looks up earliest year that is not missing
 pwt71$yearNA <- ifelse(is.na(pwt71$rgdpl), pwt71$yearNA <- NA, pwt71$year)
 # Show data
 head(pwt71, n=10)
