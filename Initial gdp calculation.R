@@ -11,17 +11,24 @@ pwt71$yearNA <- ifelse(is.na(pwt71$rgdpl), pwt71$yearNA <- NA, pwt71$year)
 # Show data
 head(pwt71, n=10)
 
-#### Forsoeg 5 ####
+#### Attempt 5 ####
+# This attempt tries to apply a function by each country
 # vlookup3 <- function(df, row){
 #   df[df[6] == min(df[6], na.rm=TRUE), row][3]
 #   }
-# by(pwt71, pwt71$isocode, vlookup3)
+# pwt71$inigdp <- by(pwt71, pwt71$isocode, vlookup3)
+# head(pwt71, n=10)
+# # What is minimum rgdpl value for AFG
+# min(pwt71$rgdpl[pwt71$isocode=="AFG"],na.rm=TRUE)
 
-#### Forsoeg 6 ####
-# # Create data without missing values. NB Not used further
-# pwt71.na.omit <- na.omit(pwt71)
-# # show data
-# head(pwt71.na.omit, n=10)
+#### Attempt 6 ####
+# This attempt tries to delete missing values
+pwt71.na.omit <- na.omit(pwt71)
+# show data
+head(pwt71.na.omit, n=10)
+# Now create variable with initial gdp
+
+
 
 #### Forsoeg 7 ####
 # Here the pwt71 data is split into country groups along with variable year and rgdpl
