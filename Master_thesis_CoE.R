@@ -38,11 +38,6 @@ POLCON_desc
 #install.packages("doBy")                   
 library(doBy)
 POLCON_desc2 <- summaryBy(POLCONIII~CTRYNM, data=POLCON, FUN=mystats)
-
-
-# sapply(POLCON_desc2[,3], mystats)
-# POLCON_desc2[,3:3]
-
                       
 ## @knitr POLCON_tab
 library(xtable)
@@ -62,6 +57,32 @@ pwt71 <- read.csv("~/Dropbox/Studieophold/College_of_Europe/Master_Thesis/Data/p
 # Dropping irrelevant variables
 pwt71 <- pwt71[c("isocode", "year", "rgdpl", "kg", "ki")]
 ls(pwt71)
+
+## Create variable with initial gdp value
+# Create new variable that is missing if rgdpl is missing and otherwise year to use for function that looks up earliest year that is not missing
+pwt71$yearNA <- ifelse(is.na(pwt71$rgdpl), pwt71$yearNA <- NA, pwt71$year)
+# Show data
+head(pwt71, n=10)
+# Here the pwt71 data is split into country groups along with variable year and rgdpl
+countries <- split(pwt71[,2:6], pwt71$isocode)
+# Show the first country in the list countries
+countries[1]
+# Create function that finds gdp in earliest year that is not missing
+vlookup7 <- function(df){
+  df[df[5] == min(df[5], na.rm=TRUE), 2]
+}
+# Use lapply
+inigdp <- lapply(countries, vlookup7)
+inigdp
+# Remove NAs
+inigdp <- lapply(inigdp, function(x) x[!is.na(x)])
+inigdp
+# Re-assembling the data
+pwt71$inigdp <- unsplit(inigdp, pwt71$isocode)
+head(pwt71, n=10)
+# Deleting the variable yearNA
+pwt71$yearNA <- NULL
+head(pwt71, n=10)
 # Merging Penn World Table and POLCON
 IQM_pro_data <- merge(POLCON, pwt71, by.x=c("CTRYNM", "Year"), by.y=c("isocode", "year")) 
 ls(IQM_pro_data)
@@ -272,6 +293,7 @@ print(xtable(IQM_my_desc, label='tabsmall',caption='Descriptive statistics of th
 library(foreign) # Package needed for the write.dta() function
 ls(IQM_pro_data)
 write.dta(IQM_pro_data, "~/Dropbox/Studieophold/College_of_Europe/Master_Thesis/Data/IQM_pro_data.dta", version=10)
+write.csv(IQM_pro_data, "~/Dropbox/Studieophold/College_of_Europe/Master_Thesis/Data/thesis_data.csv")
 
 ## @knitr analysis
 #### Analysis ####

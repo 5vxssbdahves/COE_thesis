@@ -1,4 +1,4 @@
-﻿0_7I32M533 0_INGXJDAC 0_SGBZG34U 0_UC4WA7ER 0_XK5QWV85 0_PXB8S4NG 0_AJPH32U9 0_RK6SJI5V 0_9NT2FDUX 0_J4TCAJS4 0_7DIJVPV4 0_BSR3QDI6 0_ZFUZXPKU 0_3H4UAQUF 0_XIWDZV2M 0_NDUWSN4M 0_9TUCX6Q5 0_HEIHCV6Q 0_7M65GAR7 0_E5HFK2P6 0_ATVAZ3TK 0_8INP9T55 0_7Q7CMHVA 0_PCH64427 0_CZ65TMQP
+﻿0_7I32M533 0_INGXJDAC 0_SGBZG34U 0_UC4WA7ER 0_XK5QWV85 0_PXB8S4NG 0_AJPH32U9 0_RK6SJI5V 0_9NT2FDUX 0_J4TCAJS4 0_7DIJVPV4 0_BSR3QDI6 0_ZFUZXPKU 0_3H4UAQUF 0_XIWDZV2M 0_NDUWSN4M 0_9TUCX6Q5 0_HEIHCV6Q 0_7M65GAR7 0_E5HFK2P6 0_ATVAZ3TK 0_8INP9T55 0_7Q7CMHVA 0_PCH64427 0_CZ65TMQP 0_SHI6S5P4
 
 @article{heston2002pennworld,
 	title = {Penn world table},
@@ -277,4 +277,16 @@
 	author = {Wooldridge, Jeffrey M.},
 	year = {2001},
 	file = {Snapshot:/Users/vrangbaek/Library/Application Support/Firefox/Profiles/n41akpa5.default/zotero/storage/86ZN52NV/books.html:text/html}
+}
+
+@article{barro2003determinants,
+	title = {Determinants of economic growth in a panel of countries},
+	volume = {4},
+	url = {http://down.aefweb.net/AefArticles/aef040202.pdf},
+	urldate = {2013-03-12},
+	journal = {Annals of economics and finance},
+	author = {Barro, Robert J.},
+	year = {2003},
+	pages = {231{\textendash}274},
+	file = {Barro_2003_Determinants of economic growth in a panel of countries.pdf:/Users/vrangbaek/Library/Application Support/Firefox/Profiles/n41akpa5.default/zotero/storage/QB386IE8/Barro_2003_Determinants of economic growth in a panel of countries.pdf:application/pdf}
 }

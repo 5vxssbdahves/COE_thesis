@@ -127,7 +127,12 @@ cex.lab=.95,cex.axis=.9,mgp=c(2,.9,0),tcl=-.3)})
 
 \begin_layout Plain Layout
 
-read_chunk('Master_thesis_CoE.R') 
+read_chunk('Master_thesis_CoE.R')
+\end_layout
+
+\begin_layout Plain Layout
+
+# To generate pdf faster set cache=TRUE
 \end_layout
 
 \begin_layout Plain Layout
@@ -206,9 +211,9 @@ This project will look further into the institutional determinants of economic
  progress.
  The main econometric models attempt to replicate the findings of Henisz
  (2000).
- This project will use fixed effects estimation to attempt to determine
- how institutions and political constraints influence economic growth of
- countries.
+ This project will use the standard linear pooled model, GLS and GMM to
+ attempt to determine how institutions and political constraints influence
+ economic growth of countries by using a variety of institutional measures.
 \end_layout
 
 \begin_layout Section
@@ -219,6 +224,43 @@ Theory
 Economic progress is most probably determined by a confluence of factors,
  but this project aims at looking at institutional variables such as the
  degree of political constraints and some of measures of institutional quality.
+\end_layout
+
+\begin_layout Standard
+Initially, we attempt a standard linear model pooling all the data across
+ countries and years, which can be written as 
+\begin_inset Formula 
+\[
+y_{it}=\alpha+\beta^{T}x_{it}+u_{it},
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $i=1,...,n$
+\end_inset
+
+ is the country index, 
+\begin_inset Formula $t=1,...T$
+\end_inset
+
+ is the time index and 
+\begin_inset Formula $u_{it}$
+\end_inset
+
+ a random disturbance term with mean 0 
+\begin_inset CommandInset citation
+LatexCommand citep
+after "p. 2"
+key "croissant2008paneldata"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Section

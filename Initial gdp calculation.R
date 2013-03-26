@@ -5,83 +5,69 @@ pwt71 <- read.csv("~/Dropbox/Studieophold/College_of_Europe/Master_Thesis/Data/p
 pwt71 <- pwt71[c("isocode", "year", "rgdpl", "kg", "ki")]
 # Show data
 head(pwt71, n=10)
-
 # Create new variable that is missing if rgdpl is missing and otherwise year to use for function that looks up earliest year that is not missing
 pwt71$yearNA <- ifelse(is.na(pwt71$rgdpl), pwt71$yearNA <- NA, pwt71$year)
 # Show data
 head(pwt71, n=10)
-
-#### Attempt 5 ####
-# This attempt tries to apply a function by each country. So far unsuccessful as I get variable with a large number of values mostly NA. Why I don't know.
-# vlookup3 <- function(df, row){
-#   df[df[6] == min(df[6], na.rm=TRUE), row][3]
-#   }
-# pwt71$inigdp <- by(pwt71, pwt71$isocode, vlookup3)
-# head(pwt71, n=10)
-# # What is minimum rgdpl value for AFG
-# min(pwt71$rgdpl[pwt71$isocode=="AFG"],na.rm=TRUE)
-
-#### Attempt 6 ####
-# This attempt tries to delete missing values. The ideas is that this data set can then be merged together with the other data set later with the option that years with missing values are not deleted
-# pwt71.na.omit <- na.omit(pwt71)
-# # show data
-# head(pwt71.na.omit, n=10)
-# # Now create variable with initial gdp
-# pwt71.na.omit$inigdp <- 
-
-#### Forsoeg 7 ####
-# This attempt tries to split the data into country groups and then apply a function and then put back the data again. I have succeeded to use this procedure to make a new variable with the lowest number ... can't remember
 # Here the pwt71 data is split into country groups along with variable year and rgdpl
 countries <- split(pwt71[,2:6], pwt71$isocode)
-# Show first country
+# Show the first country in the list countries
 countries[1]
-# ## Follow procedure on p. 178 in Dalgaard (2008) # Virker ikke
-# # Laver funktion
-# # minstats <- function(x, na.omit=TRUE)(c(min=min(x, na.rm=TRUE))) # Denne funktion virker ikke
-# vlookup1 <- function(df, row){
-#   df[df[5] == min(df[5], na.rm=TRUE), row][2]
-# }
-# # Anvender funktion til at lave nu variabel
-# min.gdp <- lapply(countries, vlookup1(countries,2))
-# # See data
-# countries[1]
-# # Put data together again
-# pwt71$min.gdp <- unsplit(min.gdp, pwt71$isocode)
-# # Confirm we have created new variable with min gdp. Doesn't work completely. The function takes the lowest value in either column, so for the second country the lowest value is the year 1950.
-# head(pwt71, n=150)
-# 
-# # Tjekker resultat
-# countries[1]
-# 
-# # Find rgdpl value of earliest year of AFG
-# pwt71[pwt71$year==min(pwt71$year) & pwt71$isocode=="AFG",3]
-# 
-# # Trying to find rgdl value of earliest of AFG that is not NA
-# pwt71[pwt71$year==min(pwt71$year) & pwt71$isocode=="AFG" & pwt71$rgdpl>0 ,3]
-# pwt71[pwt71$year==min(pwt71$year) & pwt71$isocode=="AFG" & isTRUE(is.na(pwt71$rgdpl)),3]
-# 
-# isTRUE(is.na(pwt71[pwt71$year==min(pwt71$year) & pwt71$isocode=="AFG" & pwt71$rgdpl>0 ,3]))
+# Create function that finds gdp in earliest year that is not missing
+vlookup7 <- function(df){
+  df[df[5] == min(df[5], na.rm=TRUE), 2]
+}
+# Use lapply
+inigdp <- lapply(countries, vlookup7)
+inigdp
+# Remove NAs
+inigdp <- lapply(inigdp, function(x) x[!is.na(x)])
+inigdp
+# Re-assembling the data
+pwt71$inigdp <- unsplit(inigdp, pwt71$isocode)
+head(pwt71, n=10)
+
+#### Forsoeg 7: split, lapply  ####
+# This attempt tries to split the data into country groups and then apply a function and then put back the data again. I have succeeded to use this procedure to make a new variable with the lowest number ... can't remember. I have to try to apply the function vlookup to a list object. The attempt is largely modelled on the procedure on p. 178 in Dalgaard (2008)
+# Here the pwt71 data is split into country groups along with variable year and rgdpl
+countries <- split(pwt71[,2:6], pwt71$isocode)
+# Show the first country in the list countries
+countries[1]
+# Show first observation of column year of first country in the list countries
+countries[[1]]$year[1]
+# Find value of gdp in 1972
+countries[[1]][countries[[1]]$year == 1972,2] # Based on this expression: y[y$year==1972,2]
+# Find value of gdp in earliest year that is not missing for the first country
+countries[[1]][countries[[1]]$year == min(countries[[1]]$yearNA, na.rm=TRUE),2]  # Based on this expression: y[y$yearNA == min(y$yearNA, na.rm=TRUE),2]
+# Try to make column in first country with the above expression
+countries[[1]]$inigdp.test1 <-  countries[[1]][countries[[1]]$year == min(countries[[1]]$yearNA, na.rm=TRUE),2]                        
+# See result
+countries[[1]]
+# This actually works. I now have a column with the gdp value in the first year that is not missing for AFG. How can I apply this to the rest of the countries in the list? Maybe by deleting the '1' in countries[[1]]? No, that was not right. Maybe only deleting the '1'? Not working either. Maybe with 'x'? Har også proevet med 'i', men det virker heller ikke. Not that either. Maybe the solution is indeed to attempt to construct the function below. But here I encounter a similar problem. I need to figure out what I replace [1] with... Meanwhile, I continue with trying to figure out how to create the function below.
+# Show first and second country
+countries[1:2]
+# Try to make column in the first two countries with the above expression
+countries[1:2]$inigdp.test2 <-  countries[1:2][countries[1:2]$year == min(countries[1:2]$yearNA, na.rm=TRUE),2] # Fail
+
+# Make function vlookup for finding value in specified year. So far not successful...
+vlookup5 <- function(val, list, col){list[list[1] == val, col][1]} # Based on this expression: vlookup <- function(val, df, row){df[df[1] == val, row][1]}
+vlookup5(1972,countries,2)  # Based on this expression: vlookup(1974,y,2)
 
 
-# Calculating variable with initial gdp for every country. NB Not successful
-# minstats <- function(x, na.omit=TRUE)(c(min=min(x, na.rm=TRUE))) # Making function that takes minimum
-# 
-# pwt71$ini.gdp <- by(pwt71$rgdpl, pwt71$isocode, minstats, simplify = FALSE) # Making variable
-# head(pwt71, n=3)
-# 
-# ini.gdp <- by(pwt71$rgdpl, pwt71$isocode, minstats, simplify = FALSE) # Making variable
-# head(ini.gdp, n=3)
-# 
-# countries3 <- 
-# 
-# countries2 <- lapply(countries, minstats)
-# countries2[1:3]
-# pwt71$min.rgdpl <- unsplit(countries2, pwt71$isocode)
-# head(pwt71, n=200)
-# is.numeric(pwt71$min.rgdpl)
-# 
-# # pwt71$ini.gdp2 <- ave(pwt71$rgdpl, pwt71$isocode, minstats) # Doesn't work
-# 
-# AFG <- pwt71[2:3][pwt71$isocode == "AFG"]
+# Laver funktion, der finder den mindste vaerdi i soejlen yearNA, der ikke mangler, og returnerer vaerdien fra soejlen rgdpl.
+vlookup4 <- function(list, row){
+   list[list[5] == min(list[5], na.rm=TRUE), row][2]
+ }
+# Anvender funktion til at lave nu variabel
+min.gdp <- lapply(countries, vlookup4(countries,2))
+# Test for at anvende lapply
+test <- lapply(countries, function(x) x / x[1])
+# Test to put data together
+pwt71$test <- unsplit(test, pwt71$isocode)
+# See data
+head(pwt71, n=150)
 
-# Change
+# Put data together again
+pwt71$min.gdp <- unsplit(min.gdp, pwt71$isocode)
+# Confirm we have created new variable with min gdp. Doesn't work completely. The function takes the lowest value in either column, so for the second country the lowest value is the year 1950.
+head(pwt71, n=150)
