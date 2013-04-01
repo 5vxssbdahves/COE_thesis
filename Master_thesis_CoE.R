@@ -232,8 +232,10 @@ IQM_pro_data <- merge(IQM_pro_data, polIV, by.x=c("CTRYNM", "Year"), by.y=c("sco
 ls(IQM_pro_data)
 
 ## @knitr saving
+# Checking dataset
+head(IQM_pro_data, n=100)
 # Saving data set
-write.csv(IQM_pro_data, file = "~/Dropbox/Studieophold/College_of_Europe/Master_Thesis/Data/IQM_pro_data.csv", row.names = FALSE) # This is done so that the data set is read in the Lyx file
+write.csv(IQM_pro_data, file = "~/Dropbox/Studieophold/College_of_Europe/Master_Thesis/Data/IQM_pro_data.csv", row.names = FALSE) 
 
 ## @knitr my-label
 #### Data description ####
@@ -245,21 +247,6 @@ ls(IQM_pro_data_vars) # Show variables
 IQM_pro_data_vars$CTRYNM <- NULL # Deleting country name
 IQM_pro_data_vars$Year <- NULL # Deleting year
 ls(IQM_pro_data_vars)
-
-# ### Statistics with psych package
-# # install.packages("psych")
-# library(psych) 
-# options(scipen=999) # Change scientific notation
-# IQM_desc <- describe(IQM_pro_data_vars, ranges = TRUE, na.rm = FALSE, skew = FALSE) # Saves data description into object 
-# IQM_desc <- as.data.frame(IQM_desc) # Converting table to matrix 
-# # print(IQM_desc, digits = 2)
-# IQM_desc$var <- NULL # Deleting irrelevant column
-# IQM_desc$X <- NULL # Deleting irrelevant column
-# # print(IQM_desc, digits = 2)
-# rownames(IQM_desc) <- c("POLCONIII", "POLCONV", "POLCONVJ", "Real Per Capita GDP Growth", "Government Consumption (% GDP)", "Total Investment (% GDP)", "Log(Life Expectancy)", "Log(Fertility Rate)", "Black Market Premium", "Terms of trade", "Log(ICRG Risk Measure)", "Log(Democracy Index (PolityIV))") # Giving new names to variables to table. NB: Gives error, but is correct in LaTeX output...
-# # print(IQM_desc, digits = 2)
-# library(xtable) 
-# # print(xtable(IQM_desc, label='tabsmall',caption='Descriptive statistics of the variables used', digits=2, sanitize.text.function = function(x){x}, table.placement = h), floating.environment='sidewaystable', digits = 2) # Output as LaTeX.
 
 ### Trying only to make statistics that I need
 mystats <- function(x, na.omit=FALSE){
@@ -302,12 +289,12 @@ library(plm) # Package for panel data model, see Croissant and Millo (2008)
 # IQM_pro_data <- pdata.frame(IQM_pro_data, index = c("CTRYNM", "Year"), drop.index = TRUE, row.names = TRUE)
 
 # Pooled regression
-summary(pooled1 <- plm(lgdp.growth ~ yr.sch.secF + yr.sch.secM + lbmp + lfert + kg + ki + llexpec + ToT + POLCONV, data = IQM_pro_data, model = "pooling"))
-summary(pooled2 <- plm(lgdp.growth ~ yr.sch.secF + yr.sch.secM + POLCONIII + lbmp + lfert + kg + ki + llexpec + ToT, data = IQM_pro_data, model = "pooling"))
-summary(pooled3 <- plm(lgdp.growth ~ yr.sch.secF + yr.sch.secM + POLCONVJ + lbmp + lfert + kg + ki + llexpec + ToT, data = IQM_pro_data, model = "pooling"))
-summary(pooled4 <- plm(lgdp.growth ~ yr.sch.secF + yr.sch.secM + democ + lbmp + lfert + kg + ki + llexpec + ToT, data = IQM_pro_data, model = "pooling"))
-summary(pooled5 <- plm(lgdp.growth ~ yr.sch.secF + yr.sch.secM + lbmp + lfert + kg + ki + llexpec + ToT + llaw.order, data = IQM_pro_data, model = "pooling"))
-summary(pooled6 <- plm(lgdp.growth ~ yr.sch.secF + yr.sch.secM + lbmp + lfert + kg + ki + llexpec + ToT + l.icrgQoG, data = IQM_pro_data, model = "pooling"))
+summary(pooled1 <- plm(lgdp.growth ~ inigdp + yr.sch.secF + yr.sch.secM + lbmp + lfert + kg + ki + llexpec + ToT + POLCONV, data = IQM_pro_data, model = "pooling"))
+summary(pooled2 <- plm(lgdp.growth ~ inigdp + yr.sch.secF + yr.sch.secM + POLCONIII + lbmp + lfert + kg + ki + llexpec + ToT, data = IQM_pro_data, model = "pooling"))
+summary(pooled3 <- plm(lgdp.growth ~ inigdp +  yr.sch.secF + yr.sch.secM + POLCONVJ + lbmp + lfert + kg + ki + llexpec + ToT, data = IQM_pro_data, model = "pooling"))
+summary(pooled4 <- plm(lgdp.growth ~ inigdp + yr.sch.secF + yr.sch.secM + democ + lbmp + lfert + kg + ki + llexpec + ToT, data = IQM_pro_data, model = "pooling"))
+summary(pooled5 <- plm(lgdp.growth ~ inigdp + yr.sch.secF + yr.sch.secM + lbmp + lfert + kg + ki + llexpec + ToT + llaw.order, data = IQM_pro_data, model = "pooling"))
+summary(pooled6 <- plm(lgdp.growth ~ inigdp + yr.sch.secF + yr.sch.secM + lbmp + lfert + kg + ki + llexpec + ToT + l.icrgQoG, data = IQM_pro_data, model = "pooling"))
 
 # Fixed effects, individual effects
 summary(fixed_effects1 <- plm(lgdp.growth ~ yr.sch.secF + yr.sch.secM + lbmp + lfert + kg + ki + llexpec + ToT + POLCONV, data = IQM_pro_data, model = "within"))

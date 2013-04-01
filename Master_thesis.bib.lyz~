@@ -1,4 +1,4 @@
-﻿0_7I32M533 0_INGXJDAC 0_SGBZG34U 0_UC4WA7ER 0_XK5QWV85 0_PXB8S4NG 0_AJPH32U9 0_RK6SJI5V 0_9NT2FDUX 0_J4TCAJS4 0_7DIJVPV4 0_BSR3QDI6 0_ZFUZXPKU 0_3H4UAQUF 0_XIWDZV2M 0_NDUWSN4M 0_9TUCX6Q5 0_HEIHCV6Q 0_7M65GAR7 0_E5HFK2P6 0_ATVAZ3TK 0_8INP9T55 0_7Q7CMHVA 0_PCH64427 0_CZ65TMQP 0_SHI6S5P4
+﻿0_7I32M533 0_INGXJDAC 0_SGBZG34U 0_UC4WA7ER 0_XK5QWV85 0_PXB8S4NG 0_AJPH32U9 0_RK6SJI5V 0_9NT2FDUX 0_J4TCAJS4 0_7DIJVPV4 0_BSR3QDI6 0_ZFUZXPKU 0_3H4UAQUF 0_XIWDZV2M 0_NDUWSN4M 0_9TUCX6Q5 0_HEIHCV6Q 0_7M65GAR7 0_E5HFK2P6 0_ATVAZ3TK 0_8INP9T55 0_7Q7CMHVA 0_PCH64427 0_CZ65TMQP 0_SHI6S5P4 0_ATVAZ3TK 0_8UV9NWHE
 
 @article{heston2002pennworld,
 	title = {Penn world table},
@@ -289,4 +289,30 @@
 	year = {2003},
 	pages = {231{\textendash}274},
 	file = {Barro_2003_Determinants of economic growth in a panel of countries.pdf:/Users/vrangbaek/Library/Application Support/Firefox/Profiles/n41akpa5.default/zotero/storage/QB386IE8/Barro_2003_Determinants of economic growth in a panel of countries.pdf:application/pdf}
+}
+
+@article{croissant2008paneldata,
+	title = {Panel Data Econometrics in R: The plm Package},
+	volume = {27},
+	issn = {1548-7660},
+	url = {http://www.jstatsoft.org/v27/i02},
+	number = {2},
+	journal = {Journal of Statistical Software},
+	author = {Croissant, Yves and Millo, Giovanni},
+	year = {2008},
+	pages = {1{\textendash}43},
+	file = {Croissant_Millo_2008_Panel Data Econometrics in R.pdf:/Users/vrangbaek/Library/Application Support/Firefox/Profiles/n41akpa5.default/zotero/storage/6BMIHCEE/Croissant_Millo_2008_Panel Data Econometrics in R.pdf:application/pdf}
+}
+
+@article{glaeser2004doinstitutions,
+	title = {Do institutions cause growth?},
+	volume = {9},
+	url = {http://www.springerlink.com/index/r94187h34g6h74g1.pdf},
+	number = {3},
+	urldate = {2013-02-08},
+	journal = {Journal of economic Growth},
+	author = {Glaeser, E. L. and La Porta, R. and Lopez-de-Silanes, F. and Shleifer, A.},
+	year = {2004},
+	pages = {271{\textendash}303},
+	file = {Glaeser et al_2004_Do institutions cause growth.pdf:/Users/vrangbaek/Library/Application Support/Firefox/Profiles/n41akpa5.default/zotero/storage/EB9ANNIC/Glaeser et al_2004_Do institutions cause growth.pdf:application/pdf;Snapshot:/Users/vrangbaek/Library/Application Support/Firefox/Profiles/n41akpa5.default/zotero/storage/M5WD7JPE/10.1023BJOEG.0000038933.16398.html:text/html}
 }

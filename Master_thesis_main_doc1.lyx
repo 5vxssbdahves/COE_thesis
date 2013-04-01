@@ -34,10 +34,10 @@ knitr
 \bibtex_command default
 \index_command default
 \paperfontsize default
-\spacing onehalf
+\spacing single
 \use_hyperref false
 \papersize default
-\use_geometry true
+\use_geometry false
 \use_amsmath 1
 \use_esint 1
 \use_mhchem 1
@@ -52,10 +52,6 @@ knitr
 \shortcut idx
 \color #008000
 \end_index
-\leftmargin 3cm
-\topmargin 2.5cm
-\rightmargin 2.5cm
-\bottommargin 2.5cm
 \secnumdepth 2
 \tocdepth 2
 \paragraph_separation indent
@@ -86,33 +82,6 @@ A.V.
 2013
 \end_layout
 
-\begin_layout Standard
-\begin_inset Newpage newpage
-\end_inset
-
-
-\end_layout
-
-\begin_layout Section*
-Statutory Declaration
-\end_layout
-
-\begin_layout Standard
-I hereby declare that the thesis has been written by myself without any
- external unauthorised help, that it has been neither presented to any instituti
-on for evaluation nor previously published in its entirety or in parts.
- Any parts, words or ideas, of the thesis, however limited, and including
- tables, graphs, maps etc., which are quoted from or based on other sources
- have been acknowledged as such without exception.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Newpage newpage
-\end_inset
-
-
-\end_layout
-
 \begin_layout Abstract
 Abstract
 \end_layout
@@ -124,20 +93,40 @@ Abstract
 
 \end_layout
 
-\begin_layout Section*
-Keywords
+\begin_layout Standard
+Statutory Declaration 
+\begin_inset Quotes eld
+\end_inset
+
+I hereby declare that the thesis has been written by myself without any
+ external unauthorised help, that it has been neither presented to any instituti
+on for evaluation nor previously published in its entirety or in parts.
+ Any parts, words or ideas, of the thesis, however limited, and including
+ tables, graphs, maps etc..., which are quoted from or based on other sources
+ have been acknowledged as such without exception.
+\begin_inset Quotes erd
+\end_inset
+
+
 \end_layout
 
-\begin_layout Itemize
-economic growth
-\end_layout
+\begin_layout Standard
+Déclaration sur l’honneur 
+\begin_inset Quotes eld
+\end_inset
 
-\begin_layout Itemize
-institional measures
-\end_layout
+Je déclare sur l’honneur que ce mémoire a été écrit de ma main, sans aide
+ extérieure non autorisée, qu’il n’a été présenté auparavant dans aucune
+ autre institution pour évaluation, et qu’il n’a jamais été publié, dans
+ sa totalité ou en partie.
+ Toutes parties, mots ou idées, aussi limités soient-ils, y compris des
+ tableaux, graphiques, cartes etc.
+ qui sont empruntés ou qui font référence à d’autres sources bibliographiques
+ sont présentés comme tel, sans exception aucune.
+\begin_inset Quotes erd
+\end_inset
 
-\begin_layout Itemize
-political constraints
+
 \end_layout
 
 \begin_layout Standard
@@ -272,60 +261,6 @@ This project will look further into the institutional determinants of economic
  This project will use the standard linear pooled model, GLS and GMM to
  attempt to determine how institutions and political constraints influence
  economic growth of countries by using a variety of institutional measures.
-\end_layout
-
-\begin_layout Section
-Literature Review
-\end_layout
-
-\begin_layout Standard
-Determining which way the causality runs when looking at the influence of
- institutions on economic growth is a contentious topic.
- The question is whether democratic institutions cause economic growth,
- i.e.
- that countries with a higher degree of democracy are more prone to economic
- progress compared to countries with more autocratic characteristics, or
- whether countries that are more economically developed are more likely
- to foster democratic institutions.
- A simple, but compelling test can be undertaken by looking at the Korean
- Peninsula.
- Looking at the divergent paths of North and South Korea there is evidence
- that democratic institutions cause economic growth and not vice versa.
- Economic progress of South Korea result of institutional path choosen after
- the end of the war in 1953 
-\begin_inset CommandInset citation
-LatexCommand citep
-after "p. 272"
-key "glaeser2004doinstitutions"
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-Another topic that is important to tackle in understanding the institutional
- influence on economic growth is how institutions are measured.
- Glaeser et al.
- (2004) looks at three measures of institutions, namely risk of appropriation,
- quality of government and constraints on the executive.
-\end_layout
-
-\begin_layout Standard
-However, even before one decides on how to measures institutions, they must
- defined.
- A concise and precise notion of instutions is that they are in essence
- constraints (North 1981, quoted in Glaeser et al.
- 2004).
-\end_layout
-
-\begin_layout Standard
-Human capital and constraints on the executive are both associated with
- economic growth, but Glaeser et al.
- argues that human capital is a stronger predictor.
- The two might however be related as higher levels of education in a given
- society could result in electoral demands that the executive be further
- constrained...
 \end_layout
 
 \begin_layout Section
