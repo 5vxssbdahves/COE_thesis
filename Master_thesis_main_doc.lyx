@@ -274,6 +274,46 @@ This project will look further into the institutional determinants of economic
  economic growth of countries by using a variety of institutional measures.
 \end_layout
 
+\begin_layout Quote
+“(...) many politicians are being shockingly irresponsible.
+ In different ways, politicians’ actions (or inaction) are the biggest short-ter
+m danger facing the American, European and Chinese economies.
+ Judging by politicians’ current behaviour, the world economy could slow
+ a lot further.
+ It could even tip into recession in 2013.”
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+‘The World Economy: Investors, Beware’, The Economist, 6 October 2012, 
+\begin_inset CommandInset href
+LatexCommand href
+target "http://www.economist.com/node/21564232"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Hypothesis, Research Question and Scope of Paper
+\end_layout
+
+\begin_layout Standard
+The underlying assumption of this paper is that the political organization
+ of a given country has a significant influence on the degree to which this
+ country experiences economic growth and development.
+ Moreover, it is hypothesised that certain political constraints can be
+ identified in order to pinpoint how, if at all, political organization
+ in this sense is related to economic growth.
+\end_layout
+
 \begin_layout Section
 Literature Review
 \end_layout
@@ -316,7 +356,53 @@ However, even before one decides on how to measures institutions, they must
  defined.
  A concise and precise notion of instutions is that they are in essence
  constraints (North 1981, quoted in Glaeser et al.
- 2004).
+ 2004) and that they are permanent or stable (Glaeser et al.
+ 2004, quoted in Voigt, 2013, p.
+ 3).
+ The frequently used measures such as those from the International Country
+ Risk Guide, the Governance Indicators from the World Bank 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "kaufmann2010theworldwide"
+
+\end_inset
+
+ and the Polity IV measures.
+ Glaeser et al.
+ argues that these do neither measure the stability of institutions nor
+ their constraints, but only policy outcomes 
+\begin_inset CommandInset citation
+LatexCommand citet
+after "p. 4"
+key "voigt2013hownot"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Another terminological distinction is between economic and political institution
+s.
+ Voigt (2013, p.
+ 7) proposes to see economic institutions as enabling and political institutions
+ as constraining.
+ Institutions can also be formal or informal, public or private, 
+\emph on
+de jure 
+\emph default
+or 
+\emph on
+de facto
+\emph default
+, internal or external
+\emph on
+ 
+\emph default
+(Voigt, 2013, pp.
+ 6-8).
+ Institutions also increase the level of predictability in a given society
+ given incentives to make long-term investments.
 \end_layout
 
 \begin_layout Standard
@@ -326,6 +412,7 @@ Human capital and constraints on the executive are both associated with
  The two might however be related as higher levels of education in a given
  society could result in electoral demands that the executive be further
  constrained...
+ 
 \end_layout
 
 \begin_layout Standard
@@ -335,17 +422,210 @@ key "voigt2013hownot"
 
 \end_inset
 
- looks at how institutions should not be measured...
+ looks at how institutions should not be measured and presents a number
+ of proposals on how to measure institutions.
+ Voigt raises four points concerning the measurement of institutions of
+ which two are worth mentioning:
 \end_layout
 
-\begin_layout Section
-Theory
+\begin_layout Enumerate
+the traditional aggregate measures such as ‘the rule of law’ are too vague
+ to contain meaningful information, so measures of institutions should refer
+ to specific institutions; and
+\end_layout
+
+\begin_layout Enumerate
+although many established measures of institutions are subjective such as
+ the World Bank indicators and the Quality of Government indicators, the
+ objective measures are generally preferable.
+\end_layout
+
+\begin_layout Standard
+Moreover, to summarise the current consensus on the topic, the paper proposes
+ that 
+\begin_inset Quotes eld
+\end_inset
+
+institutions matter crucially for economic development
+\begin_inset Quotes erd
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand citeyearpar
+after "p. 1"
+key "voigt2013hownot"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+One of the conclusions of Glaeser et al.
+ (2004) is that some of the work purporting to measure the influence of
+ institutions on economic growth has not measured institutions, but rather
+ policies 
+\begin_inset CommandInset citation
+LatexCommand citep
+after "p. 2"
+key "voigt2013hownot"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Another controversy in the literature concerns whether democratic institutions
+ serve as mechanims for ensuring property rights, thus encouraging investment
+ and economic growth, or whether increased levels of human capital lead
+ to democratic institutions.
+ In essence, the question is whether democratic institutions are the cause
+ or consequence of economic growth.
+ This is at least how the controversy is presented in Voigt (2013).
+ On closer inspection the argument seems to lend itself to another interpretatio
+n, namely that the views are in fact not conflicting, but complementary:
+ it might both be true that human capital lead to democratic institutions
+ and that democratic institutions lead to economic growth.
+ The relevant question is rather whether democratic institutions lead to
+ higher levels of human capital or vice versa.
+\end_layout
+
+\begin_layout Standard
+Human capital and democratic institutions understood as constraints on the
+ executive are both associated with economic growth, but Glaeser et al.
+ (2004) argues that human capital is a stronger predictor, although they
+ do not discredit the other camp that purports that democratic institutions
+ are the main predictor 
+\begin_inset CommandInset citation
+LatexCommand citep
+after "p. 3"
+key "voigt2013hownot"
+
+\end_inset
+
+.
+ Glaeser et al.
+ (2004) challenges the use of instrumental variables used in the works by
+ Acemoglu among others to predict economic development of settler colonies
+ in the US.
+ They argue that human capital is a more reliable predictor of economic
+ growth than institutions per se.
+ The settlers brought themselves rather than their institutions.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Quotes eld
+\end_inset
+
+Many creators of indicators seem to assume simple linear relationships between
+ an institution and some outcome
+\begin_inset Quotes erd
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand citep
+after "p. 10"
+key "voigt2013hownot"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+More than one institution is likely to affect observed outcome, so excluding
+ any one aspect would result in omitted variable bias 
+\begin_inset CommandInset citation
+LatexCommand citep
+after "p. 11"
+key "voigt2013hownot"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+In situations where there are repeat interactions, internal institution
+ trump state-run ones.
+ Confidence (
+\emph on
+tillid
+\emph default
+) argument...
+\end_layout
+
+\begin_layout Standard
+Political constraints might also have other effects than contributing to
+ economic progress and development.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "fatas2003thecase"
+
+\end_inset
+
+ explores the effects of discretionary fiscal policy on output volatility
+ and economic growth and concludes, inter alia, that “prudent use of fiscal
+ policy is explained to a large extent by the presence of political constraints
+ and other political and institutional variables.
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Does discretionary fiscal policy have an effect on economic growth?
+\end_layout
+
+\end_inset
+
+ If discretionary fiscal policy has an effect on economic growth, but fiscal
+ policy is in turn influenced by the level of political constraints, then
+ we have to be careful to bear in mind that there is an intermediating factor
+ in the relationship between political constraints and economic growth.
 \end_layout
 
 \begin_layout Standard
 Economic progress is most probably determined by a confluence of factors,
  but this project aims at looking at institutional variables such as the
  degree of political constraints and some of measures of institutional quality.
+\end_layout
+
+\begin_layout Standard
+This paper will use the dataset constructed by W.J.
+ Henisz and is called POLCONIII and POLCONV.
+ This dataset is time series data with measures of political constraints
+ from all countries in the world.
+ This data will then be used as the independent variable, while different
+ economic variables such as growth, unemployment, government debt etc.
+ will be used as the dependent variable.
+ Control variables will include measures of social capital as by 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "barro1996democracy"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The political constraints variable is defined as the number of independent
+ veto points over policy outcomes and the distribution of preferences of
+ the actors that inhabit these veto points.
+ The variable is calculated as one minus the expected range of policies
+ for which a change in the status quo can be agreed upon by veto power.
+ An unchecked executive can always obtain policy 
+\begin_inset Formula $X_{E}$
+\end_inset
+
+ and is thus guaranteed their maximum utility of 0.
+ Political constraints are thus measures as (1 – political discretion) =
+ 0 in the extreme case of full discretion (=1).
+ 
 \end_layout
 
 \begin_layout Standard

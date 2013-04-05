@@ -1,0 +1,655 @@
+Master Thesis
+
+A.V. RIIS
+
+2013
+
+
+
+
+  Statutory Declaration
+
+I hereby declare that the thesis has been written by myself 
+without any external unauthorised help, that it has been neither 
+presented to any institution for evaluation nor previously 
+published in its entirety or in parts. Any parts, words or ideas, 
+of the thesis, however limited, and including tables, graphs, 
+maps etc., which are quoted from or based on other sources have 
+been acknowledged as such without exception.
+
+
+
+
+Abstract
+
+Abstract
+
+
+
+
+  Keywords
+
+• economic growth
+
+• institional measures
+
+• political constraints
+
+
+
+
+Table of Contents
+
+
+
+
+
+
+
+
+1 Introduction
+
+This project will look further into the institutional 
+determinants of economic progress. The main econometric models 
+attempt to replicate the findings of Henisz (2000). This project 
+will use the standard linear pooled model, GLS and GMM to attempt 
+to determine how institutions and political constraints influence 
+economic growth of countries by using a variety of institutional 
+measures.
+
+“(...) many politicians are being shockingly irresponsible. In 
+different ways, politicians’ actions (or inaction) are the 
+biggest short-term danger facing the American, European and 
+Chinese economies. Judging by politicians’ current behaviour, the 
+world economy could slow a lot further. It could even tip into 
+recession in 2013.”[footnote:
+‘The World Economy: Investors, Beware’, The Economist, 6 October 
+2012, [http://www.economist.com/node/21564232]. 
+]
+
+2 Hypothesis, Research Question and Scope of Paper
+
+The underlying assumption of this paper is that the political 
+organization of a given country has a significant influence on 
+the degree to which this country experiences economic growth and 
+development. Moreover, it is hypothesised that certain political 
+constraints can be identified in order to pinpoint how, if at 
+all, political organization in this sense is related to economic 
+growth.
+
+3 Literature Review
+
+Determining which way the causality runs when looking at the 
+influence of institutions on economic growth is a contentious 
+topic. The question is whether democratic institutions cause 
+economic growth, i.e. that countries with a higher degree of 
+democracy are more prone to economic progress compared to 
+countries with more autocratic characteristics, or whether 
+countries that are more economically developed are more likely to 
+foster democratic institutions. A simple, but compelling test can 
+be undertaken by looking at the Korean Peninsula. Looking at the 
+divergent paths of North and South Korea there is evidence that 
+democratic institutions cause economic growth and not vice versa. 
+Economic progress of South Korea result of institutional path 
+choosen after the end of the war in 1953 (Glaeser et al., 2004, p. 272)
+.
+
+Another topic that is important to tackle in understanding the 
+institutional influence on economic growth is how institutions 
+are measured. Glaeser et al. (2004) looks at three measures of 
+institutions, namely risk of appropriation, quality of government 
+and constraints on the executive.
+
+However, even before one decides on how to measures institutions, 
+they must defined. A concise and precise notion of instutions is 
+that they are in essence constraints (North 1981, quoted in 
+Glaeser et al. 2004) and that they are permanent or stable 
+(Glaeser et al. 2004, quoted in Voigt, 2013, p. 3). The 
+frequently used measures such as those from the International 
+Country Risk Guide, the Governance Indicators from the World Bank 
+(Kaufmann et al., 2010) and the Polity IV measures. Glaeser et 
+al. argues that these do neither measure the stability of 
+institutions nor their constraints, but only policy outcomes Voigt (2013, p. 4)
+.
+
+Another terminological distinction is between economic and 
+political institutions. Voigt (2013, p. 7) proposes to see 
+economic institutions as enabling and political institutions as 
+constraining. Institutions can also be formal or informal, public 
+or private, de jure or de facto, internal or external (Voigt, 
+2013, pp. 6-8). Institutions also increase the level of 
+predictability in a given society given incentives to make 
+long-term investments.
+
+Human capital and constraints on the executive are both 
+associated with economic growth, but Glaeser et al. argues that 
+human capital is a stronger predictor. The two might however be 
+related as higher levels of education in a given society could 
+result in electoral demands that the executive be further 
+constrained... 
+
+Voigt (2013) looks at how institutions should not be measured and 
+presents a number of proposals on how to measure institutions. 
+Voigt raises four points concerning the measurement of 
+institutions of which two are worth mentioning:
+
+1. the traditional aggregate measures such as ‘the rule of law’ 
+  are too vague to contain meaningful information, so measures of 
+  institutions should refer to specific institutions; and
+
+2. although many established measures of institutions are 
+  subjective such as the World Bank indicators and the Quality of 
+  Government indicators, the objective measures are generally 
+  preferable.
+
+Moreover, to summarise the current consensus on the topic, the 
+paper proposes that “institutions matter crucially for economic 
+development” (2013, p. 1).
+
+One of the conclusions of Glaeser et al. (2004) is that some of 
+the work purporting to measure the influence of institutions on 
+economic growth has not measured institutions, but rather 
+policies (Voigt, 2013, p. 2).
+
+Another controversy in the literature concerns whether democratic 
+institutions serve as mechanims for ensuring property rights, 
+thus encouraging investment and economic growth, or whether 
+increased levels of human capital lead to democratic 
+institutions. In essence, the question is whether democratic 
+institutions are the cause or consequence of economic growth. 
+This is at least how the controversy is presented in Voigt 
+(2013). On closer inspection the argument seems to lend itself to 
+another interpretation, namely that the views are in fact not 
+conflicting, but complementary: it might both be true that human 
+capital lead to democratic institutions and that democratic 
+institutions lead to economic growth. The relevant question is 
+rather whether democratic institutions lead to higher levels of 
+human capital or vice versa.
+
+Human capital and democratic institutions understood as 
+constraints on the executive are both associated with economic 
+growth, but Glaeser et al. (2004) argues that human capital is a 
+stronger predictor, although they do not discredit the other camp 
+that purports that democratic institutions are the main predictor 
+(Voigt, 2013, p. 3). Glaeser et al. (2004) challenges the use of 
+instrumental variables used in the works by Acemoglu among others 
+to predict economic development of settler colonies in the US. 
+They argue that human capital is a more reliable predictor of 
+economic growth than institutions per se. The settlers brought 
+themselves rather than their institutions.
+
+“Many creators of indicators seem to assume simple linear 
+relationships between an institution and some outcome” (Voigt, 2013, p. 10)
+.
+
+More than one institution is likely to affect observed outcome, 
+so excluding any one aspect would result in omitted variable bias 
+(Voigt, 2013, p. 11).
+
+In situations where there are repeat interactions, internal 
+institution trump state-run ones. Confidence (tillid) argument...
+
+Political constraints might also have other effects than 
+contributing to economic progress and development. Fatás and Mihov (2003)
+ explores the effects of discretionary fiscal policy on output 
+volatility and economic growth and concludes, inter alia, that 
+“prudent use of fiscal policy is explained to a large extent by 
+the presence of political constraints and other political and 
+institutional variables.  If discretionary fiscal policy has an 
+effect on economic growth, but fiscal policy is in turn 
+influenced by the level of political constraints, then we have to 
+be careful to bear in mind that there is an intermediating factor 
+in the relationship between political constraints and economic 
+growth.
+
+Economic progress is most probably determined by a confluence of 
+factors, but this project aims at looking at institutional 
+variables such as the degree of political constraints and some of 
+measures of institutional quality.
+
+This paper will use the dataset constructed by W.J. Henisz and is 
+called POLCONIII and POLCONV. This dataset is time series data 
+with measures of political constraints from all countries in the 
+world. This data will then be used as the independent variable, 
+while different economic variables such as growth, unemployment, 
+government debt etc. will be used as the dependent variable. 
+Control variables will include measures of social capital as by Barro (1996)
+.
+
+The political constraints variable is defined as the number of 
+independent veto points over policy outcomes and the distribution 
+of preferences of the actors that inhabit these veto points. The 
+variable is calculated as one minus the expected range of 
+policies for which a change in the status quo can be agreed upon 
+by veto power. An unchecked executive can always obtain policy X_{E}
+
+ and is thus guaranteed their maximum utility of 0. Political 
+constraints are thus measures as (1 – political discretion) = 0 
+in the extreme case of full discretion (=1). 
+
+Initially, we attempt a standard linear model pooling all the 
+data across countries and years, which can be written as y_{it}=\alpha+\beta^{T}x_{it}+u_{it},
+
+
+where i=1,...,n
+ is the country index, t=1,...T
+ is the time 
+index and u_{it}
+ a random disturbance term with mean 0 (Croissant and Millo, 2008, p. 2)
+.
+
+4 Data
+
+The panel data set used is an unbalanced panel and made up from a 
+number of sources, which are explained below.
+
+4.1 Variables
+
+The variables used are primarily taken from Table 3 in Henisz 
+(2000) and include:
+
+• Real Per Capita GDP Growth 
+
+• Male Secondary Education (years) 
+
+• Female Secondary Education (years) 
+
+• Log(Life Expectancy) 
+
+• Log(Fertility Rate) 
+
+• Government Consumption (% GDP) 
+
+• Log(Black Market Exchange Rate Premium)
+
+• Change in the Terms of Trade
+
+• Total Investment (% GDP) 
+
+• Log(Law & Order Index)
+
+• Democracy Index 
+
+• Political Constraint Index (POLCON) 
+
+• Political Constraint Index (POLCONJ)
+
+In the subsections below, I will outline how and where the data 
+is found, possibly transformed and what the existing literature 
+has to say on the topic. Table  on page  gives some summary 
+statistics of all the variables included, so if there is no table 
+included in the subsections below, this table can be consulted 
+for more information on the variable.
+
+  Measures on political constraints<sub:Measures-of-POLCON>
+
+
+
+The political constraints variable is defined as the number of 
+independent veto points over policy outcomes and the distribution 
+of preferences of the actors that inhabit these veto points. The 
+variable is calculated as one minus the expected range of 
+policies for which a change in the status quo can be agreed upon 
+by veto power. An unchecked executive can always obtain policy XE 
+and is thus guaranteed their maximum utility of 0. Political 
+constraints are thus measures as (1 – political discretion) = 0 
+in the extreme case of full discretion (=1) (Henisz, 2000). We 
+expect that there is a positive relationship between the degree 
+of political constraints and economic growth. This is supported 
+by the results of Henisz (2000).
+
+Table  on page  shows the some summary statistics of the 
+different variations of this variable. The earliest observation 
+is from , while the newest is from . POLCONIII is available for 
+226 countries. The difference between POLCONIII and POLCONV is 
+that the latter includes two additional veto points (the 
+judiciary and the subfederal entities). POLCONV is available for 
+200 countries.
+
+
+
+The POLCON measures are strongly correlated with the ICRG risk 
+indices (Henisz, 2000, p. 10).
+
+“POLCON and POLCONJ differ in that the latter uses actual data on 
+the appointment history of High Court justices to compute the 
+alignment and fractionalization of the High Court.”(Henisz, 2000, p. 10)
+
+As Henisz (2000) notes himself is the assumptions underlysing 
+this measure quite strong and unrealistic, but they should 
+however be regarded as a rough proxy of political constraints.
+
+  Measures of real GDP per capita<sub:Measures-of-gdp>
+
+Henisz (2000) uses some the same data as Barro (1996), who has 
+used GDP figures from the Summers-Heston data set, or Penn World 
+Table (PWT) (Heston et al., 2012). Barro (1996) uses GDP figures 
+from version 5.5 of the Penn World Table, while I will be using 
+the newest version 7.1. To avoid confusion it should be noted 
+that in these data sets “real” means “PPP converted” instead of “
+in constant price”. The variable used is rgdpl and the code book 
+describes it as PPP Converted GDP Per Capita (Laspeyres), derived 
+from growth rates of c, g, i, at 2005 constant prices. The growth 
+rate is then calculated using the formula \hat{w}_{t}=\frac{x_{t}-x_{t-1}}{x_{t-1}},
+
+ where \hat{w}_{t}
+ is real GDP growth rate for year t
+ and x_{t}
+
+ are GDP levels at year t
+ (of Zurich, 2010).
+
+The validity of the Penn World Table is discussed in Johnson et al. (2009)
+ who demonstrate that the measures of GDP growth for the same 
+country at the same point in time changes across successive 
+versions of the data set. They propose that more “robust results 
+by using national accounts data, even though they are not 
+PPP-adjusted.” For practical reasons this is not possible in this 
+project, so I will still be using the PWT data.
+
+Another measures of GDP growth is found in the Global Development 
+Network Growth Database (Easterly, 2001). For practical reasons, 
+this measure is used instead.
+
+As Barro (1996, p. 4) writes the neoclassical model of economic 
+growth predicts that GDP growth is negatively correlated with the 
+initial level of GDP. 
+
+“Empirically, the initial level of per capita GDP enters into the 
+growth equation in the form \text{log}(y_{t-1})
+ so that the 
+coefficient on this variable represents the rate of convergence, 
+that is, the responsiveness of the growth rate, Dy_{t}
+, to a 
+proportional change in y_{t-1}
+.”(Barro, 2003, p. 237)
+
+The convergence effect is “conditional on the starting amount of 
+human capital in the forms of educational attainment and life 
+expectancy and on a set of explanatory variables that capture 
+policies and national characteristics” (Barro, 2003, p. 273).
+
+
+
+  Measures of educational attainment
+
+Data on educational attainment is from the Barro-Lee Educational 
+Attainment Dataset (Barro and Lee, 2010). Henisz (2000) mentions 
+that he has his educational attainment data from Barro and Lee (1994)
+, who only uses information on schooling of the adult population 
+aged 25 and above, but acknowledges in a footnote that this is 
+unfortunate as “much of the labor force in developing countries 
+consists of younger persons.“ However, the newer data sets 
+include information on schooling of the population aged 15 and 
+above. The data set only has data from every fifth year.
+
+
+
+  Measures on life expectancy
+
+As mentioned in Barro and Lee (1994, p. 11) the data on life 
+expectancy is from the UN. The data in this report, however, is 
+taken from the World Bank indicator SP.DYN.LE00.IN with the name “
+Life expectancy at birth, total (years)”.[footnote:
+From the source notes: Life expectancy at birth indicates the 
+number of years a newborn infant would live if prevailing 
+patterns of mortality at the time of its birth were to stay the 
+same throughout its life. Derived from male and female life 
+expectancy at birth from sources such as: (1) United Nations 
+Population Division. World Population Prospects, (2) United 
+Nations Statistical Division. Population and Vital Statistics 
+Reprot (various years), (3) Census reports and other statistical 
+publications from national statistical offices, (4) Eurostat: 
+Demographic Statistics, (5) Secretariat of the Pacific Community: 
+Statistics and Demography Programme, and (6) U.S. Census Bureau: 
+International Database.
+]
+
+
+
+  Measures on fertility rates
+
+The indicator is taken from the World Bank (indicator 
+SP.DYN.TFRT.IN) and is described as: Fertility rate, total 
+(births per woman).[footnote:
+[http://data.worldbank.org/indicator/SP.DYN.TFRT.IN]
+] Moreover, the “total fertility rate represents the number of 
+children that would be born to a woman if she were to live to the 
+end of her childbearing years and bear children in accordance 
+with current age-specific fertility rates.”
+
+
+
+  Government Consumption (% GDP)
+
+This measures is also taken from the Penn World Table. The 
+variable is called kg and is described as Government Consumption 
+Share of PPP Converted GDP Per Capita at 2005 constant prices 
+(%). The basic descriptive statistics are reported in table .
+
+The influence of government expenditure on economic growth is a 
+contentious topic. Barro (1991), the seminal article on the 
+topic, found a negative relationship between government 
+consumption and economic growth, which the results in this 
+project also find (see table  on page ).
+
+
+
+  Black Market Exchange Rate Premium
+
+These measures come originally from Wood (1991), but has been 
+found using Easterly (2001).[footnote:
+From the source notes of the Easterly (2001): Levine and Renelt; 
+World's Currency Yearbook (for 1985, 1990-93); Adrian Wood, 
+Global trends in real exchange rates: 1960-84, WB Discussion 
+paper no. 35. 1988 (filling in missing observations); Global 
+Development Finance & World Development Indicators (for 
+1996-1997, calculated as (parallel Xrate/official Xrate-1)*100); 
+values for industrial countries are added as 0).
+] Two values have been changed from the originally downloaded 
+data set, namely the observations for Myanmar and Iraq in 1999 
+because it said “Err:520”. The data set has been downloaded as 
+and xls file and then converted to a csv file before imported 
+into the statistics programme. 
+
+The variable has been log-transformed. As we can see in figure  
+on page , the variable appears normally distributed after the 
+log-transformation. In table  on page , we see the summary 
+statistics of the variable before and after the 
+log-transformation.
+
+Barnett and Ho (1999) writes that “the black market premium is 
+intended to serve as a measure of market distortions more broadly 
+defined, and there appears to be a small but significant negative 
+relationship between economic growth and the black market 
+premium.” Barro and Lee (1994, p. 13) writes:
+
+“We view the black-market premium on foreign exchange as a proxy 
+for market distortions, whether due to exogenous government 
+policies or to reactions to external shocks, such as changes in 
+the terms of trade. (The black-market premium is also a desirable 
+variable because it is objectively measurable and widely 
+available.) Thus, we anticipate that a higher black-market 
+premium, like other governmental distortions, lowers the 
+steady-state level of output per effective worker and therefore 
+reduces the growth rate for given values of the state variables.”
+
+Emran and Shilpi (2004) has however cast some doubt on the 
+validity of this indicator of the equilibrium exchange rate by 
+using data from South East Asia to reject the null hypothesis 
+that there is a relationship.
+
+
+
+  Change in the Terms of Trade
+
+This measure is also taken from Easterly (2001).Barro and Martin (2004, p. 531)
+ have found a positive and significant relationship between 
+between terms of trade measures and economic growth, while Barro and Lee (1994, p. 24)
+ finds a positive, but insignificant relationship. The variable 
+is named ToT.
+
+
+
+  Total Investment (% GDP)
+
+This measures is also taken from the Penn World Table. The 
+variable is called ki and is described as Investment Share of PPP 
+Converted GDP Per Capita at 2005 constant prices (%).
+
+  Law & Order Index
+
+The Law & Order Index is provided by POLCON data set. Another 
+measure from the ICRG has also been included, namely the mean 
+value of the ICRG variables “Corruption”, “Law and Order” and 
+“Bureaucracy Quality”, scaled 0-1 from the Quality of Government 
+Dataset (Teorell et al., 2011).
+
+
+
+
+
+  Democracy Index
+
+This variable democ is from Polity data set (Marshall et al., 2011)
+. The values -66, -77 and -88 are removed from the dataset.
+
+
+
+
+
+4.2 Data Description
+
+The entire set of variables can be seen in table  (see p. ). Here 
+the mean, median, minimum, maximum and standard deviation values 
+are reported.
+
+
+
+
+
+5 Statistical Model
+
+The first type of estimation that will be used is fixed effects 
+estimation, where the unobserved effects are removed by averaging 
+the model over time and thus transformed into time-demeaned data (Wooldridge, 2009, pp. 481-2)
+. 
+
+With fixed effects we allow the intercept to vary with group, or 
+time, or both, while the other parameters are generally still 
+assumed to be homogeneous (Croissant and Millo, 2008, p. 42).
+
+6 Estimation and Misspecification Testing
+
+6.1 Estimation Results
+
+In table  on page , we see the results of fixed effects 
+estimation with individual effects. Here we estimate the 
+relationship between the measure of political constraints POLCONV 
+allowing for individual-specific, time-invariant effects. Models 
+(2) through (6) use individual-specific, time-invariant effects 
+to estimate the different measures of political constraints and 
+institutions. As we can see the only other significant indicator 
+is the democracy indicator from the PolityIV data set. The law & 
+order measure and the risk measure from ICRG are only available 
+for few countries, so the number of observations drops 
+significantly. Most of the coefficients correspond to the 
+findings of Henisz (2000).
+
+In table  on page , we allow for both individual and time 
+effects. Going from one to other does not change the sign of any 
+of the variables, but some of the significance levels change, 
+e.g. terms of trade becomes significant. Finally, we produce the 
+results using only time effects in table  on page  and pooled 
+regression results in table  on page .
+
+
+
+6.2 Mis-specification Tests
+
+There are seven assumptions underlying the use of fixed effects 
+estimation, but we only require four to have an unbiased 
+estimator (Wooldridge, 2009, pp. 503-4). In this section I will 
+discuss some of the issues pertaining to these assumptions.
+
+The second assumption is that we have a random sample from the 
+cross section. Already this assumption might be violated, because 
+it is probably not random for which countries we have data. That 
+is to say that the countries for which we do not have data may 
+have a significant impact on the results if included in the 
+analysis.
+
+Another assumption is that there exist no perfect linear 
+relationship among the explanatory variables. As mentioned in the 
+section [sub:Measures-of-POLCON], there is strong correlation 
+among the individual measures of institutional quality and 
+political constraint, so these are not included at the same time 
+in the model.
+
+Below we adopt a number of tests of model (1).
+
+We can test whether there are indeed effects at an individual or 
+time level using the Lagrange multiplier test (Croissant and Millo, 2008, p. 21)
+. The test below tests the null that the individual and time 
+effects in model (1) are insignificant using the method suggested 
+by Gourieroux et al. (1982). Based on the large \chi^{2}
+ value 
+we reject that the individual and time effects are insignificant.
+
+
+
+In the test below we test whether we can allow for individual 
+effects based on the test proposed by Breusch and Pagan (1980). 
+Here we again reject the null that the individual effects of 
+model (1) are insignificant.
+
+
+
+Since the estimated variance of the individual effect is negative 
+when using random effects this estimation method has not been 
+used in the this project, but had it been, it would have been 
+paramount to use the Hausman test (Hausman, 1978) to compare a 
+random effects model and a fixed effects model.
+
+We can also use the unobserved effects test as proposed by Wooldridge (2001)
+ with the null hypothesis that there are no unobserved effects in 
+the residuals in the pooled model (Croissant and Millo, 2008, p. 23)
+. The results of this test are reported below. As we can see, we 
+can only reject the null hypothesis at the 10% significance 
+level, which provides some evidence that there indeed are 
+unobserved effects in the model. This could be due to the lack of 
+inclusion of the initial gdp level as discussed in section [sub:Measures-of-gdp]
+.
+
+
+
+It could also be relevant to test for serial correltion in the 
+idiosyncratic errors of the fixed effects model with individual 
+effects. This is done in the test below, do we reject the null 
+that the idiosyncratic errors are uncorrelated.
+
+
+
+7 Conclusions
+
+In this project we have tested whether political constraints or 
+institutiona factors, or both, affect economic growth. We have 
+found a statistical significant estimator of the measure of 
+political constraints POLCONV and the democracy index provided by 
+PolityIV when using fixed effects estimation allowing for 
+individual effects using a number of control variables.
+
+Further efforts in this vein, could look at (partial; ceteris 
+paribus) relationship between political constraints and economic 
+growth, which could be argued is concave such that it is 
+initially important up to a point wherefrom it becomes 
+detrimental to economic growth. Other interesting variables might 
+include trust or failure tolerance of a country.
+
+
+
+
+[LaTeX Command: bibtex]
+
+
+
