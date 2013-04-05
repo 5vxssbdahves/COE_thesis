@@ -1,4 +1,4 @@
-﻿0_7I32M533 0_INGXJDAC 0_SGBZG34U 0_UC4WA7ER 0_XK5QWV85 0_PXB8S4NG 0_AJPH32U9 0_RK6SJI5V 0_9NT2FDUX 0_J4TCAJS4 0_7DIJVPV4 0_BSR3QDI6 0_ZFUZXPKU 0_3H4UAQUF 0_XIWDZV2M 0_NDUWSN4M 0_9TUCX6Q5 0_HEIHCV6Q 0_7M65GAR7 0_E5HFK2P6 0_ATVAZ3TK 0_8INP9T55 0_7Q7CMHVA 0_PCH64427 0_CZ65TMQP 0_SHI6S5P4 0_ATVAZ3TK 0_8UV9NWHE 0_7C84SRE7 0_CJ4HZX2J
+﻿0_7I32M533 0_INGXJDAC 0_SGBZG34U 0_UC4WA7ER 0_XK5QWV85 0_PXB8S4NG 0_AJPH32U9 0_RK6SJI5V 0_9NT2FDUX 0_J4TCAJS4 0_7DIJVPV4 0_BSR3QDI6 0_ZFUZXPKU 0_3H4UAQUF 0_XIWDZV2M 0_NDUWSN4M 0_9TUCX6Q5 0_HEIHCV6Q 0_7M65GAR7 0_E5HFK2P6 0_ATVAZ3TK 0_8INP9T55 0_7Q7CMHVA 0_PCH64427 0_CZ65TMQP 0_SHI6S5P4 0_ATVAZ3TK 0_8UV9NWHE 0_7C84SRE7 0_CJ4HZX2J 0_7AH4KXTE 0_GGB99QHQ 0_W9H2QGVD 0_ZCVETHIV 0_MUA7EQXC 0_BCMHVQBW
 
 @article{heston2002pennworld,
 	title = {Penn world table},
@@ -341,4 +341,83 @@
 	month = sep,
 	year = {2010},
 	file = {SSRN Snapshot:/Users/vrangbaek/Library/Application Support/Firefox/Profiles/n41akpa5.default/zotero/storage/3XGWWQ5T/papers.html:text/html;SSRN-id1682130.pdf:/Users/vrangbaek/Library/Application Support/Firefox/Profiles/n41akpa5.default/zotero/storage/4QSUZ6KD/SSRN-id1682130.pdf:application/pdf}
+}
+
+@article{fatas2003thecase,
+	title = {The case for restricting fiscal policy discretion},
+	volume = {118},
+	url = {http://qje.oxfordjournals.org/content/118/4/1419.short},
+	number = {4},
+	urldate = {2013-01-29},
+	journal = {The Quarterly Journal of Economics},
+	author = {Fat{\'a}s, A. and Mihov, I.},
+	year = {2003},
+	pages = {1419{\textendash}1447},
+	file = {[PDF] from oxfordjournals.org:/Users/vrangbaek/Library/Application Support/Firefox/Profiles/n41akpa5.default/zotero/storage/AA46KK6W/Fat{\'a}s and Mihov - 2003 - The case for restricting fiscal policy discretion.pdf:application/pdf;Snapshot:/Users/vrangbaek/Library/Application Support/Firefox/Profiles/n41akpa5.default/zotero/storage/P93GRF9E/1419.html:text/html}
+}
+
+@article{henisz2002theinstitutional,
+	title = {The institutional environment for infrastructure investment},
+	volume = {11},
+	url = {http://icc.oxfordjournals.org/content/11/2/355.short},
+	number = {2},
+	urldate = {2013-01-21},
+	journal = {Industrial and corporate change},
+	author = {Henisz, W. J.},
+	year = {2002},
+	pages = {355{\textendash}389},
+	file = {[PDF] from upenn.edu:/Users/vrangbaek/Library/Application Support/Firefox/Profiles/n41akpa5.default/zotero/storage/BZ8XVVTD/Henisz - 2002 - The institutional environment for infrastructure i.pdf:application/pdf;Snapshot:/Users/vrangbaek/Library/Application Support/Firefox/Profiles/n41akpa5.default/zotero/storage/BKPSDPUG/355.html:text/html}
+}
+
+@misc{henisz2013polcon2005,
+	title = {{POLCON\_2005} Codebook},
+	author = {Henisz, W. J.},
+	month = jan,
+	year = {2013}
+}
+
+@article{feld2003economic,
+	title = {Economic growth and judicial independence: cross-country evidence using a new set of indicators},
+	volume = {19},
+	shorttitle = {Economic growth and judicial independence},
+	url = {http://www.sciencedirect.com/science/article/pii/S017626800300017X},
+	number = {3},
+	urldate = {2013-04-05},
+	journal = {European Journal of Political Economy},
+	author = {Feld, Lars P. and Voigt, Stefan},
+	year = {2003},
+	pages = {497{\textendash}527},
+	file = {Feld_Voigt_2003_Economic growth and judicial independence.pdf:/Users/vrangbaek/Library/Application Support/Firefox/Profiles/n41akpa5.default/zotero/storage/P29R3MJH/Feld_Voigt_2003_Economic growth and judicial independence.pdf:application/pdf;Snapshot:/Users/vrangbaek/Library/Application Support/Firefox/Profiles/n41akpa5.default/zotero/storage/VGNMXHGG/S017626800300017X.html:text/html}
+}
+
+@article{badinger2010outputvolatility,
+	title = {Output volatility and economic growth},
+	volume = {106},
+	issn = {0165-1765},
+	url = {http://www.sciencedirect.com/science/article/pii/S0165176509003139},
+	doi = {10.1016/j.econlet.2009.09.012},
+	abstract = {This paper proposes a new instrument to identify the causal effect of output volatility on economic growth, which is based on (exogenous) volatility spillovers from abroad. Cross-section evidence from 128 countries points to a negative effect of volatility on growth.},
+	number = {1},
+	urldate = {2013-04-05},
+	journal = {Economics Letters},
+	author = {Badinger, Harald},
+	month = jan,
+	year = {2010},
+	keywords = {Economic growth, Institutions, Output volatility},
+	pages = {15--18},
+	file = {ScienceDirect Full Text PDF:/Users/vrangbaek/Library/Application Support/Firefox/Profiles/n41akpa5.default/zotero/storage/EFGPKIXV/Badinger - 2010 - Output volatility and economic growth.pdf:application/pdf;ScienceDirect Snapshot:/Users/vrangbaek/Library/Application Support/Firefox/Profiles/n41akpa5.default/zotero/storage/H7XTUTGN/S0165176509003139.html:text/html}
+}
+
+@article{acemoglu2003institutional,
+	title = {Institutional causes, macroeconomic symptoms: volatility, crises and growth},
+	volume = {50},
+	shorttitle = {Institutional causes, macroeconomic symptoms},
+	url = {http://www.sciencedirect.com/science/article/pii/S0304393202002088},
+	number = {1},
+	urldate = {2013-04-05},
+	journal = {Journal of monetary economics},
+	author = {Acemoglu, Daron and Johnson, Simon and Robinson, James and Thaicharoen, Yunyong},
+	year = {2003},
+	pages = {49{\textendash}123},
+	file = {[PDF] from harvard.edu:/Users/vrangbaek/Library/Application Support/Firefox/Profiles/n41akpa5.default/zotero/storage/7ED8C6TN/Acemoglu et al. - 2003 - Institutional causes, macroeconomic symptoms vola.pdf:application/pdf;Snapshot:/Users/vrangbaek/Library/Application Support/Firefox/Profiles/n41akpa5.default/zotero/storage/FZGI237I/S0304393202002088.html:text/html}
 }

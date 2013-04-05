@@ -190,7 +190,7 @@ read_chunk('Master_thesis_CoE.R')
 
 \begin_layout Plain Layout
 
-# To generate pdf faster set cache=TRUE
+# To generate pdf faster set cache=TRUE, to see output set results='markup'
 \end_layout
 
 \begin_layout Plain Layout
@@ -272,6 +272,30 @@ This project will look further into the institutional determinants of economic
  This project will use the standard linear pooled model, GLS and GMM to
  attempt to determine how institutions and political constraints influence
  economic growth of countries by using a variety of institutional measures.
+\end_layout
+
+\begin_layout Standard
+This paper will use the dataset constructed by W.J.
+ Henisz and is called POLCONIII and POLCONV.
+ This dataset is time series data with measures of political constraints
+ from all countries in the world.
+ This data will then be used as the independent variable, while different
+ economic variables such as growth, unemployment, government debt etc.
+ will be used as the dependent variable.
+ Control variables will include measures of social capital as by 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "barro1996democracy"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Economic progress is most probably determined by a confluence of factors,
+ but this project aims at looking at institutional variables such as the
+ degree of political constraints and some of measures of institutional quality.
 \end_layout
 
 \begin_layout Quote
@@ -474,6 +498,15 @@ key "voigt2013hownot"
 \end_inset
 
 .
+ In addition, 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "easterly2005national"
+
+\end_inset
+
+ argues that the effects of national politices on economic growth are only
+ modest.
 \end_layout
 
 \begin_layout Standard
@@ -589,79 +622,65 @@ Does discretionary fiscal policy have an effect on economic growth?
 \end_layout
 
 \begin_layout Standard
-Economic progress is most probably determined by a confluence of factors,
- but this project aims at looking at institutional variables such as the
- degree of political constraints and some of measures of institutional quality.
-\end_layout
-
-\begin_layout Standard
-This paper will use the dataset constructed by W.J.
- Henisz and is called POLCONIII and POLCONV.
- This dataset is time series data with measures of political constraints
- from all countries in the world.
- This data will then be used as the independent variable, while different
- economic variables such as growth, unemployment, government debt etc.
- will be used as the dependent variable.
- Control variables will include measures of social capital as by 
 \begin_inset CommandInset citation
-LatexCommand citet
-key "barro1996democracy"
+LatexCommand cite
+key "feld2003economic"
+
+\end_inset
+
+ analyse the influence of judicial independence on economic growth and conclude
+ that 
+\emph on
+de jure 
+\emph default
+independence does not have an influence on GDP growth, while 
+\emph on
+de facto
+\emph default
+ judicial independence does.
+ This finding echoes the suggestion by 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "voigt2013hownot"
+
+\end_inset
+
+ to carefully distinguish between what is written down in the law concerning
+ the institution in question and how it functions in reality.
+ On 30 March 2013, the 
+\emph on
+Economist
+\emph default
+ reported that Cyprus scored better than Germany in an index from the Basel
+ Institute on Governance that measures anti-money-laundering controls.
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+‘Haven Sent’, The Economist, accessed 5 April 2013, 
+\begin_inset CommandInset href
+LatexCommand href
+target "http://www.economist.com/news/finance-and-economics/21574509-effects-cyprus-other-tax-havens-haven-sent"
 
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Standard
-The political constraints variable is defined as the number of independent
- veto points over policy outcomes and the distribution of preferences of
- the actors that inhabit these veto points.
- The variable is calculated as one minus the expected range of policies
- for which a change in the status quo can be agreed upon by veto power.
- An unchecked executive can always obtain policy 
-\begin_inset Formula $X_{E}$
-\end_inset
-
- and is thus guaranteed their maximum utility of 0.
- Political constraints are thus measures as (1 – political discretion) =
- 0 in the extreme case of full discretion (=1).
  
 \end_layout
 
-\begin_layout Standard
-Initially, we attempt a standard linear model pooling all the data across
- countries and years, which can be written as 
-\begin_inset Formula 
-\[
-y_{it}=\alpha+\beta^{T}x_{it}+u_{it},
-\]
-
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-where 
-\begin_inset Formula $i=1,...,n$
-\end_inset
-
- is the country index, 
-\begin_inset Formula $t=1,...T$
-\end_inset
-
- is the time index and 
-\begin_inset Formula $u_{it}$
-\end_inset
-
- a random disturbance term with mean 0 
-\begin_inset CommandInset citation
-LatexCommand citep
-after "p. 2"
-key "croissant2008paneldata"
-
-\end_inset
-
+ Cyprus might have better rules on paper, 
+\emph on
+de jure
+\emph default
+, but it most probably disregards circumvention of these laws leaving a
+ gap between what's on paper and what's happening in reality.
+ This gives us a practical example of why institutions should not only measured
+ 
+\emph on
+de jure
+\emph default
 .
 \end_layout
 
@@ -806,8 +825,11 @@ The political constraints variable is defined as the number of independent
  the actors that inhabit these veto points.
  The variable is calculated as one minus the expected range of policies
  for which a change in the status quo can be agreed upon by veto power.
- An unchecked executive can always obtain policy XE and is thus guaranteed
- their maximum utility of 0.
+ An unchecked executive can always obtain policy 
+\begin_inset Formula $X_{E}$
+\end_inset
+
+ and is thus guaranteed their maximum utility of 0.
  Political constraints are thus measures as (1 – political discretion) =
  0 in the extreme case of full discretion (=1) 
 \begin_inset CommandInset citation
@@ -819,13 +841,23 @@ key "henisz2000theinstitutional"
 .
  We expect that there is a positive relationship between the degree of political
  constraints and economic growth.
- This is supported by the results of Henisz (2000).
+ This is supported by the results of Henisz 
+\begin_inset CommandInset citation
+LatexCommand citeyearpar
+after "p. 25"
+key "henisz2000theinstitutional"
+
+\end_inset
+
+ who finds a significant positive relationship between growth and his POLCON
+ measure given the control variables, while the coefficient on POLCONJ is
+ insignificant using OLS, but significant when using GLS estimation.
 \end_layout
 
 \begin_layout Standard
 Table 
 \begin_inset ERT
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
@@ -838,7 +870,7 @@ ref{POLCON_tab}
 
  on page 
 \begin_inset ERT
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
@@ -849,10 +881,12 @@ pageref{POLCON_tab}
 
 \end_inset
 
- shows the some summary statistics of the different variations of this variable.
+ shows some summary statistics of the different variations of this variable.
+ Here we see that we have 14,923 observations of POLCONIII, 7179 for POLCONV
+ and 5151 for POLCONJ.
  The earliest observation is from 
 \begin_inset ERT
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
@@ -865,7 +899,7 @@ Sexpr{min(POLCON$Year)}
 
 , while the newest is from 
 \begin_inset ERT
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
@@ -878,9 +912,92 @@ Sexpr{max(POLCON$Year)}
 
 .
  POLCONIII is available for 226 countries.
- The difference between POLCONIII and POLCONV is that the latter includes
+ 
+\end_layout
+
+\begin_layout Standard
+Table 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+ref{POLCON_tab2}
+\end_layout
+
+\end_inset
+
+ shows descriptive statistics by country level.
+ Compared with the results obtained by Henisz (2000) (see table 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+ref{heniszPOLCON}
+\end_layout
+
+\end_inset
+
+), we have 208 countries, while he had 121.
+ Our mean is slightly lower, 0.16, while his was 0.25.
+\end_layout
+
+\begin_layout Standard
+The difference between POLCONIII and POLCONV is that the latter includes
  two additional veto points (the judiciary and the subfederal entities).
- POLCONV is available for 200 countries.
+ POLCONIII is used in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "henisz2002theinstitutional"
+
+\end_inset
+
+, while POLCONV is used in 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "henisz2000theinstitutional"
+
+\end_inset
+
+ (here it is just called POLCON).
+ According to the Codebook for the entire POLCON data set, POLCONV should
+ be available for 200 countries 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "henisz2013polcon2005"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset citation
+LatexCommand citet
+after "p. 10"
+key "henisz2000theinstitutional"
+
+\end_inset
+
+ describes the difference between POLCON and POLCONJ as:
+\end_layout
+
+\begin_layout Quote
+\begin_inset Quotes eld
+\end_inset
+
+POLCON and POLCONJ differ in that the latter uses actual data on the appointment
+ history of High Court justices to compute the alignment and fractionalization
+ of the High Court.
+\begin_inset Quotes erd
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -912,33 +1029,43 @@ key "henisz2000theinstitutional"
 \end_inset
 
 .
-\end_layout
+ Moreover, 
+\begin_inset CommandInset citation
+LatexCommand citet
+after "15"
+key "badinger2010outputvolatility"
 
-\begin_layout Quotation
+\end_inset
+
+, who proposes to use the POLCON measures as instruments for output volatility,
+ has found that the POLCON measures are significantly negatively correlated
+ with output volatility, but discards the proposition because POLCON most
+ probably is associated with measures of institutional quality, which makes
+ it a weak instrument.
+ Indeed, 
+\begin_inset CommandInset citation
+LatexCommand citet
+after "p. 50"
+key "acemoglu2003institutional"
+
+\end_inset
+
+ have found that 
 \begin_inset Quotes eld
 \end_inset
 
-POLCON and POLCONJ differ in that the latter uses actual data on the appointment
- history of High Court justices to compute the alignment and fractionalization
- of the High Court.
+institutions cause volatility through a number of microeconomic, as well
+ as macroeconomic, channels.
 \begin_inset Quotes erd
-\end_inset
-
-
-\begin_inset CommandInset citation
-LatexCommand citep
-after "p. 10"
-key "henisz2000theinstitutional"
-
 \end_inset
 
 
 \end_layout
 
 \begin_layout Standard
-As Henisz (2000) notes himself is the assumptions underlysing this measure
- quite strong and unrealistic, but they should however be regarded as a
- rough proxy of political constraints.
+As Henisz (2000) notes himself, the assumptions underlying this measure
+ are quite strong and unrealistic, but they should however be regarded as
+ a rough proxy of political constraints.
 \end_layout
 
 \begin_layout Subsubsection
@@ -946,6 +1073,25 @@ Measures of real GDP per capita
 \begin_inset CommandInset label
 LatexCommand label
 name "sub:Measures-of-gdp"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+<<PWT>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
 
 \end_inset
 
@@ -1000,9 +1146,57 @@ in constant price
 \emph on
 rgdpl
 \emph default
- and the code book describes it as PPP Converted GDP Per Capita (Laspeyres),
- derived from growth rates of c, g, i, at 2005 constant prices.
- The growth rate is then calculated using the formula 
+ and the codebook describes it as PPP Converted GDP Per Capita (Laspeyres),
+ derived from growth rates of 
+\emph on
+c
+\emph default
+, 
+\emph on
+g
+\emph default
+, 
+\emph on
+i
+\emph default
+, at 2005 constant prices.
+ Table 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+ref{rgdpl}
+\end_layout
+
+\end_inset
+
+ reports some summary statistics of the variable on country basis.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<rgdpl, results='asis'>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The growth rate is then calculated using the formula 
 \begin_inset Formula 
 \[
 \hat{w}_{t}=\frac{x_{t}-x_{t-1}}{x_{t-1}},
@@ -1026,14 +1220,26 @@ rgdpl
 \begin_inset Formula $t$
 \end_inset
 
- 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "universityofzurich2010logarithms"
+.
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+‘Logarithms and Growth Rates’, Economic and Social History Online - How
+ to Present Quantitative Data, 22 November 2010, 
+\begin_inset CommandInset href
+LatexCommand href
+target "http://www.eso.uzh.ch/modul3/HowToPre_en.html?lesson.section=unit&section.label=HowToPre_1"
 
 \end_inset
 
 .
+ 
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1139,25 +1345,6 @@ key "barro2003determinants"
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-<<PWT>>=
-\end_layout
-
-\begin_layout Plain Layout
-
-@
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Subsubsection
@@ -1901,7 +2088,44 @@ status collapsed
 \end_layout
 
 \begin_layout Section
-Statistical Model
+Statistical Models
+\end_layout
+
+\begin_layout Standard
+Initially, we attempt a standard linear model pooling all the data across
+ countries and years, which can be written as 
+\begin_inset Formula 
+\[
+y_{it}=\alpha+\beta^{T}x_{it}+u_{it},
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $i=1,...,n$
+\end_inset
+
+ is the country index, 
+\begin_inset Formula $t=1,...T$
+\end_inset
+
+ is the time index and 
+\begin_inset Formula $u_{it}$
+\end_inset
+
+ a random disturbance term with mean 0 
+\begin_inset CommandInset citation
+LatexCommand citep
+after "p. 2"
+key "croissant2008paneldata"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard

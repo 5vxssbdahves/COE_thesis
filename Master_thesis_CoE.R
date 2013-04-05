@@ -11,7 +11,7 @@ POLCON$llaw.order <- log(POLCON$Law...Order..from.ICRG.)
 summary(POLCON$CTRYNM)
 library(foreign)
 
-# Trying to get descriptive statistics by country
+## Trying to get descriptive statistics by country
 # dstats <- function(x)(c(min=min(x), max=max(x))
 # POLCON_vars1 <- POLCON[c("Year")]
 # by(POLCON_vars1, POLCON$CTRYNM, dstats)
@@ -28,21 +28,82 @@ mystats <- function(x, na.omit=TRUE){
   max <- max(x)
   skew <- sum((x-m)^3/s^3)/n
   kurt <- sum((x-m)^4/s^4)/n - 3
-  return(c(n=n, mean=m, median=med, min=min, max=max, stdev=s))
+  return(c(n=n, mean=m, median=med, max=max, min=min, stdev=s))
 }
 POLCON_vars <- POLCON[c("POLCONIII", "POLCONV", "POLCONVJ")]
 POLCON_desc <- sapply(POLCON_vars, mystats, na.omit=TRUE)
 is.matrix(POLCON_desc)
 POLCON_desc <- t(POLCON_desc) # Transposing the matrix
-POLCON_desc
+class(POLCON_desc)
+str(POLCON_desc)
+
+## Trying to get descriptive statistics by country
 #install.packages("doBy")                   
 library(doBy)
-POLCON_desc2 <- summaryBy(POLCONIII~CTRYNM, data=POLCON, FUN=mystats)
-                      
+# Data for POLCONIII
+POLCON_desc2 <- summaryBy(POLCONIII~CTRYNM, data=POLCON, FUN=mean, na.rm = TRUE)
+POLCON_desc2
+POLCON_desc3 <- mystats(POLCON_desc2$POLCONIII.mean)
+POLCON_desc3
+class(POLCON_desc3) # Should be matrix
+# Converting to matrix and trying to name
+POLCON_desc3 <- as.matrix(POLCON_desc3)
+dimnames(POLCON_desc3) <- list(c("N", "Mean", "Median", "Max", "Min", "Std.dev."),c("POLCONIII"))
+POLCON_desc3
+# Transposing
+POLCON_desc3 <- t(POLCON_desc3)
+POLCON_desc3
+
+# For POLCONV
+POLCON_desc4 <- summaryBy(POLCONV~CTRYNM, data=POLCON, FUN=mean, na.rm = TRUE)
+POLCON_desc4
+# Remove countries with missing values
+POLCON_desc4 <- POLCON_desc4[complete.cases(POLCON_desc4), ]
+POLCON_desc4 <- mystats(POLCON_desc4$POLCONV.mean)
+POLCON_desc4
+class(POLCON_desc4) # Should be matrix
+# Converting to matrix and trying to name
+POLCON_desc4 <- as.matrix(POLCON_desc4)
+dimnames(POLCON_desc4) <- list(c("N", "Mean", "Median", "Max", "Min", "Std.dev."),c("POLCONV"))
+POLCON_desc4
+# Transposing
+POLCON_desc4 <- t(POLCON_desc4)
+POLCON_desc4
+
+# For POLCONVJ
+POLCON_desc5 <- summaryBy(POLCONVJ~CTRYNM, data=POLCON, FUN=mean, na.rm = TRUE)
+POLCON_desc5
+# Remove countries with missing values
+POLCON_desc5 <- POLCON_desc5[complete.cases(POLCON_desc5), ]
+POLCON_desc5 <- mystats(POLCON_desc5$POLCONVJ.mean)
+POLCON_desc5
+class(POLCON_desc5) # Should be matrix
+# Converting to matrix and trying to name
+POLCON_desc5 <- as.matrix(POLCON_desc5)
+dimnames(POLCON_desc5) <- list(c("N", "Mean", "Median", "Max", "Min", "Std.dev."),c("POLCONVJ"))
+POLCON_desc5
+# Transposing
+POLCON_desc5 <- t(POLCON_desc5)
+POLCON_desc5
+
+# Merge all POLCON measures
+POLCON_desc3
+POLCON_desc6 <- rbind(POLCON_desc3, POLCON_desc4)
+POLCON_desc7 <- rbind(POLCON_desc6, POLCON_desc5)
+POLCON_desc7
+
+## Making table with Henisz results
+heniszPOLCON <- matrix(c(121,0.25,0.00,0.88,0.00,0.33, 44,0.29,0.26,0.80,0.00,0.27), nrow = 2,
+                       ncol = 6, byrow = TRUE, 
+                       dimnames = list(c("POLCON", "POLCONJ"),
+                                       c("N", "Mean", "Median", "Max", "Min", "Std.dev.")))
+heniszPOLCON
+
 ## @knitr POLCON_tab
 library(xtable)
-print(xtable(POLCON_desc, label='POLCON_tab',caption='Descriptive statistics of the variables on political constraints (Henisz 2000)', sanitize.text.function = function(x){x}, table.placement = h)) # Output as LaTeX.
-# print(xtable(POLCON_desc2, label='POLCON_tab2',caption='Descriptive statistics of the variables on political constraints (Henisz 2000) on a country level', sanitize.text.function = function(x){x}, table.placement = p), tabular.environment='longtable', floating = FALSE) # Output as LaTeX.
+print(xtable(POLCON_desc, label='POLCON_tab',caption='Descriptive statistics of the variables on political constraints', table.placement = h)) # Output as LaTeX.
+print(xtable(POLCON_desc7, label='POLCON_tab2',caption='Descriptive statistics of the variables on political constraints on a country level', table.placement = h)) # Output as LaTeX.
+print(xtable(heniszPOLCON, label='heniszPOLCON',caption='Descriptive statistics of the variables on political constraints as obtained by Henisz (2000) on a country level', table.placement = h)) # Output as LaTeX.
                       
 # # Test to see what happens when the option na.omit is set to FALSE
 # POLCON_desc2 <- sapply(POLCON_vars, mystats, na.omit=FALSE)
@@ -57,6 +118,20 @@ pwt71 <- read.csv("~/Dropbox/Studieophold/College_of_Europe/Master_Thesis/Data/p
 # Dropping irrelevant variables
 pwt71 <- pwt71[c("isocode", "year", "rgdpl", "kg", "ki")]
 ls(pwt71)
+
+# Descriptive statistics for rgdpl
+rgdpl <- summaryBy(rgdpl~isocode, data=pwt71, FUN=mean, na.rm = TRUE)
+rgdpl
+rgdpl <- mystats(rgdpl$rgdpl.mean)
+rgdpl
+class(rgdpl) # Should be matrix
+# Converting to matrix and trying to name
+rgdpl <- as.matrix(rgdpl)
+dimnames(rgdpl) <- list(c("N", "Mean", "Median", "Max", "Min", "Std.dev."),c("rgdpl"))
+rgdpl
+# Transposing
+rgdpl <- t(rgdpl)
+rgdpl
 
 ## Create variable with initial gdp value
 # Create new variable that is missing if rgdpl is missing and otherwise year to use for function that looks up earliest year that is not missing
@@ -98,7 +173,6 @@ is.numeric(gdp.growth$gdp.growth)
 gdp.growth$lgdp.growth <- log(gdp.growth$gdp.growth)
 is.numeric(gdp.growth$lgdp.growth)
 
-
 # Merging data with main data set
 IQM_pro_data <- merge(IQM_pro_data, gdp.growth, by.x=c("CTRYNM", "Year"), by.y=c("country_code", "year"))
 is.numeric(IQM_pro_data$gdp.growth)
@@ -113,6 +187,9 @@ kg_desc
 ## @knitr kg
 library(xtable)
 print(xtable(kg_desc, label='kg_tab',caption='Descriptive statistics of Government Consumption', sanitize.text.function = function(x){x}, table.placement = h)) # Output as LaTeX.
+
+## @knitr rgdpl
+print(xtable(rgdpl, label='rgdpl',caption='Descriptive statistics of rgdpl', sanitize.text.function = function(x){x}, table.placement = h)) # Output as LaTeX.
 
 ## @knitr educ
 #### Barro-Lee: yr.sch.secF, yr.sch.secM ####
@@ -249,7 +326,7 @@ IQM_pro_data_vars$Year <- NULL # Deleting year
 ls(IQM_pro_data_vars)
 
 ### Trying only to make statistics that I need
-mystats <- function(x, na.omit=FALSE){
+mystats2 <- function(x, na.omit=FALSE){
   if (na.omit)
     x <- x[!is.na(x)]
   m <- mean(x)
@@ -262,13 +339,14 @@ mystats <- function(x, na.omit=FALSE){
   kurt <- sum((x-m)^4/s^4)/n - 3
   return(c(n=n, mean=m, median=med, min=min, max=max, stdev=s))
 }
-IQM_my_desc <- sapply(IQM_pro_data_vars, mystats, na.omit=TRUE)
+IQM_my_desc <- sapply(IQM_pro_data_vars, mystats2, na.omit=TRUE)
 is.matrix(IQM_my_desc)
-IQM_my_desc <- t(IQM_my_desc) # Transposing the matrix
 IQM_my_desc
+tIQM_my_desc <- t(IQM_my_desc) # Transposing the matrix
+tIQM_my_desc
 # rownames(IQM_my_desc) <- c("POLCONIII", "POLCONV", "POLCONVJ","Law and Order from ICRG", "Real Per Capita GDP Growth", "Government Consumption (% GDP)", "Total Investment (% GDP)", "Alternative measure of GDP growth", "Log(Life Expectancy)", "Log(Fertility Rate)", "Black Market Premium", "Terms of trade", "Log(ICRG Risk Measure)", "Democracy Index (PolityIV)") # Giving new names to variables to table.
 ## @knitr all_var
-print(xtable(IQM_my_desc, label='tabsmall',caption='Descriptive statistics of the variables used', digits=2, sanitize.text.function = function(x){x}, table.placement = h), floating.environment='sidewaystable', digits = 2) # Output as LaTeX.
+print(xtable(tIQM_my_desc, label='tabsmall',caption='Descriptive statistics of the variables used', digits=2, sanitize.text.function = function(x){x}, table.placement = h), floating.environment='sidewaystable', digits = 2) # Output as LaTeX.
 
 # Trying to do descriptive statistics on country level
 # by(IQM_pro_data_vars, IQM_pro_data$CTRYNM, mystats)
