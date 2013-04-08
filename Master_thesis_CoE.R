@@ -348,9 +348,6 @@ tIQM_my_desc
 ## @knitr all_var
 print(xtable(tIQM_my_desc, label='tabsmall',caption='Descriptive statistics of the variables used', digits=2, sanitize.text.function = function(x){x}, table.placement = h), floating.environment='sidewaystable', digits = 2) # Output as LaTeX.
 
-# Trying to do descriptive statistics on country level
-# by(IQM_pro_data_vars, IQM_pro_data$CTRYNM, mystats)
-
 
 ## @knitr new-label
 #### Converting to Stata data ####
@@ -359,6 +356,12 @@ library(foreign) # Package needed for the write.dta() function
 ls(IQM_pro_data)
 write.dta(IQM_pro_data, "~/Dropbox/Studieophold/College_of_Europe/Master_Thesis/Data/IQM_pro_data.dta", version=10)
 write.csv(IQM_pro_data, "~/Dropbox/Studieophold/College_of_Europe/Master_Thesis/Data/thesis_data.csv")
+# This command runs the Stata do file in the specified folder
+system("PATH=$PATH:/Applications/Stata/Stata.app/Contents/MacOS/:. ; Stata -e do /Users/vrangbaek/Dropbox/Studieophold/College_of_Europe/Master_Thesis/CoE_thesis_repository/Master_thesis.do") # It is needed to calculate the growth rate
+# Read Stata data
+IQM_pro_data <- read.dta("/Users/vrangbaek/Dropbox/Studieophold/College_of_Europe/Master_Thesis/Data/Statadata.dta")
+ls(IQM_pro_data)
+head(IQM_pro_data)
 
 ## @knitr analysis
 #### Analysis ####
@@ -367,7 +370,7 @@ library(plm) # Package for panel data model, see Croissant and Millo (2008)
 # IQM_pro_data <- pdata.frame(IQM_pro_data, index = c("CTRYNM", "Year"), drop.index = TRUE, row.names = TRUE)
 
 # Pooled regression
-summary(pooled1 <- plm(lgdp.growth ~ inigdp + yr.sch.secF + yr.sch.secM + lbmp + lfert + kg + ki + llexpec + ToT + POLCONV, data = IQM_pro_data, model = "pooling"))
+summary(pooled1 <- plm(gdp.growth ~ inigdp + yr.sch.secF + yr.sch.secM + lbmp + lfert + kg + ki + llexpec + ToT + POLCONV, data = IQM_pro_data, model = "pooling"))
 summary(pooled2 <- plm(lgdp.growth ~ inigdp + yr.sch.secF + yr.sch.secM + POLCONIII + lbmp + lfert + kg + ki + llexpec + ToT, data = IQM_pro_data, model = "pooling"))
 summary(pooled3 <- plm(lgdp.growth ~ inigdp +  yr.sch.secF + yr.sch.secM + POLCONVJ + lbmp + lfert + kg + ki + llexpec + ToT, data = IQM_pro_data, model = "pooling"))
 summary(pooled4 <- plm(lgdp.growth ~ inigdp + yr.sch.secF + yr.sch.secM + democ + lbmp + lfert + kg + ki + llexpec + ToT, data = IQM_pro_data, model = "pooling"))

@@ -510,10 +510,27 @@ key "easterly2005national"
 \end_layout
 
 \begin_layout Standard
-Another controversy in the literature concerns whether democratic institutions
- serve as mechanims for ensuring property rights, thus encouraging investment
- and economic growth, or whether increased levels of human capital lead
- to democratic institutions.
+Institutions might be difficult to measure.
+ One of the attempts to overcome this measurement problem was done by 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "acemoglu2000thecolonial"
+
+\end_inset
+
+, who explored how differences in mortality rates can used as an instrument
+ for estimating the effect of institutions on economic growth.
+ They equate institutions with secure property rights.
+ They then go on to argue that countries with this institution in place
+ will invest more in physical and human capital, because the returns on
+ the investment is more or less certain.
+\end_layout
+
+\begin_layout Standard
+This leads us to another controversy in the literature concerns whether
+ democratic institutions serve as mechanims for ensuring property rights,
+ thus encouraging investment and economic growth, or whether increased levels
+ of human capital lead to democratic institutions.
  In essence, the question is whether democratic institutions are the cause
  or consequence of economic growth.
  This is at least how the controversy is presented in Voigt (2013).
@@ -682,6 +699,40 @@ de jure
 de jure
 \emph default
 .
+\end_layout
+
+\begin_layout Standard
+Institutions might not only have an influence on economic growth through
+ its effect on human capital, but might also play a role in relation to
+ innovation, which in itself is an important driver of growth.
+ Innovation might, however, be hampered by large government institutions
+ and 
+\begin_inset Quotes eld
+\end_inset
+
+thickets of red tape strangle innovation.
+\begin_inset Quotes erd
+\end_inset
+
+
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+‘The Great Innovation Debate’, The Economist, 12 January 2013, 
+\begin_inset CommandInset href
+LatexCommand href
+target "http://www.economist.com/news/leaders/21569393-fears-innovation-slowing-are-exaggerated-governments-need-help-it-along-great"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -1275,7 +1326,7 @@ key "easterly2001globaldevelopment"
 \end_inset
 
 .
- For practical reasons, this measure is used instead.
+ This mesure is used for comparison purposes
 \end_layout
 
 \begin_layout Standard
