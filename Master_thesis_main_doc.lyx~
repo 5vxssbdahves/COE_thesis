@@ -195,8 +195,8 @@ read_chunk('Master_thesis_CoE.R')
 
 \begin_layout Plain Layout
 
-opts_chunk$set(dev='tikz', cache=TRUE, fig.align='center', par=TRUE, results='hid
-e', echo=FALSE, warning=TRUE, message=FALSE)
+opts_chunk$set(dev='tikz', cache=FALSE, fig.align='center', par=TRUE, results='hi
+de', echo=FALSE, warning=TRUE, message=FALSE)
 \end_layout
 
 \begin_layout Plain Layout
@@ -735,6 +735,10 @@ target "http://www.economist.com/news/leaders/21569393-fears-innovation-slowing-
 
 \end_layout
 
+\begin_layout Standard
+Tillid...
+\end_layout
+
 \begin_layout Section
 Data
 \end_layout
@@ -1213,7 +1217,7 @@ i
 , at 2005 constant prices.
  Table 
 \begin_inset ERT
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
@@ -1225,11 +1229,25 @@ ref{rgdpl}
 \end_inset
 
  reports some summary statistics of the variable on country basis.
+ It shows that we have a total of 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{rgdpl[1]}
+\end_layout
+
+\end_inset
+
+ countries with data for this variable.
 \end_layout
 
 \begin_layout Standard
 \begin_inset ERT
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
@@ -1243,7 +1261,7 @@ status open
 
 \end_inset
 
-
+ 
 \end_layout
 
 \begin_layout Standard
@@ -1286,6 +1304,110 @@ target "http://www.eso.uzh.ch/modul3/HowToPre_en.html?lesson.section=unit&sectio
 
 .
  
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Barro 
+\begin_inset CommandInset citation
+LatexCommand citeyearpar
+after "232"
+key "barro2003determinants"
+
+\end_inset
+
+ has produced the histogram in figure 
+\begin_inset CommandInset ref
+LatexCommand vref
+reference "fig:Histogram-of-growth"
+
+\end_inset
+
+, which shows the different growth rates of 113 countries from 1965 to 1995
+ from PWT version 6.0.
+ To compare with the newer version 7.1 a similar histogram is produced in
+ figure
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figure/pasted1.png
+	display false
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Histogram of growth rates from Barro 
+\begin_inset CommandInset citation
+LatexCommand citeyearpar
+after "232"
+key "barro2003determinants"
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Histogram-of-growth"
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Histogram of growth rate from PWT 7.0, all years
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
 \end_layout
 
 \end_inset

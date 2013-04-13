@@ -115,8 +115,17 @@ print(xtable(heniszPOLCON, label='heniszPOLCON',caption='Descriptive statistics 
 
 ## Reading PWT data set
 pwt71 <- read.csv("~/Dropbox/Studieophold/College_of_Europe/Master_Thesis/Data/pwt71_11302012version/pwt71_wo_country_names_wo_g_vars.csv")
+# write to Stata file
+library(foreign)
+write.dta(pwt71, "~/Dropbox/Studieophold/College_of_Europe/Master_Thesis/Data/pwt71a.dta", version=10)
+# This command runs the Stata do file in the specified folder
+system("PATH=$PATH:/Applications/Stata/Stata.app/Contents/MacOS/:. ; Stata -e do /Users/vrangbaek/Dropbox/Studieophold/College_of_Europe/Master_Thesis/CoE_thesis_repository/Master_thesis.do") # It is needed to calculate the growth rate
+# Read Stata file
+pwt71 <- read.dta("/Users/vrangbaek/Dropbox/Studieophold/College_of_Europe/Master_Thesis/Data/pwt71.dta")
+ls(pwt71)
 # Dropping irrelevant variables
-pwt71 <- pwt71[c("isocode", "year", "rgdpl", "kg", "ki")]
+str(pwt71)
+pwt71 <- pwt71[c("isocode", "year", "rgdpl", "kg", "ki", "rgdpl2", "gdpgrowth")]
 ls(pwt71)
 
 # Descriptive statistics for rgdpl
@@ -132,6 +141,18 @@ rgdpl
 # Transposing
 rgdpl <- t(rgdpl)
 rgdpl
+
+# Descriptive statistics of gdpgrowth
+library(plyr)
+ls(pwt71)
+head(pwt71)
+pwt71 <- na.omit(pwt71)
+head(pwt71)
+gdpgrowth9 <- ddply(pwt71,~isocode,summarise,mean=mean(gdpgrowth, na.rm = TRUE), max.yr=max(year), min.yr=min(year))
+gdpgrowth9
+png('/Users/vrangbaek/Dropbox/Studieophold/College_of_Europe/Master_Thesis/CoE_thesis_repository/figure/growth_hist.png')
+hist(gdpgrowth9$mean, breaks = 20, main=NULL, xlab="GDP growth")
+dev.off()
 
 ## Create variable with initial gdp value
 # Create new variable that is missing if rgdpl is missing and otherwise year to use for function that looks up earliest year that is not missing
@@ -161,7 +182,6 @@ head(pwt71, n=10)
 # Merging Penn World Table and POLCON
 IQM_pro_data <- merge(POLCON, pwt71, by.x=c("CTRYNM", "Year"), by.y=c("isocode", "year")) 
 ls(IQM_pro_data)
-# 
 
 ## Read other gdp growth variable
 gdp.growth <- read.csv("~/Dropbox/Studieophold/College_of_Europe/Master_Thesis/Data/Lost_decades_macro_time_series_6_2001_gdp_growth.csv", check.names=FALSE, na.strings = "..", sep = ";", colClasses=c(rep("character", 2),rep("numeric",39)), skip = 2, nrows = 208)
@@ -356,23 +376,17 @@ library(foreign) # Package needed for the write.dta() function
 ls(IQM_pro_data)
 write.dta(IQM_pro_data, "~/Dropbox/Studieophold/College_of_Europe/Master_Thesis/Data/IQM_pro_data.dta", version=10)
 write.csv(IQM_pro_data, "~/Dropbox/Studieophold/College_of_Europe/Master_Thesis/Data/thesis_data.csv")
-# This command runs the Stata do file in the specified folder
-system("PATH=$PATH:/Applications/Stata/Stata.app/Contents/MacOS/:. ; Stata -e do /Users/vrangbaek/Dropbox/Studieophold/College_of_Europe/Master_Thesis/CoE_thesis_repository/Master_thesis.do") # It is needed to calculate the growth rate
+# # This command runs the Stata do file in the specified folder
+# system("PATH=$PATH:/Applications/Stata/Stata.app/Contents/MacOS/:. ; Stata -e do /Users/vrangbaek/Dropbox/Studieophold/College_of_Europe/Master_Thesis/CoE_thesis_repository/Master_thesis.do") # It is needed to calculate the growth rate
 # Read Stata data
-Statadata <- read.dta("/Users/vrangbaek/Dropbox/Studieophold/College_of_Europe/Master_Thesis/Data/Statadata.dta")
-ls(Statadata)
-head(Statadata)
-# Remove unnecessary variables
-Statadata <- Statadata[c("CTRYNM", "Year", "gdpgrowth")]
-# Merge Statadata with main dataset
-IQM_pro_data <- merge(Statadata, IQM_pro_data, by.x=c("CTRYNM", "Year"), by.y=c("CTRYNM", "Year")) 
+# Statadata <- read.dta("/Users/vrangbaek/Dropbox/Studieophold/College_of_Europe/Master_Thesis/Data/Statadata.dta")
+# ls(Statadata)
+# head(Statadata)
+# # Remove unnecessary variables
+# Statadata <- Statadata[c("CTRYNM", "Year", "gdpgrowth")]
+# # Merge Statadata with main dataset
+# IQM_pro_data <- merge(Statadata, IQM_pro_data, by.x=c("CTRYNM", "Year"), by.y=c("CTRYNM", "Year")) 
 ls(IQM_pro_data)
-# Descriptive statistics of gdpgrowth
-attach(IQM_pro_data)
-gdpgrowth.desc <- sapply(gdpgrowth, mystats, na.omit=TRUE)
-gdpgrowth.desc
-
-
 
 ## @knitr analysis
 #### Analysis ####

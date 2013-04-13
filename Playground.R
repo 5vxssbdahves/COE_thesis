@@ -1,3 +1,17 @@
+# Descriptive statistics of rgdpl2
+library(plyr)
+ls(pwt71)
+head(pwt71)
+pwt71 <- na.omit(pwt71)
+head(pwt71)
+gdpgrowth9 <- ddply(pwt71,~isocode,summarise,mean=mean(gdpgrowth, na.rm = TRUE), min.yr=min(year), max.yr=max(year))
+gdpgrowth9
+hist(gdpgrowth9$mean, breaks = 20)
+hist(gdpgrowth9$max.yr)
+hist(gdpgrowth9$min.yr)
+min(gdpgrowth9$max.yr)
+max(gdpgrowth9$min.yr)
+
 ## Calculate gdp growth value from rgdpl
 # Here the pwt71 data is split into country groups with rgdpl
 countries2 <- split(pwt71[,3], pwt71$isocode)
@@ -77,7 +91,7 @@ title(main="US 1790-2000\n", outer = T, line=-3)
 #dev.off()
 
 ###### Vaekst og inigdp reg
-summary(lm(log(gdpgrowth) ~ log(inigdp), data = IQM_pro_data))
+summary(lm(gdpgrowth ~ inigdp, data = IQM_pro_data))
 summary(lm(gdpgrowth ~ gdp.growth, data = IQM_pro_data))
 cor(IQM_pro_data$gdpgrowth, IQM_pro_data$gdp.growth, use = "na.or.complete", 
     method = c("pearson", "kendall", "spearman"))
