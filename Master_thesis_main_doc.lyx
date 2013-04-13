@@ -735,6 +735,10 @@ target "http://www.economist.com/news/leaders/21569393-fears-innovation-slowing-
 
 \end_layout
 
+\begin_layout Standard
+Tillid...
+\end_layout
+
 \begin_layout Section
 Data
 \end_layout
@@ -1326,7 +1330,7 @@ key "easterly2001globaldevelopment"
 \end_inset
 
 .
- This mesure is used for comparison purposes
+ This mesure is used for comparison purposes.
 \end_layout
 
 \begin_layout Standard
@@ -2591,7 +2595,7 @@ Conclusions
 \end_layout
 
 \begin_layout Standard
-In this project we have tested whether political constraints or institutiona
+In this project we have tested whether political constraints or institutional
  factors, or both, affect economic growth.
  We have found a statistical significant estimator of the measure of political
  constraints POLCONV and the democracy index provided by PolityIV when using

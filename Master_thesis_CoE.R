@@ -161,6 +161,7 @@ head(pwt71, n=10)
 # Merging Penn World Table and POLCON
 IQM_pro_data <- merge(POLCON, pwt71, by.x=c("CTRYNM", "Year"), by.y=c("isocode", "year")) 
 ls(IQM_pro_data)
+# 
 
 ## Read other gdp growth variable
 gdp.growth <- read.csv("~/Dropbox/Studieophold/College_of_Europe/Master_Thesis/Data/Lost_decades_macro_time_series_6_2001_gdp_growth.csv", check.names=FALSE, na.strings = "..", sep = ";", colClasses=c(rep("character", 2),rep("numeric",39)), skip = 2, nrows = 208)
@@ -348,9 +349,8 @@ tIQM_my_desc
 ## @knitr all_var
 print(xtable(tIQM_my_desc, label='tabsmall',caption='Descriptive statistics of the variables used', digits=2, sanitize.text.function = function(x){x}, table.placement = h), floating.environment='sidewaystable', digits = 2) # Output as LaTeX.
 
-
 ## @knitr new-label
-#### Converting to Stata data ####
+#### Stata data ####
 # install.packages("foreign")
 library(foreign) # Package needed for the write.dta() function
 ls(IQM_pro_data)
@@ -359,18 +359,27 @@ write.csv(IQM_pro_data, "~/Dropbox/Studieophold/College_of_Europe/Master_Thesis/
 # This command runs the Stata do file in the specified folder
 system("PATH=$PATH:/Applications/Stata/Stata.app/Contents/MacOS/:. ; Stata -e do /Users/vrangbaek/Dropbox/Studieophold/College_of_Europe/Master_Thesis/CoE_thesis_repository/Master_thesis.do") # It is needed to calculate the growth rate
 # Read Stata data
-IQM_pro_data <- read.dta("/Users/vrangbaek/Dropbox/Studieophold/College_of_Europe/Master_Thesis/Data/Statadata.dta")
+Statadata <- read.dta("/Users/vrangbaek/Dropbox/Studieophold/College_of_Europe/Master_Thesis/Data/Statadata.dta")
+ls(Statadata)
+head(Statadata)
+# Remove unnecessary variables
+Statadata <- Statadata[c("CTRYNM", "Year", "gdpgrowth")]
+# Merge Statadata with main dataset
+IQM_pro_data <- merge(Statadata, IQM_pro_data, by.x=c("CTRYNM", "Year"), by.y=c("CTRYNM", "Year")) 
 ls(IQM_pro_data)
-head(IQM_pro_data)
+# Descriptive statistics of gdpgrowth
+attach(IQM_pro_data)
+gdpgrowth.desc <- sapply(gdpgrowth, mystats, na.omit=TRUE)
+gdpgrowth.desc
+
+
 
 ## @knitr analysis
 #### Analysis ####
 # install.packages("plm")
 library(plm) # Package for panel data model, see Croissant and Millo (2008)
-# IQM_pro_data <- pdata.frame(IQM_pro_data, index = c("CTRYNM", "Year"), drop.index = TRUE, row.names = TRUE)
-
 # Pooled regression
-summary(pooled1 <- plm(gdp.growth ~ inigdp + yr.sch.secF + yr.sch.secM + lbmp + lfert + kg + ki + llexpec + ToT + POLCONV, data = IQM_pro_data, model = "pooling"))
+summary(pooled1 <- plm(gdpgrowth ~ log(inigdp) + yr.sch.secF + yr.sch.secM + lbmp + lfert + kg + ki + llexpec + ToT + POLCONV, data = IQM_pro_data, model = "pooling"))
 summary(pooled2 <- plm(lgdp.growth ~ inigdp + yr.sch.secF + yr.sch.secM + POLCONIII + lbmp + lfert + kg + ki + llexpec + ToT, data = IQM_pro_data, model = "pooling"))
 summary(pooled3 <- plm(lgdp.growth ~ inigdp +  yr.sch.secF + yr.sch.secM + POLCONVJ + lbmp + lfert + kg + ki + llexpec + ToT, data = IQM_pro_data, model = "pooling"))
 summary(pooled4 <- plm(lgdp.growth ~ inigdp + yr.sch.secF + yr.sch.secM + democ + lbmp + lfert + kg + ki + llexpec + ToT, data = IQM_pro_data, model = "pooling"))

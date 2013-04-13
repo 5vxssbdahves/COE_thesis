@@ -75,3 +75,10 @@ doub<-c(NA,log(2)/growthrate[-1])
 plot(midyear,doub, type="l",main="Doubling Time")
 title(main="US 1790-2000\n", outer = T, line=-3) 
 #dev.off()
+
+###### Vaekst og inigdp reg
+summary(lm(log(gdpgrowth) ~ log(inigdp), data = IQM_pro_data))
+summary(lm(gdpgrowth ~ gdp.growth, data = IQM_pro_data))
+cor(IQM_pro_data$gdpgrowth, IQM_pro_data$gdp.growth, use = "na.or.complete", 
+    method = c("pearson", "kendall", "spearman"))
+

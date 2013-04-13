@@ -1326,11 +1326,7 @@ key "easterly2001globaldevelopment"
 \end_inset
 
 .
- For practical reasons, this measure is used instead.
-\end_layout
-
-\begin_layout Standard
-
+ This mesure is used for comparison purposes.
 \end_layout
 
 \begin_layout Standard
@@ -2595,7 +2591,7 @@ Conclusions
 \end_layout
 
 \begin_layout Standard
-In this project we have tested whether political constraints or institutiona
+In this project we have tested whether political constraints or institutional
  factors, or both, affect economic growth.
  We have found a statistical significant estimator of the measure of political
  constraints POLCONV and the democracy index provided by PolityIV when using
