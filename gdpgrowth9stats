@@ -1,0 +1,19 @@
+% latex table generated in R 2.15.2 by xtable 1.7-1 package
+% Thu Apr 18 20:42:03 2013
+\begin{table}[ht]
+\centering
+\begin{tabular}{rr}
+  \hline
+ & gdpgrowth9stats \\ 
+  \hline
+n & 190.00 \\ 
+  mean & 0.02 \\ 
+  median & 0.02 \\ 
+  min & -0.01 \\ 
+  max & 0.10 \\ 
+  stdev & 0.02 \\ 
+   \hline
+\end{tabular}
+\caption{Descriptive statistics of growth variable} 
+\label{gdpgrowth9stats}
+\end{table}

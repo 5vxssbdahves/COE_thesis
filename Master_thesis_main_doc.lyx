@@ -745,6 +745,23 @@ Data
 \end_layout
 
 \begin_layout Standard
+The factors influencing economic growth are obviously numerous and it is
+ clearly outside the scope of this paper to attempt to include all the relevant
+ variables, which the literature has identified.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Which are these?
+\end_layout
+
+\end_inset
+
+ We will limit ourselves to the control variables used in the original paper
+ by Henisz (2000).
+\end_layout
+
+\begin_layout Standard
 For a quick overview the entire set of variables can be seen in table 
 \begin_inset ERT
 status collapsed
@@ -1104,7 +1121,7 @@ name "sub:Measures-of-gdp"
 
 \begin_layout Standard
 \begin_inset ERT
-status collapsed
+status open
 
 \begin_layout Plain Layout
 
@@ -1309,7 +1326,7 @@ reference "fig:Histogram-of-growth-1"
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -1356,13 +1373,12 @@ name "fig:Histogram-of-growth"
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
-\begin_inset External
-	template RasterImage
-	filename figure/growth_hist.png
+\begin_inset Graphics
+	filename figure/growth_hist.pdf
 	display false
 	scale 40
 
@@ -1437,6 +1453,88 @@ reference "fig:Histogram-of-growth3"
 \end_inset
 
 , which resembles Barro's much more.
+ If look at tables 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+ref{gdpgrowth9stats}
+\end_layout
+
+\end_inset
+
+ and 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+ref{gdpgrowth10stats}
+\end_layout
+
+\end_inset
+
+, we see that the summary statistics do not vary much before and after trimming
+ the data set.
+ The mean, median and standard deviation are the same, while the only difference
+s are in the the maximum and minimum values.
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+One might wonder why we have a lower minimum in the trimmed data set.
+ The country in question is Sierra Leone, which for the whole period for
+ which there is data (
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{gdpgrowth9$min.yr[gdpgrowth9$isocode=='SLE']}
+\end_layout
+
+\end_inset
+
+-
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{gdpgrowth9$max.yr[gdpgrowth9$isocode=='SLE']}
+\end_layout
+
+\end_inset
+
+) has a mean growth rate of 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{gdpgrowth9$mean[gdpgrowth9$isocode=='SLE']}
+\end_layout
+
+\end_inset
+
+, but the years from lying outside the range of 1965-2000 might have been
+ different from these years.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1447,9 +1545,8 @@ status collapsed
 
 \begin_layout Plain Layout
 \align center
-\begin_inset External
-	template RasterImage
-	filename figure/growth_hist2.png
+\begin_inset Graphics
+	filename figure/growth_hist2.pdf
 	display false
 	scale 40
 
@@ -1479,6 +1576,39 @@ name "fig:Histogram-of-growth3"
 
 \begin_layout Plain Layout
 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+input{gdpgrowth9stats}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+input{gdpgrowth10stats}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+This are the summary statistic tables.
 \end_layout
 
 \end_inset
@@ -1536,7 +1666,7 @@ robust results by using national accounts data, even though they are not
 
 \begin_layout Standard
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
 Another measures of GDP growth is found in the Global Development Network
@@ -1638,19 +1768,26 @@ name "fig:Simple-relation-between"
 \end_layout
 
 \begin_layout Standard
-Reproducting this figure with the unbalanced data set we get
+Reproducting this figure with the unbalanced data set we get the result
+ in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Simple-relation-between-1"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
-\begin_inset External
-	template RasterImage
+\begin_inset Graphics
 	filename figure/growth_inigdp.pdf
 	display false
 	scale 40
@@ -1665,6 +1802,13 @@ status open
 
 \begin_layout Plain Layout
 Simple relation between GDP growth and initial GDP, unbalanced data set
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Simple-relation-between-1"
+
+\end_inset
+
+
 \end_layout
 
 \end_inset

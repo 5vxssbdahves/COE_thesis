@@ -1,3 +1,4 @@
+setwd("/Users/vrangbaek/Dropbox/Studieophold/College_of_Europe/Master_Thesis/CoE_thesis_repository")
 ## @knitr POLCON
 #### POLCON: POLCONIII, POLCONV, POLCONJ, law.order ####
 # POLCON <- read.delim("~/Dropbox/Studieophold/College_of_Europe/Master_Thesis/Data/Henisz/POLCON_2010_tabsep.txt")
@@ -154,10 +155,31 @@ pwt71 <- na.omit(pwt71)
 head(pwt71)
 gdpgrowth9 <- ddply(pwt71,~isocode,summarise,mean=mean(gdpgrowth, na.rm = TRUE), max.yr=max(year), min.yr=min(year))
 gdpgrowth9
+gdpgrowth9$mean[gdpgrowth9$isocode=='SLE']
 pdf('/Users/vrangbaek/Dropbox/Studieophold/College_of_Europe/Master_Thesis/CoE_thesis_repository/figure/growth_hist.pdf')
 hist(gdpgrowth9$mean, breaks = 20, main=NULL, xlab="GDP growth")
 dev.off()
-mystats2(gdpgrowth9$mean)
+mystats2 <- function(x, na.omit=FALSE){
+  if (na.omit)
+    x <- x[!is.na(x)]
+  m <- mean(x)
+  med <- median (x)
+  n <- length(x)
+  s <- sd(x)
+  min <- min(x)
+  max <- max(x)
+  skew <- sum((x-m)^3/s^3)/n
+  kurt <- sum((x-m)^4/s^4)/n - 3
+  return(c(n=n, mean=m, median=med, min=min, max=max, stdev=s))
+}
+gdpgrowth9stats <- mystats2(gdpgrowth9$mean)
+gdpgrowth9stats <- as.data.frame(gdpgrowth9stats)
+gdpgrowth9stats <- t(gdpgrowth9stats)
+rownames(gdpgrowth9stats) <- "GDP growth"
+print(xtable(gdpgrowth9stats, label='gdpgrowth9stats',
+             caption='Descriptive statistics of growth variable before trimming', 
+             table.placement = h),
+      file='gdpgrowth9stats.tex') # Output as LaTeX.
 
 
 ## Create variable with initial gdp value
@@ -230,6 +252,14 @@ gdpgrowth10
 pdf('/Users/vrangbaek/Dropbox/Studieophold/College_of_Europe/Master_Thesis/CoE_thesis_repository/figure/growth_hist2.pdf')
 hist(gdpgrowth10$mean, breaks = 20, main=NULL, xlab="GDP growth")
 dev.off()
+gdpgrowth10stats <- mystats2(gdpgrowth10$mean)
+gdpgrowth10stats <- as.data.frame(gdpgrowth10stats)
+gdpgrowth10stats <- t(gdpgrowth10stats)
+rownames(gdpgrowth10stats) <- "GDP growth"
+print(xtable(gdpgrowth10stats, label='gdpgrowth10stats',
+             caption='Descriptive statistics of growth variable after trimming', 
+             table.placement = h),
+      file='gdpgrowth10stats.tex') # Output as LaTeX.
 
 # Descriptive statistics for kg
 kg <- pwt71[c("kg")]
@@ -379,19 +409,6 @@ IQM_pro_data_vars$Year <- NULL # Deleting year
 ls(IQM_pro_data_vars)
 
 ### Trying only to make statistics that I need
-mystats2 <- function(x, na.omit=FALSE){
-  if (na.omit)
-    x <- x[!is.na(x)]
-  m <- mean(x)
-  med <- median (x)
-  n <- length(x)
-  s <- sd(x)
-  min <- min(x)
-  max <- max(x)
-  skew <- sum((x-m)^3/s^3)/n
-  kurt <- sum((x-m)^4/s^4)/n - 3
-  return(c(n=n, mean=m, median=med, min=min, max=max, stdev=s))
-}
 IQM_my_desc <- sapply(IQM_pro_data_vars, mystats2, na.omit=TRUE)
 is.matrix(IQM_my_desc)
 IQM_my_desc
