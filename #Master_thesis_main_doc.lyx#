@@ -1309,7 +1309,7 @@ reference "fig:Histogram-of-growth-1"
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -1356,13 +1356,12 @@ name "fig:Histogram-of-growth"
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
-\begin_inset External
-	template RasterImage
-	filename figure/growth_hist.png
+\begin_inset Graphics
+	filename figure/growth_hist.pdf
 	display false
 	scale 40
 
@@ -1447,9 +1446,8 @@ status collapsed
 
 \begin_layout Plain Layout
 \align center
-\begin_inset External
-	template RasterImage
-	filename figure/growth_hist2.png
+\begin_inset Graphics
+	filename figure/growth_hist2.pdf
 	display false
 	scale 40
 
@@ -1648,6 +1646,14 @@ sideways false
 status open
 
 \begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figure/growth_inigdp.pdf
+	display false
+	scale 40
+
+\end_inset
+
 
 \end_layout
 

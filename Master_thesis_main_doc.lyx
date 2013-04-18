@@ -8,6 +8,7 @@
 %\usepackage{knitr}
 \usepackage{rotating}
 \usepackage{longtable}
+\usepackage[titletoc,toc,title]{appendix}
 \end_preamble
 \use_default_options true
 \begin_modules
@@ -744,69 +745,36 @@ Data
 \end_layout
 
 \begin_layout Standard
-The panel data set used is an unbalanced panel and made up from a number
- of sources, which are explained below.
+For a quick overview the entire set of variables can be seen in table 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+ref{tabsmall}
 \end_layout
 
-\begin_layout Subsection
-Variables
+\end_inset
+
+ (see p.
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+pageref{tabsmall}
 \end_layout
 
-\begin_layout Standard
-The variables used are primarily taken from Table 3 in Henisz (2000) and
- include:
-\end_layout
+\end_inset
 
-\begin_layout Itemize
-Real Per Capita GDP Growth 
-\end_layout
-
-\begin_layout Itemize
-Male Secondary Education (years) 
-\end_layout
-
-\begin_layout Itemize
-Female Secondary Education (years) 
-\end_layout
-
-\begin_layout Itemize
-Log(Life Expectancy) 
-\end_layout
-
-\begin_layout Itemize
-Log(Fertility Rate) 
-\end_layout
-
-\begin_layout Itemize
-Government Consumption (% GDP) 
-\end_layout
-
-\begin_layout Itemize
-Log(Black Market Exchange Rate Premium)
-\end_layout
-
-\begin_layout Itemize
-Change in the Terms of Trade
-\end_layout
-
-\begin_layout Itemize
-Total Investment (% GDP) 
-\end_layout
-
-\begin_layout Itemize
-Log(Law & Order Index)
-\end_layout
-
-\begin_layout Itemize
-Democracy Index 
-\end_layout
-
-\begin_layout Itemize
-Political Constraint Index (POLCON) 
-\end_layout
-
-\begin_layout Itemize
-Political Constraint Index (POLCONJ)
+).
+ Here the mean, median, minimum, maximum and standard deviation values are
+ reported.
 \end_layout
 
 \begin_layout Standard
@@ -844,7 +812,7 @@ pageref{tabsmall}
  for more information on the variable.
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 Measures on political constraints
 \begin_inset CommandInset label
 LatexCommand label
@@ -1123,7 +1091,7 @@ As Henisz (2000) notes himself, the assumptions underlying this measure
  a rough proxy of political constraints.
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 Measures of real GDP per capita
 \begin_inset CommandInset label
 LatexCommand label
@@ -1247,7 +1215,7 @@ Sexpr{rgdpl[1]}
 
 \begin_layout Standard
 \begin_inset ERT
-status collapsed
+status open
 
 \begin_layout Plain Layout
 
@@ -1265,7 +1233,7 @@ status collapsed
 \end_layout
 
 \begin_layout Standard
-The growth rate is then calculated using the formula 
+The growth rate is calculated using the formula 
 \begin_inset Formula 
 \[
 \hat{w}_{t}=\frac{x_{t}-x_{t-1}}{x_{t-1}},
@@ -1341,7 +1309,7 @@ reference "fig:Histogram-of-growth-1"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -1388,7 +1356,7 @@ name "fig:Histogram-of-growth"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -1407,7 +1375,7 @@ status collapsed
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Histogram of growth rate from PWT 7.0, all years
+Histogram of growth rate from PWT 7.1, all years, 190 countries
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Histogram-of-growth-1"
@@ -1428,7 +1396,119 @@ name "fig:Histogram-of-growth-1"
 
 \end_inset
 
+ This histogram looks quite different from the one produced in Barro, because
+ it contains all the observations available for 190 countries.
+ i.e.
+ some countries only have data for a few years, which makes the distribution
+ of the growth rates quite dispersed.
+ Table 
+\begin_inset ERT
+status open
 
+\begin_layout Plain Layout
+
+
+\backslash
+ref{gdpgrowth9}
+\end_layout
+
+\end_inset
+
+ in Appendix A on page 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+pageref{appendix1}
+\end_layout
+
+\end_inset
+
+ shows the mean growth rates for all 190 countries together with the earliest
+ and latest year that data is available.
+ After trimming our data we get the histogram as seen in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Histogram-of-growth3"
+
+\end_inset
+
+, which resembles Barro's much more.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset External
+	template RasterImage
+	filename figure/growth_hist2.png
+	display false
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Histogram of growth rates from 7.1, 1965-2000, 113 countries
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Histogram-of-growth3"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Trimming data in this way is however not optimal, because it may make the
+ data set less representative.
+ As 
+\begin_inset CommandInset citation
+LatexCommand citet
+after "p. 16"
+key "judson1999estimating"
+
+\end_inset
+
+ point out, low income countries are more likely to have missing values.
+ Also, we lose a significant amount of data (from 190 countries to 113).
+ Nonetheless, such estimation methods as least squares dummy variable techniques
+ do not work with an unbalanced data set 
+\begin_inset CommandInset citation
+LatexCommand citep
+after "p. 15"
+key "judson1999estimating"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -1455,6 +1535,10 @@ robust results by using national accounts data, even though they are not
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
 Another measures of GDP growth is found in the Global Development Network
  Growth Database 
 \begin_inset CommandInset citation
@@ -1464,7 +1548,15 @@ key "easterly2001globaldevelopment"
 \end_inset
 
 .
- This mesure is used for comparison purposes.
+ This measure is used for comparison purposes.
+ Something is wrong with this data.
+ When running a correlation between this growth variable and the one I calculate
+d the coefficient is only around 0.24, so something is clearly wrong...
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1478,7 +1570,115 @@ key "barro1996democracy"
 
  writes the neoclassical model of economic growth predicts that GDP growth
  is negatively correlated with the initial level of GDP.
- 
+ He produces the simple relation between growth rates and the initial GDP
+ value (see figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Simple-relation-between"
+
+\end_inset
+
+) to support the claim that there is no evidence of absolute convergence,
+ i.e.
+ that poorer countries grow faster no matter what.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figure/pasted2.png
+	display false
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Simple relation between growth rates and initial GDP from Barro 
+\begin_inset CommandInset citation
+LatexCommand citeyearpar
+after "p. 236"
+key "barro2003determinants"
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Simple-relation-between"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Reproducting this figure with the unbalanced data set we get
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset External
+	template RasterImage
+	filename figure/growth_inigdp.pdf
+	display false
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Simple relation between GDP growth and initial GDP, unbalanced data set
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Quote
@@ -1515,7 +1715,7 @@ key "barro2003determinants"
 \end_layout
 
 \begin_layout Standard
-The convergence effect is 
+This convergence effect is 
 \begin_inset Quotes eld
 \end_inset
 
@@ -1536,7 +1736,7 @@ key "barro2003determinants"
 .
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 Measures of educational attainment
 \end_layout
 
@@ -1597,7 +1797,7 @@ status open
 
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 Measures on life expectancy
 \end_layout
 
@@ -1662,7 +1862,7 @@ status open
 
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 Measures on fertility rates
 \end_layout
 
@@ -1716,7 +1916,7 @@ status open
 
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 Government Consumption (% GDP)
 \end_layout
 
@@ -1804,7 +2004,7 @@ status open
 
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 Black Market Exchange Rate Premium
 \end_layout
 
@@ -2005,7 +2205,7 @@ linewidth', fig.show='asis', dev='png', fig.env='figure', fig.cap='Histogram
 
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 Change in the Terms of Trade
 \end_layout
 
@@ -2071,7 +2271,7 @@ status open
 
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 Total Investment (% GDP)
 \end_layout
 
@@ -2085,7 +2285,7 @@ ki
  2005 constant prices (%).
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 Law & Order Index
 \end_layout
 
@@ -2124,7 +2324,7 @@ status open
 
 \begin_layout Standard
 \begin_inset Note Note
-status collapsed
+status open
 
 \begin_layout Subsubsection
 No.
@@ -2141,7 +2341,7 @@ From Polity data set...
 
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 Democracy Index
 \end_layout
 
@@ -2199,48 +2399,20 @@ status open
 
 \end_layout
 
-\begin_layout Subsection
-Data Description
-\end_layout
-
 \begin_layout Standard
-The entire set of variables can be seen in table 
-\begin_inset ERT
+\begin_inset Note Note
 status collapsed
 
 \begin_layout Plain Layout
-
-
-\backslash
-ref{tabsmall}
+These next two code chunks controls the tables of summary statistics for
+ all the variables.
 \end_layout
 
 \end_inset
 
- (see p.
- 
+
 \begin_inset ERT
 status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-pageref{tabsmall}
-\end_layout
-
-\end_inset
-
-).
- Here the mean, median, minimum, maximum and standard deviation values are
- reported.
-\end_layout
-
-\begin_layout Standard
-\paragraph_spacing single
-\align left
-\begin_inset ERT
-status open
 
 \begin_layout Plain Layout
 
@@ -2255,9 +2427,6 @@ status open
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
 \begin_inset ERT
 status collapsed
 
@@ -2278,6 +2447,18 @@ status collapsed
 
 \begin_layout Section
 Statistical Models
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset citation
+LatexCommand cite
+key "judson1999estimating"
+
+\end_inset
+
+ discusses the different estimation techniques available for macroeconomic
+ panel data set, which typically has a large time dimension, but a smaller
+ individual (country) dimension as opposed to microeconomic panel data sets.
 \end_layout
 
 \begin_layout Standard
@@ -2768,8 +2949,94 @@ options "bibtotoc,chicago"
 \end_layout
 
 \begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 \begin_inset ERT
 status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{appendices} 
+\backslash
+label{appendix1}   	
+\backslash
+renewcommand
+\backslash
+thetable{
+\backslash
+thesection
+\backslash
+arabic{table}}   	
+\backslash
+renewcommand
+\backslash
+thefigure{
+\backslash
+thesection
+\backslash
+arabic{figure}}   
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+section{Additional tables}  
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{appendices} 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<appendix1, results='asis'>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
 
 \begin_layout Plain Layout
 

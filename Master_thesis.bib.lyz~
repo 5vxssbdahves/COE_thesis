@@ -1,4 +1,4 @@
-﻿0_7I32M533 0_INGXJDAC 0_SGBZG34U 0_UC4WA7ER 0_XK5QWV85 0_PXB8S4NG 0_AJPH32U9 0_RK6SJI5V 0_9NT2FDUX 0_J4TCAJS4 0_7DIJVPV4 0_BSR3QDI6 0_ZFUZXPKU 0_3H4UAQUF 0_XIWDZV2M 0_NDUWSN4M 0_9TUCX6Q5 0_HEIHCV6Q 0_7M65GAR7 0_E5HFK2P6 0_ATVAZ3TK 0_8INP9T55 0_7Q7CMHVA 0_PCH64427 0_CZ65TMQP 0_SHI6S5P4 0_ATVAZ3TK 0_8UV9NWHE 0_7C84SRE7 0_CJ4HZX2J 0_7AH4KXTE 0_GGB99QHQ 0_W9H2QGVD 0_ZCVETHIV 0_MUA7EQXC 0_BCMHVQBW 0_5EB6J4QW
+﻿0_7I32M533 0_INGXJDAC 0_SGBZG34U 0_UC4WA7ER 0_XK5QWV85 0_PXB8S4NG 0_AJPH32U9 0_RK6SJI5V 0_9NT2FDUX 0_J4TCAJS4 0_7DIJVPV4 0_BSR3QDI6 0_ZFUZXPKU 0_3H4UAQUF 0_XIWDZV2M 0_NDUWSN4M 0_9TUCX6Q5 0_HEIHCV6Q 0_7M65GAR7 0_E5HFK2P6 0_ATVAZ3TK 0_8INP9T55 0_7Q7CMHVA 0_PCH64427 0_CZ65TMQP 0_SHI6S5P4 0_ATVAZ3TK 0_8UV9NWHE 0_7C84SRE7 0_CJ4HZX2J 0_7AH4KXTE 0_GGB99QHQ 0_W9H2QGVD 0_ZCVETHIV 0_MUA7EQXC 0_BCMHVQBW 0_5EB6J4QW 0_WHEBA3ZH
 
 @article{heston2002pennworld,
 	title = {Penn world table},
@@ -433,4 +433,15 @@
 	year = {2005},
 	pages = {1015{\textendash}1059},
 	file = {[PDF] from unibo.it:/Users/vrangbaek/Library/Application Support/Firefox/Profiles/n41akpa5.default/zotero/storage/4SIDZIQA/Easterly - 2005 - National policies and economic growth a reapprais.pdf:application/pdf;Snapshot:/Users/vrangbaek/Library/Application Support/Firefox/Profiles/n41akpa5.default/zotero/storage/T5VJWBXF/S1574068405010154.html:text/html}
+}
+
+@techreport{acemoglu2000thecolonial,
+	title = {The colonial origins of comparative development: An empirical investigation},
+	shorttitle = {The colonial origins of comparative development},
+	url = {http://www.nber.org/papers/w7771},
+	urldate = {2013-01-30},
+	institution = {National Bureau of Economic Research},
+	author = {Acemoglu, D. and Johnson, S. and Robinson, J. A.},
+	year = {2000},
+	file = {[PDF] from mit.edu:/Users/vrangbaek/Library/Application Support/Firefox/Profiles/n41akpa5.default/zotero/storage/KTFQRG32/Acemoglu et al. - 2000 - The colonial origins of comparative development A.pdf:application/pdf;Snapshot:/Users/vrangbaek/Library/Application Support/Firefox/Profiles/n41akpa5.default/zotero/storage/6AKC327A/w7771.html:text/html}
 }

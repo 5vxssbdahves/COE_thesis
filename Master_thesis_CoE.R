@@ -114,19 +114,23 @@ print(xtable(heniszPOLCON, label='heniszPOLCON',caption='Descriptive statistics 
 #### Penn World Table: ki, kg, rgdl ####
 
 ## Reading PWT data set
-pwt71 <- read.csv("~/Dropbox/Studieophold/College_of_Europe/Master_Thesis/Data/pwt71_11302012version/pwt71_wo_country_names_wo_g_vars.csv")
-# write to Stata file
-library(foreign)
-write.dta(pwt71, "~/Dropbox/Studieophold/College_of_Europe/Master_Thesis/Data/pwt71a.dta", version=10)
-# This command runs the Stata do file in the specified folder
-system("PATH=$PATH:/Applications/Stata/Stata.app/Contents/MacOS/:. ; Stata -e do /Users/vrangbaek/Dropbox/Studieophold/College_of_Europe/Master_Thesis/CoE_thesis_repository/Master_thesis.do") # It is needed to calculate the growth rate
-# Read Stata file
+# pwt71 <- read.csv("~/Dropbox/Studieophold/College_of_Europe/Master_Thesis/Data/pwt71_11302012version/pwt71_wo_country_names_wo_g_vars.csv")
+# head(pwt71)
+# # write to Stata file
+# library(foreign)
+# write.dta(pwt71, "~/Dropbox/Studieophold/College_of_Europe/Master_Thesis/Data/pwt71a.dta", version=10)
+# # This command runs the Stata do file in the specified folder
+# system("PATH=$PATH:/Applications/Stata/Stata.app/Contents/MacOS/:. ; Stata -e do /Users/vrangbaek/Dropbox/Studieophold/College_of_Europe/Master_Thesis/CoE_thesis_repository/Master_thesis.do") # It is needed to calculate the growth rate
+# # Read Stata file
 pwt71 <- read.dta("/Users/vrangbaek/Dropbox/Studieophold/College_of_Europe/Master_Thesis/Data/pwt71.dta")
 ls(pwt71)
+head(pwt71)
 # Dropping irrelevant variables
 str(pwt71)
 pwt71 <- pwt71[c("isocode", "year", "rgdpl", "kg", "ki", "rgdpl2", "gdpgrowth")]
 ls(pwt71)
+pwt71 <- na.omit(pwt71) # Removing missing observations
+head(pwt71, n=25)
 
 # Descriptive statistics for rgdpl
 rgdpl <- summaryBy(rgdpl~isocode, data=pwt71, FUN=mean, na.rm = TRUE)
@@ -150,26 +154,29 @@ pwt71 <- na.omit(pwt71)
 head(pwt71)
 gdpgrowth9 <- ddply(pwt71,~isocode,summarise,mean=mean(gdpgrowth, na.rm = TRUE), max.yr=max(year), min.yr=min(year))
 gdpgrowth9
-png('/Users/vrangbaek/Dropbox/Studieophold/College_of_Europe/Master_Thesis/CoE_thesis_repository/figure/growth_hist.png')
+pdf('/Users/vrangbaek/Dropbox/Studieophold/College_of_Europe/Master_Thesis/CoE_thesis_repository/figure/growth_hist.pdf')
 hist(gdpgrowth9$mean, breaks = 20, main=NULL, xlab="GDP growth")
 dev.off()
+mystats2(gdpgrowth9$mean)
+
 
 ## Create variable with initial gdp value
 # Create new variable that is missing if rgdpl is missing and otherwise year to use for function that looks up earliest year that is not missing
 pwt71$yearNA <- ifelse(is.na(pwt71$rgdpl), pwt71$yearNA <- NA, pwt71$year)
 # Show data
 head(pwt71, n=10)
+ls(pwt71)
 # Here the pwt71 data is split into country groups along with variable year and rgdpl
-countries <- split(pwt71[,2:6], pwt71$isocode)
+countries <- split(pwt71[c("rgdpl", "year", "yearNA")], pwt71$isocode)
 # Show the first country in the list countries
 countries[1]
 # Create function that finds gdp in earliest year that is not missing
 vlookup7 <- function(df){
-  df[df[5] == min(df[5], na.rm=TRUE), 2]
+  df[df[2] == min(df[2], na.rm=TRUE), 1]
 }
 # Use lapply
 inigdp <- lapply(countries, vlookup7)
-inigdp
+inigdp[1]
 # Remove NAs
 inigdp <- lapply(inigdp, function(x) x[!is.na(x)])
 inigdp
@@ -178,7 +185,19 @@ pwt71$inigdp <- unsplit(inigdp, pwt71$isocode)
 head(pwt71, n=10)
 # Deleting the variable yearNA
 pwt71$yearNA <- NULL
+# Creating log
+pwt71$linigdp <- log(pwt71$inigdp)
 head(pwt71, n=10)
+
+## Correlation between inigdp and gdpgrowth
+# Create country values
+gdpgrowth11 <- ddply(pwt71,~isocode,summarise,mean.growth=mean(gdpgrowth, na.rm = TRUE),mean.linigdp=mean(linigdp))
+gdpgrowth11
+pdf('/Users/vrangbaek/Dropbox/Studieophold/College_of_Europe/Master_Thesis/CoE_thesis_repository/figure/growth_inigdp.pdf')
+plot(gdpgrowth11$mean.linigdp, gdpgrowth11$mean.growth)
+dev.off()
+
+
 # Merging Penn World Table and POLCON
 IQM_pro_data <- merge(POLCON, pwt71, by.x=c("CTRYNM", "Year"), by.y=c("isocode", "year")) 
 ls(IQM_pro_data)
@@ -193,11 +212,24 @@ gdp.growth$gdp.growth <- as.numeric(gdp.growth$gdp.growth)
 is.numeric(gdp.growth$gdp.growth)
 gdp.growth$lgdp.growth <- log(gdp.growth$gdp.growth)
 is.numeric(gdp.growth$lgdp.growth)
-
 # Merging data with main data set
 IQM_pro_data <- merge(IQM_pro_data, gdp.growth, by.x=c("CTRYNM", "Year"), by.y=c("country_code", "year"))
 is.numeric(IQM_pro_data$gdp.growth)
 ls(IQM_pro_data)
+# Comparing gdp variables
+cor(IQM_pro_data$gdp.growth, IQM_pro_data$gdpgrowth, use='complete.obs')
+
+## Read Stata file with balanced data set
+pwt71a <- read.dta("/Users/vrangbaek/Dropbox/Studieophold/College_of_Europe/Master_Thesis/Data/pwt71b.dta")
+# Descriptive statistics of gdpgrowth with new data set
+library(plyr)
+ls(pwt71a)
+head(pwt71a)
+gdpgrowth10 <- ddply(pwt71a,~isocode,summarise,mean=mean(gdpgrowth, na.rm = TRUE), max.yr=max(year), min.yr=min(year))
+gdpgrowth10
+pdf('/Users/vrangbaek/Dropbox/Studieophold/College_of_Europe/Master_Thesis/CoE_thesis_repository/figure/growth_hist2.pdf')
+hist(gdpgrowth10$mean, breaks = 20, main=NULL, xlab="GDP growth")
+dev.off()
 
 # Descriptive statistics for kg
 kg <- pwt71[c("kg")]
@@ -207,7 +239,7 @@ kg_desc <- t(kg_desc) # Transposing the matrix
 kg_desc
 ## @knitr kg
 library(xtable)
-print(xtable(kg_desc, label='kg_tab',caption='Descriptive statistics of Government Consumption', sanitize.text.function = function(x){x}, table.placement = h)) # Output as LaTeX.
+print(xtable(kg_desc, label='kg_tab',caption='Descriptive statistics of Government Consumption', table.placement = h)) # Output as LaTeX.
 
 ## @knitr rgdpl
 print(xtable(rgdpl, label='rgdpl',caption='Descriptive statistics of rgdpl', sanitize.text.function = function(x){x}, table.placement = h)) # Output as LaTeX.
@@ -284,7 +316,7 @@ ls(IQM_pro_data)
 
 ## @knitr bmp_tab
 library(xtable)
-print(xtable(bmp_desc, label='bmp_tab',caption='Descriptive statistics of the variables on black market premium', sanitize.text.function = function(x){x}, table.placement = h)) # Output as LaTeX.
+print(xtable(bmp_desc, label='bmp_tab',caption='Descriptive statistics of the variables on black market premium', table.placement = h)) # Output as LaTeX.
 hist(bmp$lbmp, main=NULL, xlab="Value of Black Market Premium")
 
 ## @knitr ToT
@@ -366,6 +398,7 @@ IQM_my_desc
 tIQM_my_desc <- t(IQM_my_desc) # Transposing the matrix
 tIQM_my_desc
 # rownames(IQM_my_desc) <- c("POLCONIII", "POLCONV", "POLCONVJ","Law and Order from ICRG", "Real Per Capita GDP Growth", "Government Consumption (% GDP)", "Total Investment (% GDP)", "Alternative measure of GDP growth", "Log(Life Expectancy)", "Log(Fertility Rate)", "Black Market Premium", "Terms of trade", "Log(ICRG Risk Measure)", "Democracy Index (PolityIV)") # Giving new names to variables to table.
+
 ## @knitr all_var
 print(xtable(tIQM_my_desc, label='tabsmall',caption='Descriptive statistics of the variables used', digits=2, sanitize.text.function = function(x){x}, table.placement = h), floating.environment='sidewaystable', digits = 2) # Output as LaTeX.
 
@@ -393,12 +426,12 @@ ls(IQM_pro_data)
 # install.packages("plm")
 library(plm) # Package for panel data model, see Croissant and Millo (2008)
 # Pooled regression
-summary(pooled1 <- plm(gdpgrowth ~ log(inigdp) + yr.sch.secF + yr.sch.secM + lbmp + lfert + kg + ki + llexpec + ToT + POLCONV, data = IQM_pro_data, model = "pooling"))
-summary(pooled2 <- plm(lgdp.growth ~ inigdp + yr.sch.secF + yr.sch.secM + POLCONIII + lbmp + lfert + kg + ki + llexpec + ToT, data = IQM_pro_data, model = "pooling"))
-summary(pooled3 <- plm(lgdp.growth ~ inigdp +  yr.sch.secF + yr.sch.secM + POLCONVJ + lbmp + lfert + kg + ki + llexpec + ToT, data = IQM_pro_data, model = "pooling"))
-summary(pooled4 <- plm(lgdp.growth ~ inigdp + yr.sch.secF + yr.sch.secM + democ + lbmp + lfert + kg + ki + llexpec + ToT, data = IQM_pro_data, model = "pooling"))
-summary(pooled5 <- plm(lgdp.growth ~ inigdp + yr.sch.secF + yr.sch.secM + lbmp + lfert + kg + ki + llexpec + ToT + llaw.order, data = IQM_pro_data, model = "pooling"))
-summary(pooled6 <- plm(lgdp.growth ~ inigdp + yr.sch.secF + yr.sch.secM + lbmp + lfert + kg + ki + llexpec + ToT + l.icrgQoG, data = IQM_pro_data, model = "pooling"))
+summary(pooled1 <- plm(gdpgrowth ~ inigdp + yr.sch.secF + yr.sch.secM + lbmp + lfert + kg + ki + llexpec + ToT + POLCONV, data = IQM_pro_data, model = "pooling"))
+summary(pooled2 <- plm(gdpgrowth ~ inigdp + yr.sch.secF + yr.sch.secM + POLCONIII + lbmp + lfert + kg + ki + llexpec + ToT, data = IQM_pro_data, model = "pooling"))
+summary(pooled3 <- plm(gdpgrowth ~ inigdp +  yr.sch.secF + yr.sch.secM + POLCONVJ + lbmp + lfert + kg + ki + llexpec + ToT, data = IQM_pro_data, model = "pooling"))
+summary(pooled4 <- plm(gdpgrowth ~ inigdp + yr.sch.secF + yr.sch.secM + democ + lbmp + lfert + kg + ki + llexpec + ToT, data = IQM_pro_data, model = "pooling"))
+summary(pooled5 <- plm(gdpgrowth ~ inigdp + yr.sch.secF + yr.sch.secM + lbmp + lfert + kg + ki + llexpec + ToT + llaw.order, data = IQM_pro_data, model = "pooling"))
+summary(pooled6 <- plm(gdpgrowth ~ inigdp + yr.sch.secF + yr.sch.secM + lbmp + lfert + kg + ki + llexpec + ToT + l.icrgQoG, data = IQM_pro_data, model = "pooling"))
 
 # Fixed effects, individual effects
 summary(fixed_effects1 <- plm(lgdp.growth ~ yr.sch.secF + yr.sch.secM + lbmp + lfert + kg + ki + llexpec + ToT + POLCONV, data = IQM_pro_data, model = "within"))
@@ -466,8 +499,6 @@ eststo(pooled5)
 eststo(pooled6)
 esttab(label = "fe6", colnumber=TRUE, var.rename=NULL, table="sidewaystable", caption = "Estimation results from pooled regression", caption.top=FALSE, table.pos="p", texfontsize="\\small")
 estclear()
-
-
 #### Mis-specification #### 
 ## @knitr mis
 plmtest(pooled1, effect = "twoways", type = "ghm")
@@ -481,6 +512,10 @@ pwtest(pooled1)
 ## @knitr mis4
 library(lmtest)
 pbgtest(fixed_effects1)
+
+## @knitr appendix1
+#### Appendix tables ####
+print(xtable(gdpgrowth9, label='gdpgrowth9',caption='Mean growth rate for all countries for all years available', caption.placement='top'),tabular.environment='longtable', floating = FALSE) # Output as LaTeX.
 
 
 ## @knitr warnings

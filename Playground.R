@@ -1,3 +1,9 @@
+##### Recode gdpgrowth #####
+# I want to remove all the observations of countries that do not have data between 1965 and 1990
+head(pwt71)
+pwt71a <- subset(pwt71, year > 1965)
+head(pwt71a)
+
 # Descriptive statistics of rgdpl2
 library(plyr)
 ls(pwt71)
