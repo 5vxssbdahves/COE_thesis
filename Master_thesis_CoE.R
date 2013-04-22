@@ -7,16 +7,30 @@ setwd("/Users/vrangbaek/Dropbox/Studieophold/College_of_Europe/Master_Thesis/CoE
 # write.csv(POLCON, file = "~/Dropbox/Studieophold/College_of_Europe/Master_Thesis/Data/Henisz/POLCON.csv", row.names = FALSE) # Writing data set, because the original is very large
 POLCON <- read.csv("~/Dropbox/Studieophold/College_of_Europe/Master_Thesis/Data/Henisz/POLCON.csv")
 ls(POLCON)
-POLCON$llaw.order <- log(POLCON$Law...Order..from.ICRG.)
+head(POLCON,n=200)
+# Descriptive statistics of llaw.order
+library(plyr)
+law.order1 <- ddply(POLCON,~CTRYNM,summarise,mean=mean(Law...Order..from.ICRG., 
+                                                        na.rm = TRUE), 
+                     min.yr=min(Year), 
+                     max.yr=max(Year))
+law.order1
+length(na.omit(POLCON$Law...Order..from.ICRG.)) 
+length(na.omit(POLCON$POLCONIII))
+
 # What are the number of observations per country?
 summary(POLCON$CTRYNM)
 library(foreign)
 
-## Trying to get descriptive statistics by country
-# dstats <- function(x)(c(min=min(x), max=max(x))
-# POLCON_vars1 <- POLCON[c("Year")]
-# by(POLCON_vars1, POLCON$CTRYNM, dstats)
-# warnings()
+# Descriptive statistics of llaw.order
+POLCON$llaw.order <- log(POLCON$Law...Order..from.ICRG.) # make variable
+library(plyr)
+llaw.order1 <- ddply(POLCON,~CTRYNM,summarise,mean=mean(llaw.order, 
+                                                       na.rm = TRUE), 
+                    min.yr=min(Year), 
+                    max.yr=max(Year))
+llaw.order1
+
 
 mystats <- function(x, na.omit=TRUE){
   if (na.omit)
@@ -38,7 +52,7 @@ POLCON_desc <- t(POLCON_desc) # Transposing the matrix
 class(POLCON_desc)
 str(POLCON_desc)
 
-## Trying to get descriptive statistics by country
+## descriptive statistics by country
 #install.packages("doBy")                   
 library(doBy)
 # Data for POLCONIII
@@ -100,17 +114,25 @@ heniszPOLCON <- matrix(c(121,0.25,0.00,0.88,0.00,0.33, 44,0.29,0.26,0.80,0.00,0.
                                        c("N", "Mean", "Median", "Max", "Min", "Std.dev.")))
 heniszPOLCON
 
+# Getting overview of years
+ls(POLCON)
+#POLCON <- na.omit(POLCON)
+POLCCONdesc8 <- ddply(POLCON,~CTRYNM,summarise,
+                   POLCONVJ=mean(POLCONVJ),
+                   POLCONIII=mean(POLCONIII),
+                   POLCONV=mean(POLCONV),
+                   min.yr=min(Year), 
+                   max.yr=max(Year)
+)
+POLCCONdesc8
+
+
 ## @knitr POLCON_tab
 library(xtable)
 print(xtable(POLCON_desc, label='POLCON_tab',caption='Descriptive statistics of the variables on political constraints', table.placement = h)) # Output as LaTeX.
 print(xtable(POLCON_desc7, label='POLCON_tab2',caption='Descriptive statistics of the variables on political constraints on a country level', table.placement = h)) # Output as LaTeX.
 print(xtable(heniszPOLCON, label='heniszPOLCON',caption='Descriptive statistics of the variables on political constraints as obtained by Henisz (2000) on a country level', table.placement = h)) # Output as LaTeX.
                       
-# # Test to see what happens when the option na.omit is set to FALSE
-# POLCON_desc2 <- sapply(POLCON_vars, mystats, na.omit=FALSE)
-# POLCON_desc2 <- t(POLCON_desc2) # Transposing the matrix
-# print(xtable(POLCON_desc2, label='POLCON_tab2',caption='Descriptive statistics of the variables on political constraints (Henisz 2000)', sanitize.text.function = function(x){x}, table.placement = h), digits = 2) # Output as LaTeX.
-
 ## @knitr PWT
 #### Penn World Table: ki, kg, rgdl ####
 
@@ -153,7 +175,10 @@ ls(pwt71)
 head(pwt71)
 pwt71 <- na.omit(pwt71)
 head(pwt71)
-gdpgrowth9 <- ddply(pwt71,~isocode,summarise,mean=mean(gdpgrowth, na.rm = TRUE), max.yr=max(year), min.yr=min(year))
+gdpgrowth9 <- ddply(pwt71,~isocode,summarise,mean=mean(gdpgrowth, 
+                                                       na.rm = TRUE), 
+                    max.yr=max(year), 
+                    min.yr=min(year))
 gdpgrowth9
 gdpgrowth9$mean[gdpgrowth9$isocode=='SLE']
 pdf('/Users/vrangbaek/Dropbox/Studieophold/College_of_Europe/Master_Thesis/CoE_thesis_repository/figure/growth_hist.pdf')
@@ -247,7 +272,8 @@ pwt71a <- read.dta("/Users/vrangbaek/Dropbox/Studieophold/College_of_Europe/Mast
 library(plyr)
 ls(pwt71a)
 head(pwt71a)
-gdpgrowth10 <- ddply(pwt71a,~isocode,summarise,mean=mean(gdpgrowth, na.rm = TRUE), max.yr=max(year), min.yr=min(year))
+gdpgrowth10 <- ddply(pwt71a,~isocode,summarise,mean=mean(gdpgrowth, na.rm = TRUE), 
+                     max.yr=max(year), min.yr=min(year))
 gdpgrowth10
 pdf('/Users/vrangbaek/Dropbox/Studieophold/College_of_Europe/Master_Thesis/CoE_thesis_repository/figure/growth_hist2.pdf')
 hist(gdpgrowth10$mean, breaks = 20, main=NULL, xlab="GDP growth")
@@ -260,6 +286,18 @@ print(xtable(gdpgrowth10stats, label='gdpgrowth10stats',
              caption='Descriptive statistics of growth variable after trimming', 
              table.placement = h),
       file='gdpgrowth10stats.tex') # Output as LaTeX.
+
+## Testing OLS models with data I already have
+ls(IQM_pro_data)
+library(plm)
+summary(pooled01 <- plm(gdpgrowth ~ linigdp + kg + ki + POLCONV, 
+                       data = IQM_pro_data, 
+                       model = "pooling"))
+# Checking whether I get the same result wit the simple lm procedure - I do.
+summary(lm01 <- lm(gdpgrowth ~ linigdp + POLCONV, data = IQM_pro_data)) 
+summary(pooled02 <- plm(gdpgrowth ~ linigdp + POLCONIII, 
+                        data = IQM_pro_data, 
+                        model = "pooling"))
 
 # Descriptive statistics for kg
 kg <- pwt71[c("kg")]
@@ -276,19 +314,55 @@ print(xtable(rgdpl, label='rgdpl',caption='Descriptive statistics of rgdpl', san
 
 ## @knitr educ
 #### Barro-Lee: yr.sch.secF, yr.sch.secM ####
-educMF <- read.csv("~/Dropbox/Studieophold/College_of_Europe/Master_Thesis/Data/BL(2010)_MF1599_v1.2.csv") # Data for total population
-educMF <- educMF[c("WBcode", "year", "yr_sch_sec")] # Dropping irrelevant variables
-educF <- read.csv("~/Dropbox/Studieophold/College_of_Europe/Master_Thesis/Data/BL(2010)_F1599_v1.2.csv") # Data for females
-educF <- educF[c("WBcode", "year", "yr_sch_sec")] # Dropping irrelevant variables
+# Data for total population
+library(foreign)
+educMF <- read.dta("~/Dropbox/Studieophold/College_of_Europe/Master_Thesis/Data/BL2013_MF1599_v1.3.dta_full.dta") 
+ls(educMF)
+# Dropping irrelevant variables
+educMF <- educMF[c("WBcode", "year", "yr_sch_sec_full")] 
+# Data for females
+educF <- read.dta("~/Dropbox/Studieophold/College_of_Europe/Master_Thesis/Data/BL2013_F1599_v1.3.dta_full.dta") 
+# Dropping irrelevant variables
+educF <- educF[c("WBcode", "year", "yr_sch_sec_full")] 
+head(educF)
+# Package needed for rename() function
 # install.packages("reshape")
-library(reshape) # Package needed for rename() function
-educF <- rename(educF, c(yr_sch_sec="yr.sch.secF")) # Renaming the variable of interest to distinguish between female and total population in merged data set
-educ <- merge(educMF, educF, by=c("WBcode", "year")) # Merging education data sets
-educ$yr.sch.secM <- (2*educ$yr_sch_sec - educ$yr.sch.secF) # Calculating average for males
-educ$yr_sch_sec <- NULL # Dropping variable for total population (only male and female left)
+library(reshape) 
+# Renaming the variable of interest to distinguish between female and total population in merged data set
+educF <- rename(educF, c(yr_sch_sec_full="yr.sch.secF"))
+# Merging education data sets
+educ <- merge(educMF, educF, by=c("WBcode", "year"))
+# Seeing data
+head(educ)
+# Calculating average for males
+educ$yr.sch.secM <- (2*educ$yr_sch_sec - educ$yr.sch.secF) 
+# Dropping variable for total population (only male and female left)
+educ$yr_sch_sec <- NULL 
+ls(IQM_pro_data)
+
+datadesc1 <- ddply(IQM_pro_data,~CTRYNM,summarise,
+                   mean.growth=mean(gdpgrowth),
+                   inigdp=mean(inigdp),
+                   POLCONVJ=mean(POLCONVJ),
+                   POLCONIII=mean(POLCONIII),
+                   POLCONV=mean(POLCONV),
+                   min.yr=min(Year), 
+                   max.yr=max(Year))
+datadesc1
+# Merging the two above with Barro-Lee data set. 
+  # NB: Contains only data for every fifth year, so the data set is drastically reduced.
+IQM_pro_data <- merge(IQM_pro_data, educ, by.x=c("CTRYNM", "Year"), by.y=c("WBcode", "year"), all=TRUE) 
 summary(IQM_pro_data)
-IQM_pro_data <- merge(IQM_pro_data, educ, by.x=c("CTRYNM", "Year"), by.y=c("WBcode", "year"), all=TRUE) # Merging the two above with Barro-Lee data set. NB: Contains only data for every fifth year, so the data set is drastically reduced.
-summary(IQM_pro_data)
+
+## Testing OLS models with data I already have
+ls(IQM_pro_data)
+library(plm)
+summary(plm(gdpgrowth ~ linigdp + yr.sch.secM + yr.sch.secF + kg + ki + POLCONV, 
+                        data = IQM_pro_data, 
+                        model = "pooling"))
+summary(plm(gdpgrowth ~ linigdp + yr.sch.secM + yr.sch.secF + kg + ki + POLCONIII, 
+                        data = IQM_pro_data, 
+                        model = "pooling"))
 
 ## @knitr lexpec
 #### Life expectancy: lexpec ####
@@ -303,6 +377,14 @@ ls(IQM_pro_data)
 IQM_pro_data <- merge(IQM_pro_data, lexpec, by.x=c("CTRYNM", "Year"), by.y=c("country.code", "year")) # Merging data with main data set
 ls(IQM_pro_data)
 
+## Testing OLS models with data I already have
+ls(IQM_pro_data)
+library(plm)
+summary(plm(gdpgrowth ~ linigdp + yr.sch.secM + yr.sch.secF + kg + llexpec +
+              ki + POLCONIII, 
+            data = IQM_pro_data, 
+            model = "pooling"))
+
 ## @knitr fert
 #### Fertility rates: fert ####
 fert <- read.csv("~/Dropbox/Studieophold/College_of_Europe/Master_Thesis/Data/SP.DYN.TFRT.IN_Indicator_MetaData_en_EXCEL.csv", check.names=FALSE)
@@ -312,6 +394,15 @@ fert <- rename(fert, c(value="fert", variable="year", "Country Code"="country.co
 fert$lfert <- log(fert$fert) # Here the variable is log-transformed
 IQM_pro_data <- merge(IQM_pro_data, fert, by.x=c("CTRYNM", "Year"), by.y=c("country.code", "year")) # Merging data with main data set
 ls(IQM_pro_data)
+
+## Testing OLS models with data I already have
+ls(IQM_pro_data)
+library(plm)
+summary(plm(gdpgrowth ~ linigdp + yr.sch.secM + yr.sch.secF + kg + 
+              llexpec + lfert +
+              ki + POLCONIII, 
+            data = IQM_pro_data, 
+            model = "pooling"))
 
 ## @knitr bmp
 #### Black market premium: bmp ####
@@ -341,6 +432,22 @@ IQM_pro_data <- merge(IQM_pro_data, bmp, by.x=c("CTRYNM", "Year"), by.y=c("count
 is.numeric(IQM_pro_data$bmp) # Checking data is numeric
 ls(IQM_pro_data)
 
+# Descriptive statistics
+bmp1 <- ddply(IQM_pro_data,~CTRYNM,summarise,mean=mean(bmp, 
+                                                       na.rm = TRUE), 
+                    max.yr=max(Year), 
+                    min.yr=min(Year))
+bmp1
+
+## Testing OLS models with data I already have
+ls(IQM_pro_data)
+library(plm)
+summary(plm(gdpgrowth ~ linigdp + yr.sch.secM + yr.sch.secF + kg + 
+              llexpec + lfert +
+              ki + POLCONIII, 
+            data = IQM_pro_data, 
+            model = "pooling"))
+
 # ## @knitr test-plot
 # hist(IQM_pro_data$bmp)
 
@@ -358,6 +465,10 @@ ToT <- rename(ToT, c(value="ToT", variable="year", "Country Code"="country.code"
 IQM_pro_data <- merge(IQM_pro_data, ToT, by.x=c("CTRYNM", "Year"), by.y=c("country.code", "year")) # Merging data with main data set
 is.numeric(IQM_pro_data$ToT) # Checking data is numeric
 ls(IQM_pro_data)
+summary(plm(gdpgrowth ~ linigdp + yr.sch.secM + yr.sch.secF + lexpec + lfert +  kg + lbmp + ToT + 
+              ki + POLCONV, 
+            data = IQM_pro_data, 
+            model = "pooling"))
 
 ## @knitr law_order
 #### ICRG measure from QoG: icrgQoG ####
@@ -373,6 +484,11 @@ IQM_pro_data <- merge(IQM_pro_data, icrgQoG, by.x=c("CTRYNM", "Year"), by.y=c("c
 is.numeric(IQM_pro_data$icrgQoG) # Checking data is numeric
 ls(IQM_pro_data)
 
+summary(plm(gdpgrowth ~ linigdp + yr.sch.secM + yr.sch.secF + lexpec + lfert +  kg + lbmp + ToT + 
+              ki + POLCONV, 
+            data = IQM_pro_data, 
+            model = "pooling"))
+
 ## @knitr democ
 #### Polity: democ ####
 ls()
@@ -384,12 +500,22 @@ library(psych)
 # describe(polIV$democ)
 # Deleting -66, -77 and -88 observations
 polIV <- subset(polIV, democ > -65, select=1:3)
+polIV$democ2 <- polIV$democ^2
 ls(polIV)
 # print(xtable(describe(polIV$democ, skew = FALSE)))
 # hist(polIV$democ, breaks = 10, col = "red", xlab="Democracy Score", main="Histogram of democ")
 ls(IQM_pro_data)
 IQM_pro_data <- merge(IQM_pro_data, polIV, by.x=c("CTRYNM", "Year"), by.y=c("scode", "year")) # Merging data with main data set
 ls(IQM_pro_data)
+
+## Testing OLS models with data I already have
+ls(IQM_pro_data)
+library(plm)
+summary(plm(gdpgrowth ~ linigdp + yr.sch.secM + yr.sch.secF + kg + 
+              llexpec + lfert + lbmp + ToT +
+              ki + POLCONIII, 
+            data = IQM_pro_data, 
+            model = "pooling"))
 
 ## @knitr saving
 # Checking dataset
@@ -398,6 +524,14 @@ head(IQM_pro_data, n=100)
 write.csv(IQM_pro_data, file = "~/Dropbox/Studieophold/College_of_Europe/Master_Thesis/Data/IQM_pro_data.csv", row.names = FALSE) 
 
 ## @knitr my-label
+#### QoG ####
+QoG_basic <- 
+  read.csv("/Users/vrangbaek/Dropbox/Dorte/Administrativ kapacitet_effektivitet/R_projet_Adm_kap_eff/1358078_qog_countrycsv.csv", header=T)
+head(QoG_basic)
+ls(QoG_basic)
+ls(IQM_pro_data)
+
+
 #### Data description ####
 ls()
 # Creating data set only with numeric variables for descriptive statistics
@@ -417,7 +551,14 @@ tIQM_my_desc
 # rownames(IQM_my_desc) <- c("POLCONIII", "POLCONV", "POLCONVJ","Law and Order from ICRG", "Real Per Capita GDP Growth", "Government Consumption (% GDP)", "Total Investment (% GDP)", "Alternative measure of GDP growth", "Log(Life Expectancy)", "Log(Fertility Rate)", "Black Market Premium", "Terms of trade", "Log(ICRG Risk Measure)", "Democracy Index (PolityIV)") # Giving new names to variables to table.
 
 ## @knitr all_var
-print(xtable(tIQM_my_desc, label='tabsmall',caption='Descriptive statistics of the variables used', digits=2, sanitize.text.function = function(x){x}, table.placement = h), floating.environment='sidewaystable', digits = 2) # Output as LaTeX.
+print(xtable(tIQM_my_desc, 
+             label='tabsmall',
+             caption='Descriptive statistics of the variables used', 
+             digits=2, 
+             sanitize.text.function = function(x){x}, 
+             table.placement = h), 
+      floating.environment='sidewaystable', 
+      digits = 2) # Output as LaTeX.
 
 ## @knitr new-label
 #### Stata data ####
@@ -443,36 +584,92 @@ ls(IQM_pro_data)
 # install.packages("plm")
 library(plm) # Package for panel data model, see Croissant and Millo (2008)
 # Pooled regression
-summary(pooled1 <- plm(gdpgrowth ~ inigdp + yr.sch.secF + yr.sch.secM + lbmp + lfert + kg + ki + llexpec + ToT + POLCONV, data = IQM_pro_data, model = "pooling"))
-summary(pooled2 <- plm(gdpgrowth ~ inigdp + yr.sch.secF + yr.sch.secM + POLCONIII + lbmp + lfert + kg + ki + llexpec + ToT, data = IQM_pro_data, model = "pooling"))
-summary(pooled3 <- plm(gdpgrowth ~ inigdp +  yr.sch.secF + yr.sch.secM + POLCONVJ + lbmp + lfert + kg + ki + llexpec + ToT, data = IQM_pro_data, model = "pooling"))
-summary(pooled4 <- plm(gdpgrowth ~ inigdp + yr.sch.secF + yr.sch.secM + democ + lbmp + lfert + kg + ki + llexpec + ToT, data = IQM_pro_data, model = "pooling"))
-summary(pooled5 <- plm(gdpgrowth ~ inigdp + yr.sch.secF + yr.sch.secM + lbmp + lfert + kg + ki + llexpec + ToT + llaw.order, data = IQM_pro_data, model = "pooling"))
-summary(pooled6 <- plm(gdpgrowth ~ inigdp + yr.sch.secF + yr.sch.secM + lbmp + lfert + kg + ki + llexpec + ToT + l.icrgQoG, data = IQM_pro_data, model = "pooling"))
+summary(pooled1 <- plm(gdpgrowth ~ inigdp + yr.sch.secM + 
+                         yr.sch.secF + llexpec + lfert + kg + ToT +
+                         ki + llaw.order, 
+                       data = IQM_pro_data, 
+                       model = "pooling"))
+summary(pooled2 <- plm(gdpgrowth ~ inigdp + yr.sch.secM + 
+                         yr.sch.secF + llexpec + lfert + kg + ToT +
+                       ki + democ + democ2, 
+                       data = IQM_pro_data, 
+                       model = "pooling"))
+summary(pooled3 <- plm(gdpgrowth ~ inigdp + yr.sch.secM + 
+                         yr.sch.secF + llexpec + lfert + kg + ToT +
+                         ki + POLCONIII, 
+                       data = IQM_pro_data, 
+                       model = "pooling"))
+summary(pooled4 <- plm(gdpgrowth ~ inigdp + yr.sch.secM + 
+                         yr.sch.secF + llexpec + lfert + kg + ToT +
+                         ki + POLCONV, 
+                       data = IQM_pro_data, 
+                       model = "pooling"))
+summary(pooled5 <- plm(gdpgrowth ~ inigdp + yr.sch.secM + 
+                         yr.sch.secF + llexpec + lfert + kg + ToT +
+                         ki + POLCONVJ, 
+                       data = IQM_pro_data, 
+                       model = "pooling"))
+summary(pooled6 <- plm(gdpgrowth ~ inigdp + yr.sch.secM + 
+                         yr.sch.secF + llexpec + lfert + kg + ToT +
+                         ki + l.icrgQoG, 
+                       data = IQM_pro_data, 
+                       model = "pooling"))
 
-# Fixed effects, individual effects
-summary(fixed_effects1 <- plm(lgdp.growth ~ yr.sch.secF + yr.sch.secM + lbmp + lfert + kg + ki + llexpec + ToT + POLCONV, data = IQM_pro_data, model = "within"))
-summary(fixed_effects2 <- plm(lgdp.growth ~ yr.sch.secF + yr.sch.secM + POLCONIII + lbmp + lfert + kg + ki + llexpec + ToT, data = IQM_pro_data, model = "within"))
-summary(fixed_effects3 <- plm(lgdp.growth ~ yr.sch.secF + yr.sch.secM + POLCONVJ + lbmp + lfert + kg + ki + llexpec + ToT, data = IQM_pro_data, model = "within"))
-summary(fixed_effects4 <- plm(lgdp.growth ~ yr.sch.secF + yr.sch.secM + democ + lbmp + lfert + kg + ki + llexpec + ToT, data = IQM_pro_data, model = "within"))
-summary(fixed_effects5 <- plm(lgdp.growth ~ yr.sch.secF + yr.sch.secM + lbmp + lfert + kg + ki + llexpec + ToT + llaw.order, data = IQM_pro_data, model = "within"))
-summary(fixed_effects6 <- plm(lgdp.growth ~ yr.sch.secF + yr.sch.secM + lbmp + lfert + kg + ki + llexpec + ToT + l.icrgQoG, data = IQM_pro_data, model = "within"))
+# GLS
+summary(GLS1 <- pggls(gdpgrowth ~ inigdp + yr.sch.secM + 
+                         yr.sch.secF + llexpec + lfert + kg + ToT +
+                         ki + llaw.order, 
+                       data = IQM_pro_data, 
+                       model = "pooling"))
+summary(GLS2 <- pggls(gdpgrowth ~ inigdp + yr.sch.secM + 
+                         yr.sch.secF + llexpec + lfert + kg + ToT +
+                         ki + democ + democ2, 
+                       data = IQM_pro_data, 
+                       model = "pooling"))
+summary(GLS3 <- pggls(gdpgrowth ~ inigdp + yr.sch.secM + 
+                         yr.sch.secF + llexpec + lfert + kg + ToT +
+                         ki + POLCONIII, 
+                       data = IQM_pro_data, 
+                       model = "pooling"))
+summary(GLS4 <- pggls(gdpgrowth ~ inigdp + yr.sch.secM + 
+                         yr.sch.secF + llexpec + lfert + kg + ToT +
+                         ki + POLCONV, 
+                       data = IQM_pro_data, 
+                       model = "pooling"))
+summary(GLS5 <- pggls(gdpgrowth ~ inigdp + yr.sch.secM + 
+                         yr.sch.secF + llexpec + lfert + kg + ToT +
+                         ki + POLCONVJ, 
+                       data = IQM_pro_data, 
+                       model = "pooling"))
+summary(GLS6 <- pggls(gdpgrowth ~ inigdp + yr.sch.secM + 
+                         yr.sch.secF + llexpec + lfert + kg + ToT +
+                         ki + l.icrgQoG, 
+                       data = IQM_pro_data, 
+                       model = "pooling"))
 
-# Fixed effects, twoways
-summary(fixed_effects1a <- plm(lgdp.growth ~ yr.sch.secF + yr.sch.secM + lbmp + lfert + kg + ki + llexpec + ToT + POLCONV, data = IQM_pro_data, model = "within", effect = "twoways"))
-summary(fixed_effects2a <- plm(lgdp.growth ~ yr.sch.secF + yr.sch.secM + POLCONIII + lbmp + lfert + kg + ki + llexpec + ToT, data = IQM_pro_data, model = "within", effect = "twoways"))
-summary(fixed_effects3a <- plm(lgdp.growth ~ yr.sch.secF + yr.sch.secM + POLCONVJ + lbmp + lfert + kg + ki + llexpec + ToT, data = IQM_pro_data, model = "within", effect = "twoways"))
-summary(fixed_effects4a <- plm(lgdp.growth ~ yr.sch.secF + yr.sch.secM + democ + lbmp + lfert + kg + ki + llexpec + ToT, data = IQM_pro_data, model = "within", effect = "twoways"))
-summary(fixed_effects5a <- plm(lgdp.growth ~ yr.sch.secF + yr.sch.secM + lbmp + lfert + kg + ki + llexpec + ToT + llaw.order, data = IQM_pro_data, model = "within", effect = "twoways"))
-summary(fixed_effects6a <- plm(lgdp.growth ~ yr.sch.secF + yr.sch.secM + lbmp + lfert + kg + ki + llexpec + ToT + l.icrgQoG, data = IQM_pro_data, model = "within", effect = "twoways"))
-
-# Fixed effects, time effects
-summary(fixed_effects1b <- plm(lgdp.growth ~ yr.sch.secF + yr.sch.secM + lbmp + lfert + kg + ki + llexpec + ToT + POLCONV, data = IQM_pro_data, model = "within", effect = "time"))
-summary(fixed_effects2b <- plm(lgdp.growth ~ yr.sch.secF + yr.sch.secM + POLCONIII + lbmp + lfert + kg + ki + llexpec + ToT, data = IQM_pro_data, model = "within", effect = "time"))
-summary(fixed_effects3b <- plm(lgdp.growth ~ yr.sch.secF + yr.sch.secM + POLCONVJ + lbmp + lfert + kg + ki + llexpec + ToT, data = IQM_pro_data, model = "within", effect = "time"))
-summary(fixed_effects4b <- plm(lgdp.growth ~ yr.sch.secF + yr.sch.secM + democ + lbmp + lfert + kg + ki + llexpec + ToT, data = IQM_pro_data, model = "within", effect = "time"))
-summary(fixed_effects5b <- plm(lgdp.growth ~ yr.sch.secF + yr.sch.secM + lbmp + lfert + kg + ki + llexpec + ToT + llaw.order, data = IQM_pro_data, model = "within", effect = "time"))
-summary(fixed_effects6b <- plm(lgdp.growth ~ yr.sch.secF + yr.sch.secM + lbmp + lfert + kg + ki + llexpec + ToT + l.icrgQoG, data = IQM_pro_data, model = "within", effect = "time"))
+# # Fixed effects, individual effects
+# summary(fixed_effects1 <- plm(lgdp.growth ~ yr.sch.secF + yr.sch.secM + lbmp + lfert + kg + ki + llexpec + ToT + POLCONV, data = IQM_pro_data, model = "within"))
+# summary(fixed_effects2 <- plm(lgdp.growth ~ yr.sch.secF + yr.sch.secM + POLCONIII + lbmp + lfert + kg + ki + llexpec + ToT, data = IQM_pro_data, model = "within"))
+# summary(fixed_effects3 <- plm(lgdp.growth ~ yr.sch.secF + yr.sch.secM + POLCONVJ + lbmp + lfert + kg + ki + llexpec + ToT, data = IQM_pro_data, model = "within"))
+# summary(fixed_effects4 <- plm(lgdp.growth ~ yr.sch.secF + yr.sch.secM + democ + lbmp + lfert + kg + ki + llexpec + ToT, data = IQM_pro_data, model = "within"))
+# summary(fixed_effects5 <- plm(lgdp.growth ~ yr.sch.secF + yr.sch.secM + lbmp + lfert + kg + ki + llexpec + ToT + llaw.order, data = IQM_pro_data, model = "within"))
+# summary(fixed_effects6 <- plm(lgdp.growth ~ yr.sch.secF + yr.sch.secM + lbmp + lfert + kg + ki + llexpec + ToT + l.icrgQoG, data = IQM_pro_data, model = "within"))
+# 
+# # Fixed effects, twoways
+# summary(fixed_effects1a <- plm(lgdp.growth ~ yr.sch.secF + yr.sch.secM + lbmp + lfert + kg + ki + llexpec + ToT + POLCONV, data = IQM_pro_data, model = "within", effect = "twoways"))
+# summary(fixed_effects2a <- plm(lgdp.growth ~ yr.sch.secF + yr.sch.secM + POLCONIII + lbmp + lfert + kg + ki + llexpec + ToT, data = IQM_pro_data, model = "within", effect = "twoways"))
+# summary(fixed_effects3a <- plm(lgdp.growth ~ yr.sch.secF + yr.sch.secM + POLCONVJ + lbmp + lfert + kg + ki + llexpec + ToT, data = IQM_pro_data, model = "within", effect = "twoways"))
+# summary(fixed_effects4a <- plm(lgdp.growth ~ yr.sch.secF + yr.sch.secM + democ + lbmp + lfert + kg + ki + llexpec + ToT, data = IQM_pro_data, model = "within", effect = "twoways"))
+# summary(fixed_effects5a <- plm(lgdp.growth ~ yr.sch.secF + yr.sch.secM + lbmp + lfert + kg + ki + llexpec + ToT + llaw.order, data = IQM_pro_data, model = "within", effect = "twoways"))
+# summary(fixed_effects6a <- plm(lgdp.growth ~ yr.sch.secF + yr.sch.secM + lbmp + lfert + kg + ki + llexpec + ToT + l.icrgQoG, data = IQM_pro_data, model = "within", effect = "twoways"))
+# 
+# # Fixed effects, time effects
+# summary(fixed_effects1b <- plm(lgdp.growth ~ yr.sch.secF + yr.sch.secM + lbmp + lfert + kg + ki + llexpec + ToT + POLCONV, data = IQM_pro_data, model = "within", effect = "time"))
+# summary(fixed_effects2b <- plm(lgdp.growth ~ yr.sch.secF + yr.sch.secM + POLCONIII + lbmp + lfert + kg + ki + llexpec + ToT, data = IQM_pro_data, model = "within", effect = "time"))
+# summary(fixed_effects3b <- plm(lgdp.growth ~ yr.sch.secF + yr.sch.secM + POLCONVJ + lbmp + lfert + kg + ki + llexpec + ToT, data = IQM_pro_data, model = "within", effect = "time"))
+# summary(fixed_effects4b <- plm(lgdp.growth ~ yr.sch.secF + yr.sch.secM + democ + lbmp + lfert + kg + ki + llexpec + ToT, data = IQM_pro_data, model = "within", effect = "time"))
+# summary(fixed_effects5b <- plm(lgdp.growth ~ yr.sch.secF + yr.sch.secM + lbmp + lfert + kg + ki + llexpec + ToT + llaw.order, data = IQM_pro_data, model = "within", effect = "time"))
+# summary(fixed_effects6b <- plm(lgdp.growth ~ yr.sch.secF + yr.sch.secM + lbmp + lfert + kg + ki + llexpec + ToT + l.icrgQoG, data = IQM_pro_data, model = "within", effect = "time"))
 
 # Random effects
 # summary(random_effects1 <- plm(lgdp.growth ~ yr.sch.secF + yr.sch.secM + lbmp + lfert + kg + ki + llexpec + ToT + POLCONV, data = IQM_pro_data, model = "random"))
@@ -480,32 +677,32 @@ summary(fixed_effects6b <- plm(lgdp.growth ~ yr.sch.secF + yr.sch.secM + lbmp + 
 
 library(estout)
 ## @knitr analysis2
-eststo(fixed_effects1)
-eststo(fixed_effects2)
-eststo(fixed_effects3)
-eststo(fixed_effects4)
-eststo(fixed_effects5)
-eststo(fixed_effects6)
-esttab(label = "fe3", colnumber=TRUE, var.rename=NULL, table="sidewaystable", caption = "Estimation results from fixed effects estimation (individual effects)", caption.top=FALSE, table.pos="p", texfontsize="\\small")
-estclear()
-# Fixed effects, twoways
-eststo(fixed_effects1a)
-eststo(fixed_effects2a)
-eststo(fixed_effects3a)
-eststo(fixed_effects4a)
-eststo(fixed_effects5a)
-eststo(fixed_effects6a)
-esttab(label = "fe4", colnumber=TRUE, var.rename=NULL, table="sidewaystable", caption = "Estimation results from fixed effects estimation (individual and time effects)", caption.top=FALSE, table.pos="p", texfontsize="\\small")
-estclear()
-# FE, Time effects
-eststo(fixed_effects1b)
-eststo(fixed_effects2b)
-eststo(fixed_effects3b)
-eststo(fixed_effects4b)
-eststo(fixed_effects5b)
-eststo(fixed_effects6b)
-esttab(label = "fe5", colnumber=TRUE, var.rename=NULL, table="sidewaystable", caption = "Estimation results from fixed effects estimation (time effects)", caption.top=FALSE, table.pos="p", texfontsize="\\small")
-estclear()
+# eststo(fixed_effects1)
+# eststo(fixed_effects2)
+# eststo(fixed_effects3)
+# eststo(fixed_effects4)
+# eststo(fixed_effects5)
+# eststo(fixed_effects6)
+# esttab(label = "fe3", colnumber=TRUE, var.rename=NULL, table="sidewaystable", caption = "Estimation results from fixed effects estimation (individual effects)", caption.top=FALSE, table.pos="p", texfontsize="\\small")
+# estclear()
+# # Fixed effects, twoways
+# eststo(fixed_effects1a)
+# eststo(fixed_effects2a)
+# eststo(fixed_effects3a)
+# eststo(fixed_effects4a)
+# eststo(fixed_effects5a)
+# eststo(fixed_effects6a)
+# esttab(label = "fe4", colnumber=TRUE, var.rename=NULL, table="sidewaystable", caption = "Estimation results from fixed effects estimation (individual and time effects)", caption.top=FALSE, table.pos="p", texfontsize="\\small")
+# estclear()
+# # FE, Time effects
+# eststo(fixed_effects1b)
+# eststo(fixed_effects2b)
+# eststo(fixed_effects3b)
+# eststo(fixed_effects4b)
+# eststo(fixed_effects5b)
+# eststo(fixed_effects6b)
+# esttab(label = "fe5", colnumber=TRUE, var.rename=NULL, table="sidewaystable", caption = "Estimation results from fixed effects estimation (time effects)", caption.top=FALSE, table.pos="p", texfontsize="\\small")
+# estclear()
 
 # Pooled
 eststo(pooled1)
@@ -516,6 +713,21 @@ eststo(pooled5)
 eststo(pooled6)
 esttab(label = "fe6", colnumber=TRUE, var.rename=NULL, table="sidewaystable", caption = "Estimation results from pooled regression", caption.top=FALSE, table.pos="p", texfontsize="\\small")
 estclear()
+
+# GLS
+eststo(GLS1)
+eststo(GLS2)
+eststo(GLS3)
+eststo(GLS4)
+eststo(GLS5)
+eststo(GLS6)
+esttab(label = "GLS", colnumber=TRUE, var.rename=NULL, 
+       table="sidewaystable", 
+       caption = "Estimation results from GLS regression", 
+       caption.top=FALSE, table.pos="p", texfontsize="\\small")
+estclear()
+
+
 #### Mis-specification #### 
 ## @knitr mis
 plmtest(pooled1, effect = "twoways", type = "ghm")
@@ -532,7 +744,11 @@ pbgtest(fixed_effects1)
 
 ## @knitr appendix1
 #### Appendix tables ####
-print(xtable(gdpgrowth9, label='gdpgrowth9',caption='Mean growth rate for all countries for all years available', caption.placement='top'),tabular.environment='longtable', floating = FALSE) # Output as LaTeX.
+print.xtable(xtable(gdpgrowth9, label='gdpgrowth9',
+             caption='Mean growth rate for all countries for all years available',
+             caption.placement='top'),
+      tabular.environment='longtable',
+      floating = FALSE) # Output as LaTeX.
 
 
 ## @knitr warnings

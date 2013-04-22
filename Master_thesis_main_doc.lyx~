@@ -9,6 +9,7 @@
 \usepackage{rotating}
 \usepackage{longtable}
 \usepackage[titletoc,toc,title]{appendix}
+\usepackage{multicol}
 \end_preamble
 \use_default_options true
 \begin_modules
@@ -73,6 +74,103 @@ knitr
 \end_header
 
 \begin_body
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<set-options, cache=FALSE, results='asis', echo = FALSE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+# This code chunk controls the R code from the file IQM_project.R.
+ When inserting code chunks from this file you use the syntax: <<my-label>>=
+ @
+\end_layout
+
+\begin_layout Plain Layout
+
+options(replace.assign=TRUE, width=70)
+\end_layout
+
+\begin_layout Plain Layout
+
+knit_hooks$set(par=function(before,options,envir) {if(before)par(mar=c(4,4,.1,.1),
+cex.lab=.95,cex.axis=.9,mgp=c(2,.9,0),tcl=-.3)})
+\end_layout
+
+\begin_layout Plain Layout
+
+read_chunk('Master_thesis_CoE.R')
+\end_layout
+
+\begin_layout Plain Layout
+
+# To generate pdf faster set cache=TRUE, to see output set results='markup'
+\end_layout
+
+\begin_layout Plain Layout
+
+opts_chunk$set(dev='pdf', cache=FALSE, fig.align='center', par=TRUE, results='hid
+e', echo=FALSE, warning=FALSE, message=FALSE)
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+<<>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+# Change to results = 'markup' above to see output
+\end_layout
+
+\begin_layout Plain Layout
+
+sessionInfo()
+\end_layout
+
+\begin_layout Plain Layout
+
+Sys.getlocale(category = "LC_ALL") 
+\end_layout
+
+\begin_layout Plain Layout
+
+Sys.setlocale(category = "LC_ALL", locale = "en_US.UTF-8")
+\end_layout
+
+\begin_layout Plain Layout
+
+# Sys.setlocale("LC_TIME", "en_US.UTF-8")
+\end_layout
+
+\begin_layout Plain Layout
+
+sessionInfo()
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
 
 \begin_layout Title
 Master Thesis
@@ -151,103 +249,6 @@ political constraints
 \begin_layout Standard
 \begin_inset CommandInset toc
 LatexCommand tableofcontents
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-<<set-options, cache=FALSE, results='asis', echo = FALSE>>=
-\end_layout
-
-\begin_layout Plain Layout
-
-# This code chunk controls the R code from the file IQM_project.R.
- When inserting code chunks from this file you use the syntax: <<my-label>>=
- @
-\end_layout
-
-\begin_layout Plain Layout
-
-options(replace.assign=TRUE, width=70)
-\end_layout
-
-\begin_layout Plain Layout
-
-knit_hooks$set(par=function(before,options,envir) {if(before)par(mar=c(4,4,.1,.1),
-cex.lab=.95,cex.axis=.9,mgp=c(2,.9,0),tcl=-.3)})
-\end_layout
-
-\begin_layout Plain Layout
-
-read_chunk('Master_thesis_CoE.R')
-\end_layout
-
-\begin_layout Plain Layout
-
-# To generate pdf faster set cache=TRUE, to see output set results='markup'
-\end_layout
-
-\begin_layout Plain Layout
-
-opts_chunk$set(dev='tikz', cache=FALSE, fig.align='center', par=TRUE, results='hi
-de', echo=FALSE, warning=TRUE, message=FALSE)
-\end_layout
-
-\begin_layout Plain Layout
-
-@
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-<<>>=
-\end_layout
-
-\begin_layout Plain Layout
-
-# Change to results = 'markup' above to see output
-\end_layout
-
-\begin_layout Plain Layout
-
-sessionInfo()
-\end_layout
-
-\begin_layout Plain Layout
-
-Sys.getlocale(category = "LC_ALL") 
-\end_layout
-
-\begin_layout Plain Layout
-
-Sys.setlocale(category = "LC_ALL", locale = "en_US.UTF-8")
-\end_layout
-
-\begin_layout Plain Layout
-
-# Sys.setlocale("LC_TIME", "en_US.UTF-8")
-\end_layout
-
-\begin_layout Plain Layout
-
-sessionInfo()
-\end_layout
-
-\begin_layout Plain Layout
-
-@
-\end_layout
 
 \end_inset
 
@@ -742,6 +743,23 @@ Tillid...
 
 \begin_layout Section
 Data
+\end_layout
+
+\begin_layout Standard
+The factors influencing economic growth are obviously numerous and it is
+ clearly outside the scope of this paper to attempt to include all the relevant
+ variables, which the literature has identified.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Which are these?
+\end_layout
+
+\end_inset
+
+ We will limit ourselves to the control variables used in the original paper
+ by Henisz (2000).
 \end_layout
 
 \begin_layout Standard
@@ -1436,7 +1454,7 @@ reference "fig:Histogram-of-growth3"
 \end_inset
 
 , which resembles Barro's much more.
- If look at tables 
+ If we look at tables 
 \begin_inset ERT
 status open
 
@@ -1511,8 +1529,8 @@ Sexpr{gdpgrowth9$mean[gdpgrowth9$isocode=='SLE']}
 
 \end_inset
 
-, but the years from lying outside the range of 1965-2000 might have been
- different from these years.
+, but the years lying outside the range of 1965-2000 might have been different
+ from these years.
 \end_layout
 
 \end_inset
@@ -1588,7 +1606,7 @@ input{gdpgrowth10stats}
 
 
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
 This are the summary statistic tables.
@@ -1622,29 +1640,6 @@ key "judson1999estimating"
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Standard
-The validity of the Penn World Table is discussed in 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "johnson2009isnewer2"
-
-\end_inset
-
- who demonstrate that the measures of GDP growth for the same country at
- the same point in time changes across successive versions of the data set.
- They propose that more 
-\begin_inset Quotes eld
-\end_inset
-
-robust results by using national accounts data, even though they are not
- PPP-adjusted.
-\begin_inset Quotes erd
-\end_inset
-
- For practical reasons this is not possible in this project, so I will still
- be using the PWT data.
 \end_layout
 
 \begin_layout Standard
@@ -1751,14 +1746,22 @@ name "fig:Simple-relation-between"
 \end_layout
 
 \begin_layout Standard
-Reproducting this figure with the unbalanced data set we get
+Reproducting this figure with the unbalanced data set we get the result
+ in figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Simple-relation-between-1"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -1777,6 +1780,13 @@ status open
 
 \begin_layout Plain Layout
 Simple relation between GDP growth and initial GDP, unbalanced data set
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Simple-relation-between-1"
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -1848,6 +1858,29 @@ key "barro2003determinants"
 .
 \end_layout
 
+\begin_layout Standard
+The validity of the Penn World Table is discussed in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "johnson2009isnewer2"
+
+\end_inset
+
+ who demonstrate that the measures of GDP growth for the same country at
+ the same point in time changes across successive versions of the data set.
+ They propose that more 
+\begin_inset Quotes eld
+\end_inset
+
+robust results by using national accounts data, even though they are not
+ PPP-adjusted.
+\begin_inset Quotes erd
+\end_inset
+
+ For practical reasons this is not possible in this project, so I will still
+ be using the PWT data.
+\end_layout
+
 \begin_layout Subsection
 Measures of educational attainment
 \end_layout
@@ -1887,7 +1920,12 @@ much of the labor force in developing countries consists of younger persons.
 
  However, the newer data sets include information on schooling of the population
  aged 15 and above.
- The data set only has data from every fifth year.
+ The data set only has data from every fifth year, so the gaps have been
+ filled with the 
+\family typewriter
+carryforward
+\family default
+ procedure in Stata.
 \end_layout
 
 \begin_layout Standard
@@ -1910,7 +1948,7 @@ status open
 \end_layout
 
 \begin_layout Subsection
-Measures on life expectancy
+Measures on life expectancy (lexpec)
 \end_layout
 
 \begin_layout Standard
@@ -1975,7 +2013,7 @@ status open
 \end_layout
 
 \begin_layout Subsection
-Measures on fertility rates
+Measures on fertility rates (fert)
 \end_layout
 
 \begin_layout Standard
@@ -2029,7 +2067,7 @@ status open
 \end_layout
 
 \begin_layout Subsection
-Government Consumption (% GDP)
+Government Consumption (kg)
 \end_layout
 
 \begin_layout Standard
@@ -2117,7 +2155,41 @@ status open
 \end_layout
 
 \begin_layout Subsection
-Black Market Exchange Rate Premium
+Black Market Exchange Rate Premium (bmp)
+\end_layout
+
+\begin_layout Standard
+This variable, although included in Henisz (2000), has not been included
+ in the final regressions because of two reasons.
+ Firstly, there is evidence that it does not measure what it is supposed
+ to meaure, i.e.
+ not valid, and secondly, it has not been possible to find sufficiently
+ good data for the variable for enough observations.
+ If included, the variable roughly halves the number of observations from
+ around 2200 to around 1100.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset citation
+LatexCommand citet
+key "caporale2008blackmarket"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Quote
+\begin_inset Quotes eld
+\end_inset
+
+Black markets for foreign currency develop mainly as a result of government
+ restrictions on capital outflows, which induce domestic residents to seek
+ alternative sources of foreign currency.
+\begin_inset Quotes erd
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -2160,10 +2232,11 @@ Err:520
 \begin_inset Quotes erd
 \end_inset
 
-.
- The data set has been downloaded as and xls file and then converted to
- a csv file before imported into the statistics programme.
- 
+ which has been changed to missing.
+ The data set has been downloaded as an xls file and then converted to a
+ csv file before imported into the statistics programme.
+ Data is only available for 167 countries from 1961 to 1999, so it greatly
+ reduces the number of observations in the model.
 \end_layout
 
 \begin_layout Standard
@@ -2281,6 +2354,14 @@ key "emran2004isblack"
  has however cast some doubt on the validity of this indicator of the equilibriu
 m exchange rate by using data from South East Asia to reject the null hypothesis
  that there is a relationship.
+ This is supported by 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "caporale2008blackmarket"
+
+\end_inset
+
+ who found evidence of a reversion to the long-run equilibrium.
 \end_layout
 
 \begin_layout Standard
@@ -2303,7 +2384,7 @@ status open
 \backslash
 
 \backslash
-linewidth', fig.show='asis', dev='png', fig.env='figure', fig.cap='Histogram
+linewidth', fig.show='asis', dev='pdf', fig.env='figure', fig.cap='Histogram
  of log(Black Market Premium)'>>=
 \end_layout
 
@@ -2318,7 +2399,7 @@ linewidth', fig.show='asis', dev='png', fig.env='figure', fig.cap='Histogram
 \end_layout
 
 \begin_layout Subsection
-Change in the Terms of Trade
+Change in the Terms of Trade (ToT)
 \end_layout
 
 \begin_layout Standard
@@ -2357,11 +2438,18 @@ key "barro1994sources"
 \end_inset
 
  finds a positive, but insignificant relationship.
- The variable is named 
-\emph on
-ToT
-\emph default
-.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "mendoza1997termsoftrade"
+
+\end_inset
+
+ explores the link between growth and rate of change of terms of trade and
+ concludes that the variability of terms of trade affect growth.
+ Altough data availability for this variable is limited and significantly
+ reduces the number of observations available to run the regressions, it
+ is included because there is no justification for excluding it.
 \end_layout
 
 \begin_layout Standard
@@ -2384,7 +2472,7 @@ status open
 \end_layout
 
 \begin_layout Subsection
-Total Investment (% GDP)
+Total Investment (ki)
 \end_layout
 
 \begin_layout Standard
@@ -2603,6 +2691,19 @@ where
 \begin_inset CommandInset citation
 LatexCommand citep
 after "p. 2"
+key "croissant2008paneldata"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+If we relax the assumption white noise errors and allow serial correlation
+ across time we need general GLS estimation method 
+\begin_inset CommandInset citation
+LatexCommand citep
+after "p. 3"
 key "croissant2008paneldata"
 
 \end_inset
@@ -3018,6 +3119,26 @@ status collapsed
 \end_layout
 
 \begin_layout Section
+Discussion
+\end_layout
+
+\begin_layout Standard
+There are several ways of measuring economic progress.
+ This paper has taken the traditional approach of using the growth rate
+ of real GDP per capita in constant prices.
+ Other possibilities would have been to use the Human Development Indicators
+ from the UN.
+ Another suggestions include the work by 
+\begin_inset CommandInset citation
+LatexCommand citet*
+key "stiglitz2009reportby"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
 Conclusions
 \end_layout
 
@@ -3134,10 +3255,6 @@ status open
 
 \begin_layout Plain Layout
 
-\end_layout
-
-\begin_layout Plain Layout
-
 @
 \end_layout
 
@@ -3148,7 +3265,7 @@ status open
 
 \begin_layout Standard
 \begin_inset ERT
-status collapsed
+status open
 
 \begin_layout Plain Layout
 
