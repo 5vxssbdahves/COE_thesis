@@ -114,8 +114,8 @@ read_chunk('Master_thesis_CoE.R')
 
 \begin_layout Plain Layout
 
-opts_chunk$set(dev='pdf', cache=FALSE, fig.align='center', par=TRUE, results='hid
-e', echo=FALSE, warning=FALSE, message=FALSE)
+opts_chunk$set(dev='pdf', cache=TRUE, fig.align='center', par=TRUE, results='hide
+', echo=FALSE, warning=FALSE, message=FALSE)
 \end_layout
 
 \begin_layout Plain Layout
@@ -625,7 +625,7 @@ key "fatas2003thecase"
  policy is explained to a large extent by the presence of political constraints
  and other political and institutional variables.
  
-\begin_inset Note Note
+\begin_inset Note Comment
 status open
 
 \begin_layout Plain Layout
@@ -741,6 +741,10 @@ target "http://www.economist.com/news/leaders/21569393-fears-innovation-slowing-
 Tillid...
 \end_layout
 
+\begin_layout Standard
+
+\end_layout
+
 \begin_layout Section
 Data
 \end_layout
@@ -749,7 +753,7 @@ Data
 The factors influencing economic growth are obviously numerous and it is
  clearly outside the scope of this paper to attempt to include all the relevant
  variables, which the literature has identified.
-\begin_inset Note Note
+\begin_inset Note Comment
 status open
 
 \begin_layout Plain Layout
@@ -1677,7 +1681,8 @@ key "barro1996democracy"
 \end_inset
 
  writes the neoclassical model of economic growth predicts that GDP growth
- is negatively correlated with the initial level of GDP.
+ is negatively correlated with the initial level of GDP (conditional convergence
+).
  He produces the simple relation between growth rates and the initial GDP
  value (see figure 
 \begin_inset CommandInset ref
@@ -1856,6 +1861,16 @@ key "barro2003determinants"
 \end_inset
 
 .
+ 
+\begin_inset CommandInset citation
+LatexCommand citet
+after "p. 19"
+key "knack1995institutions"
+
+\end_inset
+
+ have found that when institutions are controlled for, there is strong evidence
+ for the conditional convergence hypothesis.
 \end_layout
 
 \begin_layout Standard
@@ -2491,7 +2506,11 @@ Law & Order Index
 
 \begin_layout Standard
 The Law & Order Index is provided by POLCON data set.
- Another measure from the ICRG has also been included, namely the mean value
+ 
+\end_layout
+
+\begin_layout Standard
+Another measure from the ICRG has also been included, namely the mean value
  of the ICRG variables “Corruption”, “Law and Order” and “Bureaucracy Quality”,
  scaled 0-1 from the Quality of Government Dataset 
 \begin_inset CommandInset citation
@@ -2501,6 +2520,54 @@ key "teorell2011thequality"
 \end_inset
 
 .
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset citation
+LatexCommand cite
+key "knack1995institutions"
+
+\end_inset
+
+ uses the ICRG measures to tests the propostion by North 
+\begin_inset CommandInset citation
+LatexCommand citeyearpar
+key "north1990institutions"
+
+\end_inset
+
+ that lack of proper contract enforcement 
+\begin_inset Quotes eld
+\end_inset
+
+is the most important source of both historical stagnation and contemporary
+ underdevelopment in the Third World
+\begin_inset Quotes erd
+\end_inset
+
+ by comparing the ICRG measures of the institutional environment with the
+ more indirect measures such as the proxies of political instability provided
+ by 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "barro1991economic"
+
+\end_inset
+
+ and what is known as the Gastil indices.
+ They conclude that the indirect meaures are not sufficient as indicators
+ of institutions that protect property rights, which are crucial to economic
+ growth and investment.
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+What about China?
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -2550,15 +2617,98 @@ This variable
 \emph on
 democ 
 \emph default
-is from Polity data set 
+is from Polity data set, which codes 
+\begin_inset Quotes eld
+\end_inset
+
+the authority characteristics of states in the world system
+\begin_inset Quotes erd
+\end_inset
+
+ 
 \begin_inset CommandInset citation
 LatexCommand citep
-key "marshall2011polityiv"
+key "marshall2011polityiv,marshall2011political"
 
 \end_inset
 
 .
- The values -66, -77 and -88 are removed from the dataset.
+ Democracy is understood as comprising three elements.
+ The first is the existence of institutions 
+\begin_inset Quotes eld
+\end_inset
+
+institutions and procedures through which citizens can express effective
+ preferences about alternative policies and leaders
+\begin_inset Quotes erd
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand citeyearpar
+after "p. 14"
+key "marshall2011political"
+
+\end_inset
+
+.
+ The second is institutionalised constraints on the exercise of power by
+ the executive, which is exactly what the POLCON measures aim to capture.
+ The third component is the guarantee of civil liberties.
+\end_layout
+
+\begin_layout Standard
+We expect that this variable is positively associated with economic growth.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "helliwell1994empirical"
+
+\end_inset
+
+ has explored the two-way linkages between the variables and finds evidence
+ that the effects of income on democracy is robust and positive, while he
+ also concludes that he has not been able to find evidence of the systemic
+ effects of democracy on economic growth.
+ 
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+Which indicators of democracy does Helliwell use?
+\end_layout
+
+\end_inset
+
+Indeed, 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "helliwell1994empirical"
+
+\end_inset
+
+ finds a negative, but insignificant effect of democracy on growth, which
+ is confirmed by 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "barro1996democracy,barro1996determinants"
+
+\end_inset
+
+ who finds weak effects of democratic measures on growth.
+ The conclusion that knowledge of the effects of democracy on growth is
+ insufficient is echoed by 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "przeworski1993political"
+
+\end_inset
+
+, who however extends the idea by arguing that  
+\end_layout
+
+\begin_layout Standard
+The values -66, -77 and -88 are removed from the dataset.
 \end_layout
 
 \begin_layout Standard
@@ -2581,8 +2731,22 @@ status open
 \end_layout
 
 \begin_layout Standard
+Using measures of democracy when comparing different indicators of quality
+ of government, necessitates a justification of the premise that democracy
+ and quality of government are at least associated.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "charron2010doesdemocracy"
+
+\end_inset
+
+ tackles this question and ...
+\end_layout
+
+\begin_layout Standard
 \begin_inset ERT
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
@@ -2612,11 +2776,11 @@ These next two code chunks controls the tables of summary statistics for
 
 
 \begin_inset ERT
-status collapsed
+status open
 
 \begin_layout Plain Layout
 
-<<my-label>>=
+<<datadesc>>=
 \end_layout
 
 \begin_layout Plain Layout
@@ -2645,6 +2809,79 @@ status collapsed
 
 \end_layout
 
+\begin_layout Subsection
+Regional dummy variables
+\end_layout
+
+\begin_layout Standard
+Apart from the control variables mentioned above, regional and time dummies
+ will also be included.
+ 
+\end_layout
+
+\begin_layout Standard
+The region dummies have been calculated according to the classification
+ provided by the World Bank.
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+World Bank, ‘Country and Lending Groups | Data’, accessed 22 April 2013,
+ 
+\begin_inset CommandInset href
+LatexCommand href
+target "http://data.worldbank.org/about/country-classifications/country-and-lending-groups"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\end_inset
+
+ Another possibility would have been to use the classifications used by
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "teorell2005determinants"
+
+\end_inset
+
+.
+ They have developed 
+\begin_inset Quotes eld
+\end_inset
+
+a tenfold politico-geographic classification of world regions, based on
+ a mixture of two considerations: geographical proximity (...) and demarcation
+ by area specialists having contributed to a regional understanding of democrati
+zation
+\begin_inset Quotes erd
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand citet
+after "34"
+key "dahlberg2012theqog"
+
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Interesting to test whether it makes a difference which dummy variable is
+ used...
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Statistical Models
 \end_layout
@@ -2661,13 +2898,28 @@ key "judson1999estimating"
  individual (country) dimension as opposed to microeconomic panel data sets.
 \end_layout
 
+\begin_layout Subsection
+OLS
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+What are the problems of using OLS estimation?
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Standard
-Initially, we attempt a standard linear model pooling all the data across
- countries and years, which can be written as 
+To determine which OLS model to choose, we start with a standard linear
+ model pooling all the data across countries and years with parameter homogeneit
+y, which can be written as 
 \begin_inset Formula 
-\[
-y_{it}=\alpha+\beta^{T}x_{it}+u_{it},
-\]
+\begin{equation}
+y_{it}=\alpha+\beta^{T}x_{it}+u_{it},\label{eq:pooling}
+\end{equation}
 
 \end_inset
 
@@ -2696,6 +2948,164 @@ key "croissant2008paneldata"
 \end_inset
 
 .
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+The following exposition is heavily based upon 
+\begin_inset CommandInset citation
+LatexCommand citet
+after "pp. 2-3"
+key "croissant2008paneldata"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+ We then proceed to test whether we have any significant effects in this
+ model.
+ The results of these test are reported in Appendix 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+ref{testoutput}
+\end_layout
+
+\end_inset
+
+ (page 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+pageref{testoutput}
+\end_layout
+
+\end_inset
+
+).
+ 
+\end_layout
+
+\begin_layout Standard
+At least we want to have time effects
+\end_layout
+
+\begin_layout Standard
+The error component in equation (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:pooling"
+
+\end_inset
+
+) above can be separated into a several components depending on which effects
+ we believe we have.
+ In equation (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:poolingweffects"
+
+\end_inset
+
+) below we have separated the error component into three parts reflecting
+ the different components we are testing for.
+ The first component, 
+\begin_inset Formula $\mu_{t}$
+\end_inset
+
+, is individual-specific and does not change over time, 
+\begin_inset Formula $\lambda_{t}$
+\end_inset
+
+ is a time effect that only changes across time and 
+\begin_inset Formula $\epsilon_{it}$
+\end_inset
+
+ is the idiosyncratic error component:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+y_{it}=\alpha+\beta^{T}x_{it}+\mu_{t}+\lambda_{t}+\epsilon_{it},\label{eq:poolingweffects}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The idiosyncratic error is assumed to be independent from 
+\begin_inset Formula $x_{it}$
+\end_inset
+
+ and the two other error components.
+\end_layout
+
+\begin_layout Standard
+If 
+\begin_inset Formula $\mu_{t}$
+\end_inset
+
+ or 
+\begin_inset Formula $\lambda_{t}$
+\end_inset
+
+ is correlated with the regressors, the OLS estimator for 
+\begin_inset Formula $\beta$
+\end_inset
+
+ is inconsistent, so we proceed to a fixed effects model where they are
+ treated as parameters to be estimated.
+\end_layout
+
+\begin_layout Standard
+Test for serial correlation in the idiosyncratic errors...
+\end_layout
+
+\begin_layout Standard
+From here we test for poolability by comparing a pooled model with the effects
+ that are included based on the previous tests to see whether we should
+ progress to a fixed effects (within) model.
+\end_layout
+
+\begin_layout Standard
+With fixed effects estimation the unobserved effects are removed by averaging
+ the model over time and thus transformed into time-demeaned data 
+\begin_inset CommandInset citation
+LatexCommand citep
+after "pp. 481-2"
+key "wooldridge2009introductory"
+
+\end_inset
+
+.
+ We allow the intercept to vary with group, or time, or both, while the
+ other parameters are generally still assumed to be homogeneous 
+\begin_inset CommandInset citation
+LatexCommand citep
+after "p. 42"
+key "croissant2008paneldata"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+GLS
 \end_layout
 
 \begin_layout Standard
@@ -2711,41 +3121,8 @@ key "croissant2008paneldata"
 .
 \end_layout
 
-\begin_layout Standard
-The first type of estimation that will be used is fixed effects estimation,
- where the unobserved effects are removed by averaging the model over time
- and thus transformed into time-demeaned data 
-\begin_inset CommandInset citation
-LatexCommand citep
-after "pp. 481-2"
-key "wooldridge2009introductory"
-
-\end_inset
-
-.
- 
-\end_layout
-
-\begin_layout Standard
-With fixed effects we allow the intercept to vary with group, or time, or
- both, while the other parameters are generally still assumed to be homogeneous
- 
-\begin_inset CommandInset citation
-LatexCommand citep
-after "p. 42"
-key "croissant2008paneldata"
-
-\end_inset
-
-.
-\end_layout
-
 \begin_layout Section
-Estimation and Misspecification Testing
-\end_layout
-
-\begin_layout Subsection
-Estimation Results
+Estimation
 \end_layout
 
 \begin_layout Standard
@@ -2902,8 +3279,24 @@ status open
 
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Section
 Mis-specification Tests
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Test dummy variables and time effects: Don't know for dummy, but for time
+ see document for plm package.
+ Have written to someone to hear whether we know how to do anova for plm
+ objects, because that's the why I can't do tests for the dummy variables.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -2945,89 +3338,6 @@ reference "sub:Measures-of-POLCON"
 \end_layout
 
 \begin_layout Standard
-Below we adopt a number of tests of model (1).
-\end_layout
-
-\begin_layout Standard
-We can test whether there are indeed effects at an individual or time level
- using the Lagrange multiplier test 
-\begin_inset CommandInset citation
-LatexCommand citep
-after "p. 21"
-key "croissant2008paneldata"
-
-\end_inset
-
-.
- The test below tests the null that the individual and time effects in model
- (1) are insignificant using the method suggested by 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "gourieroux1982likelihood"
-
-\end_inset
-
-.
- Based on the large 
-\begin_inset Formula $\chi^{2}$
-\end_inset
-
- value we reject that the individual and time effects are insignificant.
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-<<mis, results='markup', echo=TRUE>>=
-\end_layout
-
-\begin_layout Plain Layout
-
-@
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-In the test below we test whether we can allow for individual effects based
- on the test proposed by 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "breusch1980thelagrange"
-
-\end_inset
-
-.
- Here we again reject the null that the individual effects of model (1)
- are insignificant.
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-<<mis2, results='markup', echo=TRUE>>=
-\end_layout
-
-\begin_layout Plain Layout
-
-@
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
 Since the estimated variance of the individual effect is negative when using
  random effects this estimation method has not been used in the this project,
  but had it been, it would have been paramount to use the Hausman test 
@@ -3041,80 +3351,6 @@ key "hausman1978specification"
 \end_layout
 
 \begin_layout Standard
-We can also use the unobserved effects test as proposed by 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "wooldridge2001econometric"
-
-\end_inset
-
- with the null hypothesis that there are no unobserved effects in the residuals
- in the pooled model 
-\begin_inset CommandInset citation
-LatexCommand citep
-after "p. 23"
-key "croissant2008paneldata"
-
-\end_inset
-
-.
- The results of this test are reported below.
- As we can see, we can only reject the null hypothesis at the 10% significance
- level, which provides some evidence that there indeed are unobserved effects
- in the model.
- This could be due to the lack of inclusion of the initial gdp level as
- discussed in section 
-\begin_inset CommandInset ref
-LatexCommand vref
-reference "sub:Measures-of-gdp"
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-<<mis3, results='markup', echo=TRUE>>=
-\end_layout
-
-\begin_layout Plain Layout
-
-@
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-It could also be relevant to test for serial correltion in the idiosyncratic
- errors of the fixed effects model with individual effects.
- This is done in the test below, do we reject the null that the idiosyncratic
- errors are uncorrelated.
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-<<mis4, results='markup', echo=TRUE>>=
-\end_layout
-
-\begin_layout Plain Layout
-
-@
-\end_layout
-
-\end_inset
-
 
 \end_layout
 
@@ -3190,7 +3426,7 @@ options "bibtotoc,chicago"
 
 \begin_layout Standard
 \begin_inset ERT
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
@@ -3214,29 +3450,7 @@ thefigure{
 \backslash
 thesection
 \backslash
-arabic{figure}}   
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-	
-\backslash
-section{Additional tables}  
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{appendices} 
+arabic{figure}}		
 \end_layout
 
 \end_inset
@@ -3250,12 +3464,421 @@ status open
 
 \begin_layout Plain Layout
 
+
+\backslash
+section{Additional tables}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Beneath we produce the mean growth rate for all countries for all years
+ available.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
 <<appendix1, results='asis'>>=
 \end_layout
 
 \begin_layout Plain Layout
 
 @
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+section{Output from mis-specification tests}
+\backslash
+label{testoutput}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The following subsections apply different tests to the models in table 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+ref{tab:fe6}
+\end_layout
+
+\end_inset
+
+ (page 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+pageref{tab:fe6}
+\end_layout
+
+\end_inset
+
+) in the order that they are presented here.
+ All the tests are from the 
+\family typewriter
+plm
+\family default
+ package to R by 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "croissant2008paneldata"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subsection{Tests of poolability}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Here we test for poolability across countries by comparing the pooled model
+ with a fixed effects model.
+ The null hypothesis is that the same coefficients apply to each individual.
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+See 
+\begin_inset CommandInset citation
+LatexCommand citet
+after "p. 319"
+key "baltagi2011econometrics"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset citation
+LatexCommand citet
+after "p. 26"
+key "croissant2008paneldata"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+<<mis5, results='markup', echo=TRUE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subsection{Test of two-way effects}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We can test whether there are effects at an individual or time level using
+ the Lagrange multiplier test 
+\begin_inset CommandInset citation
+LatexCommand citep
+after "p. 21"
+key "croissant2008paneldata"
+
+\end_inset
+
+.
+ The test below tests the null that the individual and time effects are
+ insignificant using the method suggested by 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "gourieroux1982likelihood"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+<<mis6, results='markup', echo=TRUE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subsection{Test of individual effects}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In the test below we test whether we can allow for individual effects based
+ on the test proposed by 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "breusch1980thelagrange"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<mis2, results='markup', echo=TRUE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subsection{Test for time effects}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Here we test for time effects with using the test proposed by 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "honda1985testing"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<mis7, results='markup', echo=TRUE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subsection{Test for unobserved time effects}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We can also use the unobserved effects test as proposed by 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "wooldridge2001econometric"
+
+\end_inset
+
+ with the null hypothesis that there are no unobserved effects in the residuals
+ in the pooled model 
+\begin_inset CommandInset citation
+LatexCommand citep
+after "p. 23"
+key "croissant2008paneldata"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+<<mis3, results='markup', echo=TRUE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subsection{Test for serial correlation in the idiosyncratic errors}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Here we test for serial correlation in the idiosyncratic errors of the pooling
+ model with time effects.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<mis4, results='markup', echo=TRUE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{appendices} 
 \end_layout
 
 \end_inset

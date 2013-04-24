@@ -2,7 +2,9 @@ setwd("/Users/vrangbaek/Dropbox/Studieophold/College_of_Europe/Master_Thesis/CoE
 ## @knitr POLCON
 #### POLCON: POLCONIII, POLCONV, POLCONJ, law.order ####
 # POLCON <- read.delim("~/Dropbox/Studieophold/College_of_Europe/Master_Thesis/Data/Henisz/POLCON_2010_tabsep.txt")
-# POLCON <- POLCON[c("CTRYNM", "Year", "POLCONIII", "POLCONV", "POLCONVJ", "Law...Order..from.ICRG.")] # Dropping irrelevant variables
+# POLCON <- 
+#   POLCON[c("CTRYNM", "Year", "POLCONIII", "POLCONV", "POLCONVJ", 
+#            "Law...Order..from.ICRG.")] # Dropping irrelevant variables
 # ls(POLCON) # Checking which variables I have
 # write.csv(POLCON, file = "~/Dropbox/Studieophold/College_of_Europe/Master_Thesis/Data/Henisz/POLCON.csv", row.names = FALSE) # Writing data set, because the original is very large
 POLCON <- read.csv("~/Dropbox/Studieophold/College_of_Europe/Master_Thesis/Data/Henisz/POLCON.csv")
@@ -351,7 +353,10 @@ datadesc1 <- ddply(IQM_pro_data,~CTRYNM,summarise,
 datadesc1
 # Merging the two above with Barro-Lee data set. 
   # NB: Contains only data for every fifth year, so the data set is drastically reduced.
-IQM_pro_data <- merge(IQM_pro_data, educ, by.x=c("CTRYNM", "Year"), by.y=c("WBcode", "year"), all=TRUE) 
+IQM_pro_data <- merge(IQM_pro_data, educ, 
+                      by.x=c("CTRYNM", "Year"), 
+                      by.y=c("WBcode", "year"), 
+                      all=TRUE) 
 summary(IQM_pro_data)
 
 ## Testing OLS models with data I already have
@@ -517,21 +522,81 @@ summary(plm(gdpgrowth ~ linigdp + yr.sch.secM + yr.sch.secF + kg +
             data = IQM_pro_data, 
             model = "pooling"))
 
-## @knitr saving
-# Checking dataset
-head(IQM_pro_data, n=100)
-# Saving data set
-write.csv(IQM_pro_data, file = "~/Dropbox/Studieophold/College_of_Europe/Master_Thesis/Data/IQM_pro_data.csv", row.names = FALSE) 
-
-## @knitr my-label
 #### QoG ####
-QoG_basic <- 
-  read.csv("/Users/vrangbaek/Dropbox/Dorte/Administrativ kapacitet_effektivitet/R_projet_Adm_kap_eff/1358078_qog_countrycsv.csv", header=T)
-head(QoG_basic)
-ls(QoG_basic)
-ls(IQM_pro_data)
+# Set data wd
+setwd("~/Dropbox/Studieophold/College_of_Europe/Master_Thesis/Data")
+QoG_basic_ts <- 
+  read.csv("QoG/1373433_qog_basic_ts_csv_120608.csv", header=T)
+ls(QoG_basic_ts)
+QoG_basic_ts <- QoG_basic_ts[c("ccodewb", "year", "ht_region")]
+ls(QoG_basic_ts)
+write.csv(QoG_basic_ts, 
+          file = "QoG/1373433_qog_basic_ts_csv_120608_ed.csv",
+          row.names = FALSE)
+QoG_basic_ts <- read.csv("QoG/1373433_qog_basic_ts_csv_120608_ed.csv")
+ls(QoG_basic_ts)
 
 
+# Merging data with main data set
+IQM_pro_data <- 
+  merge(IQM_pro_data, QoG_basic_ts, 
+        by.x=c("CTRYNM", "Year"), 
+        by.y=c("ccodewb", "year")) 
+head(IQM_pro_data)
+
+#### World Bank ####
+head(
+  WB <- 
+    read.csv("World Bank/countries.csv", header=T)
+)
+
+# Merging data with main data set
+head(
+  IQM_pro_data <- 
+    merge(IQM_pro_data, WB, 
+        by.x=c("CTRYNM"), 
+        by.y=c("Code"),
+        all.x = TRUE)
+)
+
+# Create dummy variables
+IQM_pro_data <- within(IQM_pro_data,{
+  south.asia <- NA
+  south.asia[IQM_pro_data$Region != "South Asia"] <- 0
+  south.asia[IQM_pro_data$Region == "South Asia"] <- 1
+})
+IQM_pro_data <- within(IQM_pro_data,{
+  europe.central.asia <- NA
+  europe.central.asia[IQM_pro_data$Region != "Europe & Central Asia"] <- 0
+  europe.central.asia[IQM_pro_data$Region == "Europe & Central Asia"] <- 1
+})
+IQM_pro_data <- within(IQM_pro_data,{
+  middle.east.north.africa <- NA
+  middle.east.north.africa[IQM_pro_data$Region != "Middle East & North Africa"] <- 0
+  middle.east.north.africa[IQM_pro_data$Region == "Middle East & North Africa"] <- 1
+})
+IQM_pro_data <- within(IQM_pro_data,{
+  east.asia.pacific <- NA
+  east.asia.pacific[IQM_pro_data$Region != "East Asia & Pacific"] <- 0
+  east.asia.pacific[IQM_pro_data$Region == "East Asia & Pacific"] <- 1
+})
+IQM_pro_data <- within(IQM_pro_data,{
+  sub.saharan.africa <- NA
+  sub.saharan.africa[IQM_pro_data$Region != "Sub-Saharan Africa"] <- 0
+  sub.saharan.africa[IQM_pro_data$Region == "Sub-Saharan Africa"] <- 1
+})
+IQM_pro_data <- within(IQM_pro_data,{
+  latin.america.caribbean <- NA
+  latin.america.caribbean[IQM_pro_data$Region != "Latin America & Caribbean"] <- 0
+  latin.america.caribbean[IQM_pro_data$Region == "Latin America & Caribbean"] <- 1
+})
+head(IQM_pro_data)
+  
+  
+  
+
+
+## @knitr datadesc
 #### Data description ####
 ls()
 # Creating data set only with numeric variables for descriptive statistics
@@ -579,41 +644,155 @@ write.csv(IQM_pro_data, "~/Dropbox/Studieophold/College_of_Europe/Master_Thesis/
 # IQM_pro_data <- merge(Statadata, IQM_pro_data, by.x=c("CTRYNM", "Year"), by.y=c("CTRYNM", "Year")) 
 ls(IQM_pro_data)
 
+## @knitr saving
+# Checking dataset
+head(IQM_pro_data, n=100)
+# Saving data set
+write.csv(IQM_pro_data, file = "~/Dropbox/Studieophold/College_of_Europe/Master_Thesis/Data/IQM_pro_data.csv", row.names = FALSE) 
+
+
 ## @knitr analysis
 #### Analysis ####
 # install.packages("plm")
 library(plm) # Package for panel data model, see Croissant and Millo (2008)
-# Pooled regression
+# Pooled regression (time effects)
 summary(pooled1 <- plm(gdpgrowth ~ inigdp + yr.sch.secM + 
+                         yr.sch.secF + llexpec + lfert + kg + ToT +
+                         ki + south.asia + east.asia.pacific + europe.central.asia +
+                         latin.america.caribbean + middle.east.north.africa + sub.saharan.africa +
+                          llaw.order, 
+                       data = IQM_pro_data, 
+                       model = "pooling",
+                       effect="time"))
+summary(pooled2 <- plm(gdpgrowth ~ inigdp + yr.sch.secM + 
+                         yr.sch.secF + llexpec + lfert + kg + ToT +
+                       ki + democ + democ2 + 
+                         south.asia + east.asia.pacific + europe.central.asia +
+                         latin.america.caribbean + middle.east.north.africa + sub.saharan.africa, 
+                       data = IQM_pro_data, 
+                       model = "pooling",
+                       effect="time"))
+summary(pooled3 <- plm(gdpgrowth ~ inigdp + yr.sch.secM + 
+                         yr.sch.secF + llexpec + lfert + kg + ToT +
+                         ki + POLCONIII + 
+                         south.asia + east.asia.pacific + europe.central.asia +
+                         latin.america.caribbean + middle.east.north.africa + sub.saharan.africa, 
+                       data = IQM_pro_data, 
+                       model = "pooling",
+                       effect="time"))
+summary(pooled4 <- plm(gdpgrowth ~ inigdp + yr.sch.secM + 
+                         yr.sch.secF + llexpec + lfert + kg + ToT +
+                         ki + POLCONV + 
+                         south.asia + east.asia.pacific + europe.central.asia +
+                         latin.america.caribbean + middle.east.north.africa + sub.saharan.africa, 
+                       data = IQM_pro_data, 
+                       model = "pooling",
+                       effect="time"))
+summary(pooled5 <- plm(gdpgrowth ~ inigdp + yr.sch.secM + 
+                         yr.sch.secF + llexpec + lfert + kg + ToT +
+                         ki + POLCONVJ + 
+                         south.asia + east.asia.pacific + europe.central.asia +
+                         latin.america.caribbean + middle.east.north.africa + sub.saharan.africa, 
+                       data = IQM_pro_data, 
+                       model = "pooling",
+                       effect="time"))
+summary(pooled6 <- plm(gdpgrowth ~ inigdp + yr.sch.secM + 
+                         yr.sch.secF + llexpec + lfert + kg + ToT +
+                         ki + l.icrgQoG + 
+                         south.asia + east.asia.pacific + europe.central.asia +
+                         latin.america.caribbean + middle.east.north.africa + sub.saharan.africa, 
+                       data = IQM_pro_data, 
+                       model = "pooling",
+                       effect="time"))
+
+# Fixed effects (time)
+summary(fixed1 <- plm(gdpgrowth ~ inigdp + yr.sch.secM + 
+                         yr.sch.secF + llexpec + lfert + kg + ToT +
+                         ki + south.asia + east.asia.pacific + europe.central.asia +
+                         latin.america.caribbean + middle.east.north.africa + sub.saharan.africa +
+                         llaw.order, 
+                       data = IQM_pro_data, 
+                       model = "within",
+                       effect="time"))
+summary(fixed2 <- plm(gdpgrowth ~ inigdp + yr.sch.secM + 
+                         yr.sch.secF + llexpec + lfert + kg + ToT +
+                         ki + democ + democ2 + 
+                         south.asia + east.asia.pacific + europe.central.asia +
+                         latin.america.caribbean + middle.east.north.africa + sub.saharan.africa, 
+                       data = IQM_pro_data, 
+                       model = "within",
+                       effect="time"))
+summary(fixed3 <- plm(gdpgrowth ~ inigdp + yr.sch.secM + 
+                         yr.sch.secF + llexpec + lfert + kg + ToT +
+                         ki + POLCONIII + 
+                         south.asia + east.asia.pacific + europe.central.asia +
+                         latin.america.caribbean + middle.east.north.africa + sub.saharan.africa, 
+                       data = IQM_pro_data, 
+                       model = "within",
+                       effect="time"))
+summary(fixed4 <- plm(gdpgrowth ~ inigdp + yr.sch.secM + 
+                         yr.sch.secF + llexpec + lfert + kg + ToT +
+                         ki + POLCONV + 
+                         south.asia + east.asia.pacific + europe.central.asia +
+                         latin.america.caribbean + middle.east.north.africa + sub.saharan.africa, 
+                       data = IQM_pro_data, 
+                       model = "within",
+                       effect="time"))
+summary(fixed5 <- plm(gdpgrowth ~ inigdp + yr.sch.secM + 
+                         yr.sch.secF + llexpec + lfert + kg + ToT +
+                         ki + POLCONVJ + 
+                         south.asia + east.asia.pacific + europe.central.asia +
+                         latin.america.caribbean + middle.east.north.africa + sub.saharan.africa, 
+                       data = IQM_pro_data, 
+                       model = "within",
+                       effect="time"))
+summary(fixed6 <- plm(gdpgrowth ~ inigdp + yr.sch.secM + 
+                         yr.sch.secF + llexpec + lfert + kg + ToT +
+                         ki + l.icrgQoG + 
+                         south.asia + east.asia.pacific + europe.central.asia +
+                         latin.america.caribbean + middle.east.north.africa + sub.saharan.africa, 
+                       data = IQM_pro_data, 
+                       model = "within",
+                       effect="time"))
+
+# Test of region dummies - virker ikke
+summary(pooled1r <- plm(gdpgrowth ~ inigdp + yr.sch.secM + 
                          yr.sch.secF + llexpec + lfert + kg + ToT +
                          ki + llaw.order, 
                        data = IQM_pro_data, 
                        model = "pooling"))
-summary(pooled2 <- plm(gdpgrowth ~ inigdp + yr.sch.secM + 
+summary(pooled2r <- plm(gdpgrowth ~ inigdp + yr.sch.secM + 
                          yr.sch.secF + llexpec + lfert + kg + ToT +
-                       ki + democ + democ2, 
+                         ki + democ + democ2, 
                        data = IQM_pro_data, 
                        model = "pooling"))
-summary(pooled3 <- plm(gdpgrowth ~ inigdp + yr.sch.secM + 
+summary(pooled3r <- plm(gdpgrowth ~ inigdp + yr.sch.secM + 
                          yr.sch.secF + llexpec + lfert + kg + ToT +
                          ki + POLCONIII, 
                        data = IQM_pro_data, 
                        model = "pooling"))
-summary(pooled4 <- plm(gdpgrowth ~ inigdp + yr.sch.secM + 
+summary(pooled4r <- plm(gdpgrowth ~ inigdp + yr.sch.secM + 
                          yr.sch.secF + llexpec + lfert + kg + ToT +
                          ki + POLCONV, 
                        data = IQM_pro_data, 
                        model = "pooling"))
-summary(pooled5 <- plm(gdpgrowth ~ inigdp + yr.sch.secM + 
+summary(pooled5r <- plm(gdpgrowth ~ inigdp + yr.sch.secM + 
                          yr.sch.secF + llexpec + lfert + kg + ToT +
                          ki + POLCONVJ, 
                        data = IQM_pro_data, 
                        model = "pooling"))
-summary(pooled6 <- plm(gdpgrowth ~ inigdp + yr.sch.secM + 
+summary(pooled6r <- plm(gdpgrowth ~ inigdp + yr.sch.secM + 
                          yr.sch.secF + llexpec + lfert + kg + ToT +
                          ki + l.icrgQoG, 
                        data = IQM_pro_data, 
                        model = "pooling"))
+
+anova(pooled1,pooled1r)
+anova(pooled2,pooled2r)
+anova(pooled3,pooled3r)
+anova(pooled4,pooled4r)
+anova(pooled5,pooled5r)
+anova(pooled6,pooled6r)
 
 # GLS
 summary(GLS1 <- pggls(gdpgrowth ~ inigdp + yr.sch.secM + 
@@ -711,7 +890,14 @@ eststo(pooled3)
 eststo(pooled4)
 eststo(pooled5)
 eststo(pooled6)
-esttab(label = "fe6", colnumber=TRUE, var.rename=NULL, table="sidewaystable", caption = "Estimation results from pooled regression", caption.top=FALSE, table.pos="p", texfontsize="\\small")
+esttab(label = "fe6", 
+       colnumber=TRUE, 
+       var.rename=NULL, 
+       table="table", 
+       caption = "Estimation results from OLS with time effects", 
+       caption.top=FALSE, 
+       table.pos="p", 
+       texfontsize="\\small")
 estclear()
 
 # GLS
@@ -721,10 +907,14 @@ eststo(GLS3)
 eststo(GLS4)
 eststo(GLS5)
 eststo(GLS6)
-esttab(label = "GLS", colnumber=TRUE, var.rename=NULL, 
+esttab(label = "GLS", 
+       colnumber=TRUE, 
+       var.rename=NULL, 
        table="sidewaystable", 
        caption = "Estimation results from GLS regression", 
-       caption.top=FALSE, table.pos="p", texfontsize="\\small")
+       caption.top=FALSE, 
+       table.pos="p", 
+       texfontsize="\\small")
 estclear()
 
 
@@ -734,13 +924,53 @@ plmtest(pooled1, effect = "twoways", type = "ghm")
 
 ## @knitr mis2
 plmtest(pooled1, effect = "individual", type="bp")
+plmtest(pooled2, effect = "individual", type="bp")
+plmtest(pooled3, effect = "individual", type="bp")
+plmtest(pooled4, effect = "individual", type="bp")
+plmtest(pooled5, effect = "individual", type="bp")
+plmtest(pooled6, effect = "individual", type="bp")
 
 ## @knitr mis3
 pwtest(pooled1)
+pwtest(pooled2)
+pwtest(pooled3)
+pwtest(pooled4)
+pwtest(pooled5)
+pwtest(pooled6)
+
 
 ## @knitr mis4
 library(lmtest)
-pbgtest(fixed_effects1)
+pbgtest(pooled1)
+pbgtest(pooled2)
+pbgtest(pooled3)
+pbgtest(pooled4)
+pbgtest(pooled5)
+pbgtest(pooled6)
+
+## @knitr mis5
+pooltest(pooled1,fixed1)
+pooltest(pooled2,fixed2)
+pooltest(pooled3,fixed3)
+pooltest(pooled4,fixed4)
+pooltest(pooled5,fixed5)
+pooltest(pooled6,fixed6)
+
+## @knitr mis6
+plmtest(pooled1, effect = "twoways", type = "ghm")
+plmtest(pooled2, effect = "twoways", type = "ghm")
+plmtest(pooled3, effect = "twoways", type = "ghm")
+plmtest(pooled4, effect = "twoways", type = "ghm")
+plmtest(pooled5, effect = "twoways", type = "ghm")
+plmtest(pooled6, effect = "twoways", type = "ghm")
+
+## @knitr mis7
+plmtest(pooled1, effect = "time")
+plmtest(pooled2, effect = "time")
+plmtest(pooled3, effect = "time")
+plmtest(pooled4, effect = "time")
+plmtest(pooled5, effect = "time")
+plmtest(pooled6, effect = "time")
 
 ## @knitr appendix1
 #### Appendix tables ####
