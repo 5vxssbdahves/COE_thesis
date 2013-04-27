@@ -1,3 +1,36 @@
+#### Extract coefficients ####
+coef.llexpec1 <- coefficients(pooled1)["llexpec"]
+
+
+
+
+
+##### Group all variables into vector ####
+
+summary(pooled1 <- plm(gdpgrowth ~ linigdp + yr.sch.secM + 
+                         yr.sch.secF + llexpec + lfert + kg + ToT +
+                         ki + south.asia + east.asia.pacific + europe.central.asia +
+                         latin.america.caribbean + middle.east.north.africa + sub.saharan.africa +
+                         llaw.order, 
+                       data = IQM_pro_data, 
+                       model = "pooling",
+                       effect="time"))
+
+pooled1[["coefficients.names"]]
+ls(pooled1[1])
+
+
+vec <- c("linigdp + yr.sch.secM")
+vec
+b <- paste("gdpgrowth ~ ",vec,sep = "")
+b <- as.formula(b)
+
+summary(bestp.OAW0.r060 <- plm(b, 
+                      data = IQM_pro_data,
+                      model = "pooling",
+                      effect="time"))
+
+
 ##### Recode gdpgrowth #####
 # I want to remove all the observations of countries that do not have data between 1965 and 1990
 head(pwt71)

@@ -14,11 +14,12 @@ MASS
 Formula
 nlme
 bdsmatrix
-methods
 estout
 codetools
 lmtest
 zoo
+texreg
+methods
 knitr
 stats
 graphics

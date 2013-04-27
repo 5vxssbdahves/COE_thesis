@@ -114,8 +114,8 @@ read_chunk('Master_thesis_CoE.R')
 
 \begin_layout Plain Layout
 
-opts_chunk$set(dev='pdf', cache=TRUE, fig.align='center', par=TRUE, results='hide
-', echo=FALSE, warning=FALSE, message=FALSE)
+opts_chunk$set(dev='pdf', cache=FALSE, fig.align='center', par=TRUE, results='hid
+e', echo=FALSE, warning=TRUE, message=FALSE, error=TRUE)
 \end_layout
 
 \begin_layout Plain Layout
@@ -160,6 +160,20 @@ Sys.setlocale(category = "LC_ALL", locale = "en_US.UTF-8")
 \begin_layout Plain Layout
 
 sessionInfo()
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+<<intro>>=
 \end_layout
 
 \begin_layout Plain Layout
@@ -232,7 +246,7 @@ economic growth
 \end_layout
 
 \begin_layout Itemize
-institional measures
+institutional measures
 \end_layout
 
 \begin_layout Itemize
@@ -262,29 +276,85 @@ LatexCommand tableofcontents
 
 \end_layout
 
+\begin_layout Quote
+
+\emph on
+Is there some action a government of India could take that would lead the
+ Indian economy to grow like Indonesia’s or Egypt’s? If so, what, exactly?
+ If not, what is it about the “nature of India” that makes it so? The consequenc
+es for human welfare involved in questions like these are simply staggering:
+ Once one starts to think about them, it is hard to think about anything
+ else.
+\end_layout
+
+\begin_layout Quote
+--Robert E.
+ Lucas 
+\begin_inset CommandInset citation
+LatexCommand citeyearpar
+key "lucas1988onthe"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Quote
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Quote
+
+\emph on
+As anyone who has ever tried to replicate the quantitative results of even
+ prominent published works knows well, it is usually a lot harder than it
+ should be...
+\end_layout
+
+\begin_layout Quote
+--
+\begin_inset CommandInset citation
+LatexCommand citet*
+key "king1994designing"
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Introduction
 \end_layout
 
 \begin_layout Standard
-This project will look further into the institutional determinants of economic
- progress.
- The main econometric models attempt to replicate the findings of Henisz
- (2000).
- This project will use the standard linear pooled model, GLS and GMM to
- attempt to determine how institutions and political constraints influence
- economic growth of countries by using a variety of institutional measures.
-\end_layout
+This paper will look at the effect of different institutional measures and
+ indicators on economic growth by comparing the POLCON indicators 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "henisz2000theinstitutional"
 
-\begin_layout Standard
-This paper will use the dataset constructed by W.J.
- Henisz and is called POLCONIII and POLCONV.
- This dataset is time series data with measures of political constraints
- from all countries in the world.
- This data will then be used as the independent variable, while different
- economic variables such as growth, unemployment, government debt etc.
- will be used as the dependent variable.
- Control variables will include measures of social capital as by 
+\end_inset
+
+, the PRS Group's International Country Risk Guide indicators, and the democracy
+ indicators from POLITY IV 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "marshall2011polityiv"
+
+\end_inset
+
+.
+ The main econometric models are partly based on the work by 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "henisz2000theinstitutional"
+
+\end_inset
+
+ and 
 \begin_inset CommandInset citation
 LatexCommand citet
 key "barro1996democracy"
@@ -292,56 +362,264 @@ key "barro1996democracy"
 \end_inset
 
 .
+ Covering a broad range of institutional indicators, this paper uses a very
+ wide definition of institutions as any structures that in some way or another
+ influence human behaviour or interaction.
+ In this sense, it attempts to look at the probably myriad of aspects alluded
+ to in the quote above, when the Lucas asks what is special about the 
+\begin_inset Quotes eld
+\end_inset
+
+nature of India
+\begin_inset Quotes erd
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
-Economic progress is most probably determined by a confluence of factors,
- but this project aims at looking at institutional variables such as the
- degree of political constraints and some of measures of institutional quality.
+In a broader perspective, the effect of institutions on economic growth
+ is interesting to investigate because these are the structures that shape
+ actors of individuals.
+ In particular, this paper looks at institutions that constrain political
+ executives in the sense of how much discretion they have in relation to
+ their ideal political stance.
+ Extending the idea of constraining democratic rulers, the interesting question
+ is to what extent the institutional structures in which decision-makers
+ find themselves have an influence on the level of economic progress of
+ a given country.
+ The overall objective of such efforts would thus to close in on what could
+ be changed in the institutional environment of countries that facilitates
+ a greater degree of economic progress.
+ Moreover, understanding which institutional measures and indicators are
+ more highly correlated with economic growth hopefully helps us to guide
+ us towards a better encapsulation of what the institutional characteristics
+ are that are most influential in fostering economic growth.
+ Efforts to unravel the ways in which the institutional environment affects
+ economic growth is a contribution to the fundamental question posed by
+ 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "lucas1988onthe"
+
+\end_inset
+
+ in the opening quote of this paper.
 \end_layout
 
-\begin_layout Quote
-“(...) many politicians are being shockingly irresponsible.
- In different ways, politicians’ actions (or inaction) are the biggest short-ter
-m danger facing the American, European and Chinese economies.
- Judging by politicians’ current behaviour, the world economy could slow
- a lot further.
- It could even tip into recession in 2013.”
-\begin_inset Foot
+\begin_layout Standard
+Understanding how different ways of measuring institutions is also important
+ because institutional quality associated with absorption capacity, which
+ in turn is significant for the returns of any investment.
+ In this way, as will also be discussed further in the literature review
+ section, the institutional environment of a given country is an important
+ factor in determining not only direct effects on growth, but also indirectly
+ through being instrumental in fostering other phenomena that in turn influence
+ economic growth.
+\end_layout
+
+\begin_layout Standard
+This paper contains 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Conclusions"
+
+\end_inset
+
+ sections including a number of appendices (from page 
+\begin_inset ERT
 status collapsed
 
 \begin_layout Plain Layout
-‘The World Economy: Investors, Beware’, The Economist, 6 October 2012, 
-\begin_inset CommandInset href
-LatexCommand href
-target "http://www.economist.com/node/21564232"
+
+
+\backslash
+pageref{appendices}
+\end_layout
+
+\end_inset
+
+).
+ The next section outlines the hypotheses investigated, while section 
+\begin_inset CommandInset ref
+LatexCommand vref
+reference "sec:Literature-Review"
+
+\end_inset
+
+ looks at the existing literature on the topic.
+ After these introductory parts, we turn to a data description section where
+ the used variables are described.
+ Following this we turn our attention to the statistical models in section
+ 
+\begin_inset CommandInset ref
+LatexCommand vref
+reference "sec:Statistical-Models"
+
+\end_inset
+
+, while section 
+\begin_inset CommandInset ref
+LatexCommand vref
+reference "sec:Results"
+
+\end_inset
+
+ discusses the results of the models.
+ The penultimate section the paper provides a discussion of the issue investigat
+ed in this paper in order to put the results into a wider perspective before
+ the final section offers some concluding remarks summing up the main arguments
+ and results of the paper.
+\end_layout
+
+\begin_layout Section
+Hypotheses and Research Objectives
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Hypotheses-and-Research"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The overarching hypothesis of this paper is that the institutional factors
+ of a given country has a significant influence on the degree to which this
+ country experiences economic growth and development.
+ This broad hypothesis can be divided into a number of specific hypotheses
+ related to the institutional indicators used:
+\end_layout
+
+\begin_layout Enumerate
+The degree to which political executives are constrained in their ability
+ carry through their preferred policy as measured by the POLCON indicators
+ is positively correlated with economic growth.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+The indicator POLCONIII is positively correlated with economic growth.
+\end_layout
+
+\begin_layout Enumerate
+The indicator POLCONV, which includes two additional veto points (the judiciary
+ and the sub-federal entities), is positively correlated with economic growth.
+\end_layout
+
+\begin_layout Enumerate
+The indicator POLCONVJ, which includes measures of alignment and fractionalizati
+on of the High Court, is positively related to economic growth.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+The degree of bureaucratic quality as measured by ICRG indicators is positively
+ correlated with economic growth.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+The composite indicator of bureaucratic quality has a larger effect on economic
+ growth than the only one of the components, namely rule of law.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+The relationship between democracy and economic growth can be captured by
+ a concave function.
+\end_layout
+
+\begin_layout Standard
+When we talk about a positive correlation in the hypotheses above, we naturally
+ refer to the partial effects of these variables, i.e.
+ holding other factors constant that might also affect economic growth.
+ The control variables included in the model presented in this paper will
+ be presented in section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Control-Variables"
+
+\end_inset
+
+ below.
+\end_layout
+
+\begin_layout Standard
+Apart from the specific hypotheses mentioned above a more subtle objective
+ of this paper is to see whether it is possible to replicate the findings
+ of Henisz (2000).
+ The data set has been collected completely from the sources, so a large
+ part of the effort of working on this paper has been to work out where
+ data comes from, how it has been transformed, merged together, analysed
+ etc.
+ As 
+\begin_inset CommandInset citation
+LatexCommand citet
+after "p. 26"
+key "king1994designing"
+
+\end_inset
+
+ mentions in their seminal work on social scientific methodology, trying
+ to replicate quantitative studies 
+\begin_inset Quotes eld
+\end_inset
+
+is usually a lot harder than it should be and always more valuable than
+ it seems at the outset.
+\begin_inset Quotes erd
+\end_inset
+
+ In addition, as 
+\begin_inset CommandInset citation
+LatexCommand citet
+after "587"
+key "dewald1986replication"
+
+\end_inset
+
+ reminds us, 
+\begin_inset Quotes eld
+\end_inset
+
+the confirmation of research findings through replication by other researchers
+ is an essential part of scientific methodology.
+\begin_inset Quotes erd
+\end_inset
+
+ Their conclusion that 
+\begin_inset Quotes eld
+\end_inset
+
+inadvertent errors in published empirical articles are a commonplace rather
+ than a rare occurrence
+\begin_inset Quotes erd
+\end_inset
+
+ lends support to the notion that simple replication of studies can be seen
+ as contributions in themselves.
+ Hence, another objective of this paper is to confirm that the results obtained
+ by Henisz are possible to replicate, which will be discussed in section
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Replication-of-Henisz'"
 
 \end_inset
 
 .
- 
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Section
-Hypothesis, Research Question and Scope of Paper
-\end_layout
-
-\begin_layout Standard
-The underlying assumption of this paper is that the political organization
- of a given country has a significant influence on the degree to which this
- country experiences economic growth and development.
- Moreover, it is hypothesised that certain political constraints can be
- identified in order to pinpoint how, if at all, political organization
- in this sense is related to economic growth.
 \end_layout
 
 \begin_layout Section
 Literature Review
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Literature-Review"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -357,7 +635,7 @@ Determining which way the causality runs when looking at the influence of
  Peninsula.
  Looking at the divergent paths of North and South Korea there is evidence
  that democratic institutions cause economic growth and not vice versa.
- Economic progress of South Korea result of institutional path choosen after
+ Economic progress of South Korea result of institutional path chosen after
  the end of the war in 1953 
 \begin_inset CommandInset citation
 LatexCommand citep
@@ -380,7 +658,7 @@ Another topic that is important to tackle in understanding the institutional
 \begin_layout Standard
 However, even before one decides on how to measures institutions, they must
  defined.
- A concise and precise notion of instutions is that they are in essence
+ A concise and precise notion of institutions is that they are in essence
  constraints (North 1981, quoted in Glaeser et al.
  2004) and that they are permanent or stable (Glaeser et al.
  2004, quoted in Voigt, 2013, p.
@@ -507,7 +785,7 @@ key "easterly2005national"
 
 \end_inset
 
- argues that the effects of national politices on economic growth are only
+ argues that the effects of national politics on economic growth are only
  modest.
 \end_layout
 
@@ -530,7 +808,7 @@ key "acemoglu2000thecolonial"
 
 \begin_layout Standard
 This leads us to another controversy in the literature concerns whether
- democratic institutions serve as mechanims for ensuring property rights,
+ democratic institutions serve as mechanisms for ensuring property rights,
  thus encouraging investment and economic growth, or whether increased levels
  of human capital lead to democratic institutions.
  In essence, the question is whether democratic institutions are the cause
@@ -767,7 +1045,57 @@ Which are these?
 \end_layout
 
 \begin_layout Standard
-For a quick overview the entire set of variables can be seen in table 
+This section is divided into two subsections, namely 
+\begin_inset CommandInset ref
+LatexCommand nameref
+reference "sub:Institutional-Measures"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand nameref
+reference "sub:Control-Variables"
+
+\end_inset
+
+.
+ In these sections I will outline how and where the data is found, possibly
+ transformed and what the existing literature has to say on the topic.
+ 
+\end_layout
+
+\begin_layout Standard
+Table 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+ref{tabsmall}
+\end_layout
+
+\end_inset
+
+ on page 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+pageref{tabsmall}
+\end_layout
+
+\end_inset
+
+ gives some summary statistics of all the variables included, so if there
+ is no table included in the subsections below, this table can be consulted
+ for more information on the variable.
+ For a quick overview the entire set of variables can be seen in table 
 \begin_inset ERT
 status collapsed
 
@@ -799,43 +1127,55 @@ pageref{tabsmall}
  reported.
 \end_layout
 
-\begin_layout Standard
-In the subsections below, I will outline how and where the data is found,
- possibly transformed and what the existing literature has to say on the
- topic.
- Table 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-ref{tabsmall}
-\end_layout
-
-\end_inset
-
- on page 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-pageref{tabsmall}
-\end_layout
-
-\end_inset
-
- gives some summary statistics of all the variables included, so if there
- is no table included in the subsections below, this table can be consulted
- for more information on the variable.
-\end_layout
-
 \begin_layout Subsection
-Measures on political constraints
+Institutional Measures
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Institutional-Measures"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+First we look at the independent variables of interest, i.e.
+ the measures and indicators of different institutional characteristics.
+ These are:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset CommandInset ref
+LatexCommand nameref
+reference "sub:Measures-of-POLCON"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset CommandInset ref
+LatexCommand nameref
+reference "sub:Bureucratic-Quality-and"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset CommandInset ref
+LatexCommand nameref
+reference "sub:Democracy-Index"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Political constraints
 \begin_inset CommandInset label
 LatexCommand label
 name "sub:Measures-of-POLCON"
@@ -994,7 +1334,7 @@ ref{heniszPOLCON}
 
 \begin_layout Standard
 The difference between POLCONIII and POLCONV is that the latter includes
- two additional veto points (the judiciary and the subfederal entities).
+ two additional veto points (the judiciary and the sub-federal entities).
  POLCONIII is used in 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -1113,8 +1453,477 @@ As Henisz (2000) notes himself, the assumptions underlying this measure
  a rough proxy of political constraints.
 \end_layout
 
+\begin_layout Standard
+Another variable that measures constraints on the executive is comes from
+ the POLITY data set.
+ The variable is defined as 
+\begin_inset Quotes eld
+\end_inset
+
+institutionalised constraints on the decision-making powers of chief executives
+\begin_inset Quotes erd
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand citep
+after "p. 32"
+key "henisz2013polcon2005"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection
+Bureaucratic Quality and Law & Order Index 
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Bureucratic-Quality-and"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The Law & Order Index is provided by POLCON data set.
+ Although Henisz 
+\begin_inset CommandInset citation
+LatexCommand citeyearpar
+after "p. 24"
+key "henisz2000theinstitutional"
+
+\end_inset
+
+ writes in his results table that T='65-90 for the regression including
+ this model, this measure has only been developed since 1980.
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+PRS Group, ‘International Country Risk Guide (ICRG)’, accessed 27 April
+ 2013, 
+\begin_inset CommandInset href
+LatexCommand href
+target "http://www.prsgroup.com/icrg.aspx"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\end_inset
+
+ This means that the number of observations is drastically reduced, when
+ this and the composite measure discussed below is included in the analysis.
+\end_layout
+
+\begin_layout Standard
+Another measure from the ICRG has also been included, namely the mean value
+ of the ICRG variables “Corruption”, “Law and Order” and “Bureaucracy Quality”,
+ scaled 0-1 from the Quality of Government Dataset 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "teorell2011thequality"
+
+\end_inset
+
+.
+ This is a composite measure including the law and order measure.
+ It is available from 1984 to 2008 
+\begin_inset CommandInset citation
+LatexCommand citep
+after "p. 24"
+key "dahlberg2012theqog"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset citation
+LatexCommand cite
+key "knack1995institutions"
+
+\end_inset
+
+ uses the ICRG measures to tests the proposition by North 
+\begin_inset CommandInset citation
+LatexCommand citeyearpar
+key "north1990institutions"
+
+\end_inset
+
+ that lack of proper contract enforcement 
+\begin_inset Quotes eld
+\end_inset
+
+is the most important source of both historical stagnation and contemporary
+ underdevelopment in the Third World
+\begin_inset Quotes erd
+\end_inset
+
+ by comparing the ICRG measures of the institutional environment with the
+ more indirect measures such as the proxies of political instability provided
+ by 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "barro1991economic"
+
+\end_inset
+
+ and what is known as the Gastil indices.
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+See 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "paldam2006explaining"
+
+\end_inset
+
+ for a comparison between the Gastil Democracy Index and the Polity scale.
+\end_layout
+
+\end_inset
+
+ They conclude that the indirect measures are not sufficient as indicators
+ of institutions that protect property rights, which are crucial to economic
+ growth and investment.
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+What about China?
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Discuss results from EG Paper
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<law_order>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Democracy Index
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Democracy-Index"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This variable 
+\emph on
+democ 
+\emph default
+is from Polity data set, which codes 
+\begin_inset Quotes eld
+\end_inset
+
+the authority characteristics of states in the world system
+\begin_inset Quotes erd
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "marshall2011polityiv,marshall2011political"
+
+\end_inset
+
+.
+ Democracy is understood as comprising three elements.
+ The first is the existence of institutions 
+\begin_inset Quotes eld
+\end_inset
+
+institutions and procedures through which citizens can express effective
+ preferences about alternative policies and leaders
+\begin_inset Quotes erd
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand citeyearpar
+after "p. 14"
+key "marshall2011political"
+
+\end_inset
+
+.
+ The second is institutionalised constraints on the exercise of power by
+ the executive, which is exactly what the POLCON measures aim to capture.
+ The third component is the guarantee of civil liberties.
+\end_layout
+
+\begin_layout Standard
+We expect that this variable is positively associated with economic growth.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "helliwell1994empirical"
+
+\end_inset
+
+ has explored the two-way linkages between the variables and finds evidence
+ that the effects of income on democracy is robust and positive, while he
+ also concludes that he has not been able to find evidence of the systemic
+ effects of democracy on economic growth.
+ 
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+Which indicators of democracy does Helliwell use?
+\end_layout
+
+\end_inset
+
+Indeed, 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "helliwell1994empirical"
+
+\end_inset
+
+ finds a negative, but insignificant effect of democracy on growth, which
+ is confirmed by 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "barro1996democracy,barro1996determinants"
+
+\end_inset
+
+ who finds weak effects of democratic measures on growth.
+ The conclusion that knowledge of the effects of democracy on growth is
+ insufficient is echoed by 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "przeworski1993political"
+
+\end_inset
+
+, who however extends the idea by arguing that 
+\begin_inset Quotes eld
+\end_inset
+
+thinking in terms of regimes does not seem to capture the relevant differences.
+\begin_inset Quotes erd
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+The values -66, -77 and -88 are removed from the dataset.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<democ>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Using measures of democracy when comparing different indicators of quality
+ of government, necessitates a justification of the premise that democracy
+ and quality of government are at least associated.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "charron2010doesdemocracy"
+
+\end_inset
+
+ tackles this question and ...
+\end_layout
+
+\begin_layout Standard
+To allow for a non-linear relationship between growth and democracy we have
+ included a squared transformation of the variable.
+\end_layout
+
 \begin_layout Subsection
-Measures of real GDP per capita
+Control Variables
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Control-Variables"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The control variables included in the models presented in this paper are
+ largely identical to ones used by 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "henisz2000theinstitutional"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "barro1994sources"
+
+\end_inset
+
+ and include:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset CommandInset ref
+LatexCommand nameref
+reference "sub:Measures-of-gdp"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset CommandInset ref
+LatexCommand nameref
+reference "sub:Human-Capital"
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset CommandInset ref
+LatexCommand nameref
+reference "par:Educational-attainment"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset CommandInset ref
+LatexCommand nameref
+reference "par:Life-expectancy-(lexpec)"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset CommandInset ref
+LatexCommand nameref
+reference "par:Fertility-rates-(fert)"
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+\begin_inset CommandInset ref
+LatexCommand nameref
+reference "sub:Government-Consumption-(kg)"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset CommandInset ref
+LatexCommand nameref
+reference "sub:Black-Market-Exchange"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset CommandInset ref
+LatexCommand nameref
+reference "sub:Change-in-the"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset CommandInset ref
+LatexCommand nameref
+reference "sub:Total-Investment-(ki)"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset CommandInset ref
+LatexCommand nameref
+reference "sub:Regional-dummy-variables"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The name in parenthesis is the label used in the models presented later.
+\end_layout
+
+\begin_layout Subsubsection
+Growth of real GDP per capita (gdpgrowth)
 \begin_inset CommandInset label
 LatexCommand label
 name "sub:Measures-of-gdp"
@@ -1751,8 +2560,8 @@ name "fig:Simple-relation-between"
 \end_layout
 
 \begin_layout Standard
-Reproducting this figure with the unbalanced data set we get the result
- in figure 
+Reproducing this figure with the unbalanced data set we get the result in
+ figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Simple-relation-between-1"
@@ -1876,7 +2685,7 @@ key "knack1995institutions"
 \begin_layout Standard
 The validity of the Penn World Table is discussed in 
 \begin_inset CommandInset citation
-LatexCommand cite
+LatexCommand citet
 key "johnson2009isnewer2"
 
 \end_inset
@@ -1896,8 +2705,64 @@ robust results by using national accounts data, even though they are not
  be using the PWT data.
 \end_layout
 
-\begin_layout Subsection
-Measures of educational attainment
+\begin_layout Subsubsection
+Human Capital
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Human-Capital"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Apart from the individual components of human capital mentioned below (education
+, life expectancy and fertility), a overall human capital variable is calculated
+ and included in the model.
+ Following 
+\begin_inset CommandInset citation
+LatexCommand citet
+after "p. 4"
+key "barro1996democracy"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset citation
+LatexCommand citet
+after "p. 25"
+key "henisz2000theinstitutional"
+
+\end_inset
+
+, this variable is calculated as the sum of the human capital variables,
+ where each is multiplied with the predicted effects from the model.
+ This overall indicator is then interacted with the initial level of GDP
+ to control for the effects of conditional convergence.
+ Thus, in accordance with the conditional convergence hypothesis, we expect
+ this variable to be negatively related to economic growth.
+ This expectation is supported by the results from 
+\begin_inset CommandInset citation
+LatexCommand citet
+after "p. 6"
+key "barro1996democracy"
+
+\end_inset
+
+, who has find a significantly negative effect of the interaction between
+ overall human capital and initial GDP on growth.
+\end_layout
+
+\begin_layout Paragraph
+Educational attainment
+\begin_inset CommandInset label
+LatexCommand label
+name "par:Educational-attainment"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1940,7 +2805,14 @@ much of the labor force in developing countries consists of younger persons.
 \family typewriter
 carryforward
 \family default
- procedure in Stata.
+ procedure in Stata 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "kantor2013carryforward"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -1962,8 +2834,27 @@ status open
 
 \end_layout
 
-\begin_layout Subsection
-Measures on life expectancy (lexpec)
+\begin_layout Paragraph
+Life expectancy (lexpec)
+\begin_inset CommandInset label
+LatexCommand label
+name "par:Life-expectancy-(lexpec)"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Life expectancy is a health indicator 
+\begin_inset CommandInset citation
+LatexCommand citep
+after "p. 4"
+key "barro1996democracy"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -2027,8 +2918,15 @@ status open
 
 \end_layout
 
-\begin_layout Subsection
-Measures on fertility rates (fert)
+\begin_layout Paragraph
+Fertility rates (fert)
+\begin_inset CommandInset label
+LatexCommand label
+name "par:Fertility-rates-(fert)"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -2081,8 +2979,15 @@ status open
 
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsubsection
 Government Consumption (kg)
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Government-Consumption-(kg)"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -2169,15 +3074,22 @@ status open
 
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsubsection
 Black Market Exchange Rate Premium (bmp)
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Black-Market-Exchange"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
 This variable, although included in Henisz (2000), has not been included
  in the final regressions because of two reasons.
  Firstly, there is evidence that it does not measure what it is supposed
- to meaure, i.e.
+ to measure, i.e.
  not valid, and secondly, it has not been possible to find sufficiently
  good data for the variable for enough observations.
  If included, the variable roughly halves the number of observations from
@@ -2413,8 +3325,15 @@ linewidth', fig.show='asis', dev='pdf', fig.env='figure', fig.cap='Histogram
 
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsubsection
 Change in the Terms of Trade (ToT)
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Change-in-the"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -2462,7 +3381,7 @@ key "mendoza1997termsoftrade"
 
  explores the link between growth and rate of change of terms of trade and
  concludes that the variability of terms of trade affect growth.
- Altough data availability for this variable is limited and significantly
+ Although data availability for this variable is limited and significantly
  reduces the number of observations available to run the regressions, it
  is included because there is no justification for excluding it.
 \end_layout
@@ -2486,8 +3405,15 @@ status open
 
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsubsection
 Total Investment (ki)
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Total-Investment-(ki)"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -2500,22 +3426,69 @@ ki
  2005 constant prices (%).
 \end_layout
 
-\begin_layout Subsection
-Law & Order Index
+\begin_layout Subsubsection
+Regional and time dummy variables
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Regional-dummy-variables"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-The Law & Order Index is provided by POLCON data set.
+Apart from the control variables mentioned above, regional and time dummies
+ will also be included.
+ The region dummies have been calculated according to the classification
+ provided by the World Bank.
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+World Bank, ‘Country and Lending Groups | Data’, accessed 22 April 2013,
+ 
+\begin_inset CommandInset href
+LatexCommand href
+target "http://data.worldbank.org/about/country-classifications/country-and-lending-groups"
+
+\end_inset
+
+.
  
 \end_layout
 
+\end_inset
+
+ The excluded category to avoid the dummy variable trap is Europe and Central
+ Asia.
+\end_layout
+
 \begin_layout Standard
-Another measure from the ICRG has also been included, namely the mean value
- of the ICRG variables “Corruption”, “Law and Order” and “Bureaucracy Quality”,
- scaled 0-1 from the Quality of Government Dataset 
+Another possibility would have been to use the classifications used by 
 \begin_inset CommandInset citation
-LatexCommand citep
-key "teorell2011thequality"
+LatexCommand cite
+key "teorell2005determinants"
+
+\end_inset
+
+.
+ They have developed 
+\begin_inset Quotes eld
+\end_inset
+
+a tenfold politico-geographic classification of world regions, based on
+ a mixture of two considerations: geographical proximity (...) and demarcation
+ by area specialists having contributed to a regional understanding of democrati
+zation
+\begin_inset Quotes erd
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand citet
+after "34"
+key "dahlberg2012theqog"
 
 \end_inset
 
@@ -2523,249 +3496,111 @@ key "teorell2011thequality"
 \end_layout
 
 \begin_layout Standard
+Furthermore, it would have been a possibility to include dummies for colonial
+ past of the most recent ruler as has been done in 
 \begin_inset CommandInset citation
-LatexCommand cite
-key "knack1995institutions"
+LatexCommand citet
+after "p. 18"
+key "barro1996democracy"
 
 \end_inset
 
- uses the ICRG measures to tests the propostion by North 
+.
+ Such a classification has likewise been developed by 
 \begin_inset CommandInset citation
-LatexCommand citeyearpar
-key "north1990institutions"
+LatexCommand citet
+key "teorell2005determinants"
 
 \end_inset
 
- that lack of proper contract enforcement 
+ and is available in the QoG Basic Dataset 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "dahlberg2012theqog"
+
+\end_inset
+
+.
+ The reason for including this as a control variable is according to 
+\begin_inset CommandInset citation
+LatexCommand citet
+after "19"
+key "barro1996democracy"
+
+\end_inset
+
+ that countries might have inherited 
 \begin_inset Quotes eld
 \end_inset
 
-is the most important source of both historical stagnation and contemporary
- underdevelopment in the Third World
+tendencies for more or less political freedom
 \begin_inset Quotes erd
 \end_inset
 
- by comparing the ICRG measures of the institutional environment with the
- more indirect measures such as the proxies of political instability provided
- by 
+ from their colonial heritage.
+ However, he finds no significant directs effects of these dummies and concludes
+ that if there are any effects they are probably indirect through GDP, infant
+ mortality and education 
 \begin_inset CommandInset citation
-LatexCommand cite
-key "barro1991economic"
+LatexCommand citeyearpar
+after "p. 21"
+key "barro1996democracy"
 
 \end_inset
 
- and what is known as the Gastil indices.
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-See 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "paldam2006explaining"
-
-\end_inset
-
- for a comparison between the Gastil Democracy Index and the Polity scale.
-\end_layout
-
-\end_inset
-
- They conclude that the indirect meaures are not sufficient as indicators
- of institutions that protect property rights, which are crucial to economic
- growth and investment.
-\begin_inset Note Comment
-status open
-
-\begin_layout Plain Layout
-What about China?
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-<<law_order>>=
-\end_layout
-
-\begin_layout Plain Layout
-
-@
-\end_layout
-
-\end_inset
-
-
+.
 \end_layout
 
 \begin_layout Standard
 \begin_inset Note Note
 status open
 
-\begin_layout Subsubsection
-No.
- Changes in the Identity of the Executive
-\end_layout
-
 \begin_layout Plain Layout
-From Polity data set...
- not found.
+Interesting to test whether it makes a difference which dummy variable is
+ used...
 \end_layout
 
 \end_inset
 
 
-\end_layout
-
-\begin_layout Subsection
-Democracy Index
 \end_layout
 
 \begin_layout Standard
-This variable 
-\emph on
-democ 
-\emph default
-is from Polity data set, which codes 
-\begin_inset Quotes eld
-\end_inset
+Time dummy variables is the same as running time fixed effects,
+\begin_inset Foot
+status collapsed
 
-the authority characteristics of states in the world system
-\begin_inset Quotes erd
-\end_inset
-
+\begin_layout Plain Layout
+Princeton University, ‘Panel Data’, Data and Statistical Services, 2007,
  
-\begin_inset CommandInset citation
-LatexCommand citep
-key "marshall2011polityiv,marshall2011political"
+\begin_inset CommandInset href
+LatexCommand href
+target "http://dss.princeton.edu/online_help/stats_packages/stata/panel.htm"
 
 \end_inset
 
 .
- Democracy is understood as comprising three elements.
- The first is the existence of institutions 
-\begin_inset Quotes eld
-\end_inset
-
-institutions and procedures through which citizens can express effective
- preferences about alternative policies and leaders
-\begin_inset Quotes erd
-\end_inset
-
- 
-\begin_inset CommandInset citation
-LatexCommand citeyearpar
-after "p. 14"
-key "marshall2011political"
-
-\end_inset
-
-.
- The second is institutionalised constraints on the exercise of power by
- the executive, which is exactly what the POLCON measures aim to capture.
- The third component is the guarantee of civil liberties.
-\end_layout
-
-\begin_layout Standard
-We expect that this variable is positively associated with economic growth.
- 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "helliwell1994empirical"
-
-\end_inset
-
- has explored the two-way linkages between the variables and finds evidence
- that the effects of income on democracy is robust and positive, while he
- also concludes that he has not been able to find evidence of the systemic
- effects of democracy on economic growth.
- 
-\begin_inset Note Comment
-status open
-
-\begin_layout Plain Layout
-Which indicators of democracy does Helliwell use?
-\end_layout
-
-\end_inset
-
-Indeed, 
-\begin_inset CommandInset citation
-LatexCommand citet
-key "helliwell1994empirical"
-
-\end_inset
-
- finds a negative, but insignificant effect of democracy on growth, which
- is confirmed by 
-\begin_inset CommandInset citation
-LatexCommand citet
-key "barro1996democracy,barro1996determinants"
-
-\end_inset
-
- who finds weak effects of democratic measures on growth.
- The conclusion that knowledge of the effects of democracy on growth is
- insufficient is echoed by 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "przeworski1993political"
-
-\end_inset
-
-, who however extends the idea by arguing that 
-\begin_inset Quotes eld
-\end_inset
-
-thinking in terms of regimes does not seem to capture the relevant differences.
-\begin_inset Quotes erd
-\end_inset
-
  
 \end_layout
 
-\begin_layout Standard
-The values -66, -77 and -88 are removed from the dataset.
-\end_layout
+\end_inset
 
-\begin_layout Standard
+ so all the models presented will include this effect.
+ The justification for including this effect is presented in Appendix 
 \begin_inset ERT
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
-<<democ>>=
-\end_layout
 
-\begin_layout Plain Layout
-
-@
+\backslash
+ref{testoutput}
 \end_layout
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-Using measures of democracy when comparing different indicators of quality
- of government, necessitates a justification of the premise that democracy
- and quality of government are at least associated.
+ by output from a number of tests testing whether this effect is significant.
  
-\begin_inset CommandInset citation
-LatexCommand cite
-key "charron2010doesdemocracy"
-
-\end_inset
-
- tackles this question and ...
 \end_layout
 
 \begin_layout Standard
@@ -2785,9 +3620,6 @@ status collapsed
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
 \begin_inset Note Note
 status collapsed
 
@@ -2800,7 +3632,7 @@ These next two code chunks controls the tables of summary statistics for
 
 
 \begin_inset ERT
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
@@ -2833,81 +3665,15 @@ status collapsed
 
 \end_layout
 
-\begin_layout Subsection
-Regional dummy variables
-\end_layout
-
-\begin_layout Standard
-Apart from the control variables mentioned above, regional and time dummies
- will also be included.
- 
-\end_layout
-
-\begin_layout Standard
-The region dummies have been calculated according to the classification
- provided by the World Bank.
-\begin_inset Foot
-status collapsed
-
-\begin_layout Plain Layout
-World Bank, ‘Country and Lending Groups | Data’, accessed 22 April 2013,
- 
-\begin_inset CommandInset href
-LatexCommand href
-target "http://data.worldbank.org/about/country-classifications/country-and-lending-groups"
-
-\end_inset
-
-.
- 
-\end_layout
-
-\end_inset
-
- Another possibility would have been to use the classifications used by
- 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "teorell2005determinants"
-
-\end_inset
-
-.
- They have developed 
-\begin_inset Quotes eld
-\end_inset
-
-a tenfold politico-geographic classification of world regions, based on
- a mixture of two considerations: geographical proximity (...) and demarcation
- by area specialists having contributed to a regional understanding of democrati
-zation
-\begin_inset Quotes erd
-\end_inset
-
- 
-\begin_inset CommandInset citation
-LatexCommand citet
-after "34"
-key "dahlberg2012theqog"
-
-\end_inset
-
-.
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Interesting to test whether it makes a difference which dummy variable is
- used...
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Section
 Statistical Models
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Statistical-Models"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -2920,6 +3686,41 @@ key "judson1999estimating"
  discusses the different estimation techniques available for macroeconomic
  panel data set, which typically has a large time dimension, but a smaller
  individual (country) dimension as opposed to microeconomic panel data sets.
+ Following 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "kiviet1995onbias"
+
+\end_inset
+
+ they conclude that there is no estimator appropriate in all situations,
+ which implies that the best estimation technique changes with the size
+ of the panel 
+\begin_inset CommandInset citation
+LatexCommand citeyearpar
+after "p. 2"
+key "judson1999estimating"
+
+\end_inset
+
+.
+ Given the limited scope of this paper, it has not been feasible to investigate
+ which estimators would be the most efficient in our case, so simple OLS
+ estimation has been chosen, although this naturally places severe restrictions
+ on the validity of the results due different forms of bias this estimator
+ might be subject to.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+gdpgrowth_{it}=f\{linigdp,yr.sch.secM,yr.sch.secF,llexpec,lfert,kg,ToT,ki,regional.dummies\}
+\]
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -3018,15 +3819,21 @@ pageref{testoutput}
 \end_inset
 
 ).
- 
+ Specifically, the test in Appendix 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+ref{timeeffects}
 \end_layout
 
-\begin_layout Standard
-At least we want to have time effects
-\end_layout
+\end_inset
 
-\begin_layout Standard
-The error component in equation (
+, show that we must probably have time effects.
+ The error component in equation (
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:pooling"
@@ -3042,13 +3849,9 @@ reference "eq:poolingweffects"
 
 \end_inset
 
-) below we have separated the error component into three parts reflecting
+) below we have separated the error component into two parts reflecting
  the different components we are testing for.
  The first component, 
-\begin_inset Formula $\mu_{t}$
-\end_inset
-
-, is individual-specific and does not change over time, 
 \begin_inset Formula $\lambda_{t}$
 \end_inset
 
@@ -3062,7 +3865,7 @@ reference "eq:poolingweffects"
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-y_{it}=\alpha+\beta^{T}x_{it}+\mu_{t}+\lambda_{t}+\epsilon_{it},\label{eq:poolingweffects}
+y_{it}=\alpha+\beta^{T}x_{it}+\lambda_{t}+\epsilon_{it},\label{eq:poolingweffects}
 \end{equation}
 
 \end_inset
@@ -3075,15 +3878,8 @@ The idiosyncratic error is assumed to be independent from
 \begin_inset Formula $x_{it}$
 \end_inset
 
- and the two other error components.
-\end_layout
-
-\begin_layout Standard
-If 
-\begin_inset Formula $\mu_{t}$
-\end_inset
-
- or 
+ and the other error component.
+ If 
 \begin_inset Formula $\lambda_{t}$
 \end_inset
 
@@ -3093,31 +3889,58 @@ If
 
  is inconsistent, so we proceed to a fixed effects model where they are
  treated as parameters to be estimated.
+ There are good reasons to believe that this is the case, because it is
+ likely that the factors we are not controlling for in the regression that
+ varies across time are correlated with some of the regressors.
+ Another way to ascertaining whether we should use a fixed effects model
+ rather than a simple pooled model is to test for poolability by comparing
+ a pooled model with the effects that are included based on the previous
+ tests to see whether we should progress to a fixed effects (within) model.
+ The results of these tests (see Appendix 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ref{poolability}
 \end_layout
 
-\begin_layout Standard
-Test for serial correlation in the idiosyncratic errors...
+\end_inset
+
+ on page 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+pageref{poolability}
 \end_layout
 
-\begin_layout Standard
-From here we test for poolability by comparing a pooled model with the effects
- that are included based on the previous tests to see whether we should
- progress to a fixed effects (within) model.
+\end_inset
+
+) give some ambiguous answers in that in only three out of the six models
+ can we reject the null hypothesis that the same coefficients apply to all
+ the countries.
+ Given this equivocal result, we look at both a pooled and a fixed effects
+ model with time effects in the results section below.
 \end_layout
 
 \begin_layout Standard
 With fixed effects estimation the unobserved effects are removed by averaging
- the model over time and thus transformed into time-demeaned data 
+ the model over time, which transforms the data into time-demeaned data
+ 
 \begin_inset CommandInset citation
 LatexCommand citep
 after "pp. 481-2"
-key "wooldridge2009introductory"
+key "wooldridge2009introductory2"
 
 \end_inset
 
 .
- We allow the intercept to vary with group, or time, or both, while the
- other parameters are generally still assumed to be homogeneous 
+ We can allow the intercept to vary with group, or time, or both, while
+ the other parameters are generally still assumed to be homogeneous 
 \begin_inset CommandInset citation
 LatexCommand citep
 after "p. 42"
@@ -3126,10 +3949,11 @@ key "croissant2008paneldata"
 \end_inset
 
 .
+ In our case the intercept varies with time only.
 \end_layout
 
 \begin_layout Subsection
-GLS
+General feasible generalized least squares model (FGLS)
 \end_layout
 
 \begin_layout Standard
@@ -3143,53 +3967,61 @@ key "croissant2008paneldata"
 \end_inset
 
 .
-\end_layout
+ The general FGLS estimators uses a two-step estimation process, and can
+ both include individual and time effects.
+ If individual effects are used the results are robust agains intragroup
+ heteroskedasticity and serial correlation 
+\begin_inset CommandInset citation
+LatexCommand citeyearpar
+after "p. 25"
+key "croissant2008paneldata"
 
-\begin_layout Section
-Estimation
-\end_layout
+\end_inset
 
-\begin_layout Standard
-In table 
+ A number of regressions with FGLS estimation (fixed time effects in Appendix
+ 
 \begin_inset ERT
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
 
 \backslash
-ref{tab:fe3}
+ref{GLStime}
 \end_layout
 
 \end_inset
 
- on page 
+; fixed individual effects in Appendix 
 \begin_inset ERT
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
 
 \backslash
-pageref{tab:fe3}
+ref{GLSindividual}
 \end_layout
 
 \end_inset
 
-, we see the results of fixed effects estimation with individual effects.
- Here we estimate the relationship between the measure of political constraints
- POLCONV allowing for individual-specific, time-invariant effects.
- Models (2) through (6) use individual-specific, time-invariant effects
- to estimate the different measures of political constraints and institutions.
- As we can see the only other significant indicator is the democracy indicator
- from the PolityIV data set.
- The law & order measure and the risk measure from ICRG are only available
- for few countries, so the number of observations drops significantly.
- Most of the coefficients correspond to the findings of Henisz (2000).
-\end_layout
+) have also been run to test the robustness of the OLS results, but due
+ to technical issues it has not been possible to present them in tables
+ that lend themselves easily to comparison.
+\begin_inset Foot
+status collapsed
 
-\begin_layout Standard
-In table 
+\begin_layout Plain Layout
+On a technical note, this is because it has not been possible to find a
+ R package that can export 
+\family typewriter
+pggls 
+\family default
+objects from the 
+\family typewriter
+plm
+\family default
+ package to 
 \begin_inset ERT
 status open
 
@@ -3197,81 +4029,55 @@ status open
 
 
 \backslash
-ref{tab:fe4}
-\end_layout
-
-\end_inset
-
- on page 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-pageref{tab:fe4}
-\end_layout
-
-\end_inset
-
-, we allow for both individual and time effects.
- Going from one to other does not change the sign of any of the variables,
- but some of the significance levels change, e.g.
- terms of trade becomes significant.
- Finally, we produce the results using only time effects in table 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-ref{tab:fe5}
-\end_layout
-
-\end_inset
-
- on page 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-pageref{tab:fe5}
-\end_layout
-
-\end_inset
-
- and pooled regression results in table 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-ref{tab:fe6}
-\end_layout
-
-\end_inset
-
- on page 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-pageref{tab:fe6}
+TeX{}
 \end_layout
 
 \end_inset
 
 .
+\end_layout
+
+\end_inset
+
+ Instead, there will be references to the relevant results during the next
+ section, while the raw output is relegated to Appendix 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+ref{GLSoutput}
+\end_layout
+
+\end_inset
+
+ on page 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+pageref{GLSoutput}
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Results
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Results"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -3298,9 +4104,953 @@ status open
 @
 \end_layout
 
+\begin_layout Plain Layout
+
+<<GLS.individual>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\begin_layout Plain Layout
+
+<<GLS.time>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+This section will analyse the results found in the different models and
+ compare the results with the hypotheses that were outlined in previously
+ in this paper.
+\end_layout
+
+\begin_layout Standard
+The results of the pooled OLS estimation with time effects can be seen in
+ table 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+ref{tab:fe6}
+\end_layout
+
+\end_inset
+
+ (page 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+pageref{tab:fe6}
+\end_layout
+
+\end_inset
+
+) and the results of the fixed effects estimation with time effects can
+ be seen in table 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+ref{tab:fe9}
+\end_layout
+
+\end_inset
+
+ on page 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+pageref{tab:fe9}
+\end_layout
+
+\end_inset
+
+.
+ The following analysis will primarily look at the results obtained with
+ the fixed effects estimator as the econometric rationale for using this
+ is greater.
+\end_layout
+
+\begin_layout Subsection
+Hypothesis 1: POLCON Indicators
+\end_layout
+
+\begin_layout Subsubsection
+POLCONIII
+\end_layout
+
+\begin_layout Standard
+Henisz finds a positive and significant coefficient on POLCON (he does not
+ distinguish between POLCONIII and POLCONV as this paper, because this distincti
+on was developed in a later data set of POLCON) in both the OLS, GLS and
+ GMM models.
+ If we start looking at the pooled OLS model with time effects, we see that
+ POLCONIII surprisingly has a small negative, albeit insignificant coefficient.
+ In the fixed effects model both POLCONIII is now insignificantly negative.
+ In the GLS model with time effects, the coefficient on POLCONIII is significant
+ly positive, while it turns significantly negative in the GLS model with
+ individual effects.
+ All in all, we have quite inconclusive evidence as to whether the hypothesis
+ can be maintained, but according to the models investigated here, there
+ is more evidence to support a rejection of the hypothesis that higher constrain
+ts on the political executive have a positive influence on economic growth.
+\end_layout
+
+\begin_layout Subsubsection
+POLCONV
+\end_layout
+
+\begin_layout Standard
+The POLCONV adds to additional veto points to the POLCONIII measure at the
+ sub-federal and judicial level.
+ On our fixed effects model with time effects we again have a insignificant
+ negative coefficient, while it is positive in the pooled model, albeit
+ still insignificant.
+ As we can see in table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Coefficients-of-POLCONV"
+
+\end_inset
+
+, in both FGLS models we have a positive and significant coefficent, which
+ lends support to the conclusion that we cannot reject that this measure
+ of political constraints have a positive effect on economic growth.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Coefficients of POLCONV
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Coefficients-of-POLCONV"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="3" columns="5">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Model
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Pooled OLS
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Fixed Effects OLS
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+FGLS (time effects)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+FGLS (individual Effects)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Coefficient
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{coefficients(pooled.time4)["POLCONV"]}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{coefficients(fixed.time4)["POLCONV"]}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{coefficients(GLS.time4)["POLCONV"]}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{coefficients(GLS.individual4)["POLCONV"]}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\Pr(>|t|)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{summary(pooled.time4)$coefficients["POLCONV" ,4]}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{summary(fixed.time4)$coefficients["POLCONV" ,4]}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.00057
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2.5e-07
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+POLCONVJ
+\end_layout
+
+\begin_layout Standard
+The results obtained by Henisz are shown in table 
+\begin_inset CommandInset ref
+LatexCommand vref
+reference "tab:Henisz'-coefficients-on"
+
+\end_inset
+
+, which shows that he got two positive coefficients.
+ The results from our models are shown in table 
+\begin_inset CommandInset ref
+LatexCommand vref
+reference "tab:Coefficients-of-POLCONVJ"
+
+\end_inset
+
+, which shows that we have a positive coefficient in all four models, which
+ are significant except for the fixed time effects model.
+ Here again we cannot reject the hypothesis that fractionalisation in the
+ court system has a positive influence on economic growth.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Henisz' coefficients on POLCONVJ
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Henisz'-coefficients-on"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="3">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+OLS
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+GLS
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Coefficient (standard error)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.008 (0.014)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.019* (0.008)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Coefficients of POLCONVJ
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Coefficients-of-POLCONVJ"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="3" columns="5">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Model
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Pooled OLS
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Fixed Effects OLS
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+FGLS (time effects)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+FGLS (individual Effects)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Coefficient
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{coefficients(pooled.time5)["POLCONVJ"]}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{coefficients(fixed.time5)["POLCONVJ"]}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{coefficients(GLS.time5)["POLCONVJ"]}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{coefficients(GLS.individual5)["POLCONVJ"]}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\Pr(>|t|)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{summary(pooled.time5)$coefficients["POLCONVJ" ,4]}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{summary(fixed.time5)$coefficients["POLCONVJ" ,4]}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2e-16
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.08132
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Hypothesis 2: ICRG Indicators
+\end_layout
+
+\begin_layout Subsection
+Hypothesis 3: Democracy and Growth
+\end_layout
+
+\begin_layout Subsection
+Replication of Henisz' Results
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Replication-of-Henisz'"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+As mentioned in section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Hypotheses-and-Research"
+
+\end_inset
+
+ 
+\begin_inset CommandInset ref
+LatexCommand nameref
+reference "sec:Hypotheses-and-Research"
+
+\end_inset
+
+, one of the more fundamental objectives of this paper has been to replicate
+ the findings of Henisz (2000), so the final part of the results section
+ will briefly assess to what extent this has been possible.
+ To increase readability, the main points have been grouped into a numbered
+ list found below.
+\end_layout
+
+\begin_layout Standard
+There are quite a number of challenges involved in attempting to replicate
+ the results obtained by Henisz (2000).
+ 
+\end_layout
+
+\begin_layout Enumerate
+He does not mention where his data comes from specifically, but just refers
+ to 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "barro1994sources"
+
+\end_inset
+
+, which in turn do not specify clearly where their data stems from.
+ This makes reproduction of the results unnecessarily cumbersome as each
+ variable has to be found in different data sets, which may not contain
+ the same years or countries.
+\end_layout
+
+\begin_layout Enumerate
+How the interaction variable between initial level of GDP and human capital
+ is not explained clearly and even after having consulted the original paper
+ by Barro 
+\begin_inset CommandInset citation
+LatexCommand citeyearpar
+key "barro1996democracy"
+
+\end_inset
+
+ is has not been possible to sort out how exactly this variable has been
+ calculated.
+\end_layout
+
+\begin_layout Enumerate
+As mentioned in the data section, Henisz writes that the model dealing with
+ the ICRG indicators cover a period from 1965 to 1990, which is clearly
+ not possible as these indicators only are available from 1980.
+\end_layout
+
+\begin_layout Enumerate
+The specifics of the econometric models are poorly stated:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+He does not mention which type of OLS model he is using in his OLS models.
+ These could either be pooled, fixed etc., or which effects he includes.
+\end_layout
+
+\begin_layout Enumerate
+For the GLS estimates he has five-year panels, but only one coefficient
+ for each variable, not, firstly, adding any value to having smaller panels,
+ and secondly, not specifying how this single estimate has been obtained.
+\end_layout
+
+\begin_layout Enumerate
+GMM estimation requires specification of a number of parameters such as
+ the lag structure 
+\begin_inset CommandInset citation
+LatexCommand citep
+after "p. 22"
+key "croissant2008paneldata"
+
+\end_inset
+
+ and whether we use one-step or two-step GMM estimators 
+\begin_inset CommandInset citation
+LatexCommand citep
+after "p. 25"
+key "statacorplp2011statalongitudinaldatapaneldata"
+
+\end_inset
+
+, none of which Henisz provides us with information of.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Concluding on the possibility of replicating the results of ...
 \end_layout
 
 \begin_layout Section
@@ -3375,6 +5125,10 @@ key "hausman1978specification"
 \end_layout
 
 \begin_layout Standard
+Test for serial correlation in the idiosyncratic errors...
+\end_layout
+
+\begin_layout Standard
 
 \end_layout
 
@@ -3383,23 +5137,142 @@ Discussion
 \end_layout
 
 \begin_layout Standard
-There are several ways of measuring economic progress.
+Having outlined the results of the estimation in the previous section, we
+ now turn towards a discussion aimed at noting some of the ways in which
+ the present analysis be improved, relating the results to some wider issues
+ and outlining some ideas for other research projects.
+\end_layout
+
+\begin_layout Standard
+Firstly, there are several ways of measuring progress, which might not only
+ be economic, but also social or any combination of the two along other
+ factors.
  This paper has taken the traditional approach of using the growth rate
- of real GDP per capita in constant prices.
- Other possibilities would have been to use the Human Development Indicators
- from the UN.
- Another suggestions include the work by 
+ of real GDP per capita in constant prices, but there are a number of alternativ
+es such as to use the Human Development Indicators from the UN or the report
+ by 
 \begin_inset CommandInset citation
 LatexCommand citet*
 key "stiglitz2009reportby"
 
 \end_inset
 
+ on the measurement of economic performance and social progress.
+ It would thus have been interesting to see
+\end_layout
+
+\begin_layout Standard
+The results might also be influenced by omitted variable bias.
+ 
+\end_layout
+
+\begin_layout Standard
+As mentioned in the introduction to 
+\begin_inset CommandInset ref
+LatexCommand nameref
+reference "sec:Statistical-Models"
+
+\end_inset
+
+ section, other statistical estimation methods such as GMM could have been
+ used to make the estimates more reliable and valid.
+\end_layout
+
+\begin_layout Standard
+Looking at the constraints of political executives, the bureaucratic quality,
+ democratic measures etc.
+ might miss an important aspect of the institutional environment conducive
+ to growth such as looking at the specific incentive structures that politicians
+ and other decision-makers face.
+ As the following quote from 
+\emph on
+The Economist
+\emph default
+ newspaper illustrates, there is a growing issue of whether politicians
+ do indeed have the proper incentive structures to act in ways that are
+ favourable to economic growth:
+\end_layout
+
+\begin_layout Quote
+“(...) many politicians are being shockingly irresponsible.
+ In different ways, politicians’ actions (or inaction) are the biggest short-ter
+m danger facing the American, European and Chinese economies.
+ Judging by politicians’ current behaviour, the world economy could slow
+ a lot further.
+ It could even tip into recession in 2013.”
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+‘The World Economy: Investors, Beware’, The Economist, 6 October 2012, 
+\begin_inset CommandInset href
+LatexCommand href
+target "http://www.economist.com/node/21564232"
+
+\end_inset
+
 .
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+One arm of future research efforts could thus attempt to develop a way of
+ measuring political incentive structures to help to promote economic growth.
+\end_layout
+
+\begin_layout Standard
+To improve the results, one could also have included other measures of instituti
+onal characteristics to compare.
+ One widely used measure has been the World Bank's Governance Indicators
+ 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "kaufmann2009governance"
+
+\end_inset
+
+.
+ However, there are two problems with this measure.
+ Firstly, it is standardised each year, so it is not fit to use across-time
+ comparisons and it is also only available from 1996 
+\begin_inset CommandInset citation
+LatexCommand citep
+after "p. 29"
+key "dahlberg2012theqog"
+
+\end_inset
+
+.
+ Another possibility would have been to use the QoG Expert Survey from the
+ University of Gothenburg 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "teorell2011theqog"
+
+\end_inset
+
+, but this is unfortunately also only available from 2008.
+ Given that many of the indicators on institutional quality are only available
+ from relatively recently, it would be interesting to conduct further analysis
+ into looking at whether it would possible to find any significant relationships
+ between economic growth and these institutional variables in the shorter
+ term.
 \end_layout
 
 \begin_layout Section
 Conclusions
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Conclusions"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -3450,15 +5323,15 @@ options "bibtotoc,chicago"
 
 \begin_layout Standard
 \begin_inset ERT
-status collapsed
+status open
 
 \begin_layout Plain Layout
 
 
 \backslash
-begin{appendices} 
+begin{appendices}
 \backslash
-label{appendix1}   	
+label{appendices}    	
 \backslash
 renewcommand
 \backslash
@@ -3474,7 +5347,99 @@ thefigure{
 \backslash
 thesection
 \backslash
-arabic{figure}}		
+arabic{figure}}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+section{Results from GLS estimation}
+\backslash
+label{GLSoutput}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subsection{With time effects}
+\backslash
+label{GLStime}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<GLS.time, results='markup'>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subsection{With individual effects}
+\backslash
+label{GLSindividual}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<GLS.individual, results='markup'>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+@
 \end_layout
 
 \end_inset
@@ -3491,6 +5456,8 @@ status open
 
 \backslash
 section{Additional tables}
+\backslash
+label{appendix1}
 \end_layout
 
 \end_inset
@@ -3501,11 +5468,31 @@ section{Additional tables}
 \begin_layout Standard
 Beneath we produce the mean growth rate for all countries for all years
  available.
+ The countries are labelled by the World Bank country code.
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+World Bank, ‘Country and Lending Groups | Data’, accessed 22 April 2013,
+ 
+\begin_inset CommandInset href
+LatexCommand href
+target "http://data.worldbank.org/about/country-classifications/country-and-lending-groups"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
 \begin_inset ERT
-status collapsed
+status open
 
 \begin_layout Plain Layout
 
@@ -3591,6 +5578,8 @@ status open
 
 \backslash
 subsection{Tests of poolability}
+\backslash
+label{poolability}
 \end_layout
 
 \end_inset
@@ -3762,6 +5751,8 @@ status open
 
 \backslash
 subsection{Test for time effects}
+\backslash
+label{timeeffects}
 \end_layout
 
 \end_inset
@@ -3877,7 +5868,7 @@ Here we test for serial correlation in the idiosyncratic errors of the pooling
 
 \begin_layout Standard
 \begin_inset ERT
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
@@ -3897,6 +5888,127 @@ status open
 \begin_layout Standard
 \begin_inset ERT
 status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subsection{Test of time effects in fixed effects model}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+<<mis8, results='markup', echo=TRUE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subsection{Test of individual effects in fixed effects model}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+<<mis9, results='markup', echo=TRUE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+section{Notes on the Human Capital-Initial GDP Interaction}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+section{URLs to Source Files and Datasets}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+To ensure that at least the methods of this paper is transparent, every
+ file used in compiling this paper is available at 
+\begin_inset CommandInset href
+LatexCommand href
+target "https://github.com/5vxssbdahves/COE_thesis"
+
+\end_inset
+
+, while all the data sets used can be found at 
+\begin_inset CommandInset href
+LatexCommand href
+target "https://www.dropbox.com/sh/515ozxp1ms913ks/ffKO4B1IKn"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
 
 \begin_layout Plain Layout
 
